@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VanBerto's Beach House – Guia de Peniche</title>
+
+  <meta name="theme-color" content="#050b24" />
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Baloo+2:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 📲 Banner de instalação para iOS/Safari (sem beforeinstallprompt) -->
+  <div id="ios-install-banner" class="app-banner" hidden>
+    <span class="app-banner-icon">📲</span>
+    <span id="ios-install-text" class="app-banner-text">Toca em <strong>Partilhar</strong> e depois em <strong>"Adicionar ao ecrã principal"</strong> para instalares esta app.</span>
+    <button id="ios-install-close" class="app-banner-close" aria-label="Fechar">✕</button>
+  </div>
+
+  <!-- 🔄 Banner de nova versão disponível -->
+  <div id="update-banner" class="app-banner app-banner-action" hidden>
+    <button id="update-banner-btn" class="app-banner-action-btn">
+      <span class="app-banner-icon">🔄</span>
+      <span id="update-banner-text">Nova versão disponível — toca para atualizar</span>
+    </button>
+  </div>
+
+  <header>
+    <!-- Selector de idioma -->
+    <div class="lang-switcher">
+      <button id="btn-pt" class="lang-btn active" data-lang="pt">PT</button>
+      <button id="btn-en" class="lang-btn" data-lang="en">EN</button>
+      <button id="btn-es" class="lang-btn" data-lang="es">ES</button>
+      <button id="btn-fr" class="lang-btn" data-lang="fr">FR</button>
+      <button id="btn-install" class="install-btn" hidden>Instalar</button>
+    </div>
+
+    <div class="header-inner">
+      <img src="logo-vanbertos.png" alt="Logótipo VanBerto's Beach House" class="logo-img" />
+
+      <div class="brand-block">
+        <div class="brand-title" id="brand-title">
+          Peniche – "Capital da Onda e do Surf"
+        </div>
+        <div class="brand-subtitle" id="brand-tagline">
+          Guia digital para hóspedes do VanBerto's Beach House
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <section class="intro">
+      <h1 id="main-heading">Dicas para aproveitar Peniche</h1>
+    </section>
+
+
+    <!-- 🌤️ Meteorologia (Peniche & Baleal) -->
+    <section id="home-meteo" class="home-meteo is-collapsed" aria-live="polite">
+      <div class="home-meteo-head" data-toggle-section="home-meteo">
+        <div class="home-meteo-head-left">
+          <button type="button" class="home-meteo-toggle" aria-expanded="false" aria-controls="home-meteo-body">▾</button>
+          <div class="home-meteo-title" id="i18n-meteo-title">🌤️ Meteorologia · Peniche &amp; Baleal</div>
+        </div>
+        <div id="home-meteo-updated" class="home-meteo-updated">A carregar…</div>
+      </div>
+
+      <div class="home-meteo-body" id="home-meteo-body"><div class="home-meteo-body-inner">
+      <div class="home-meteo-grid">
+        <div class="home-meteo-card">
+          <div class="home-meteo-card-title" id="i18n-today-title">Hoje</div>
+          <div id="home-meteo-today" class="home-meteo-main">—</div>
+          <div id="home-meteo-today-extra" class="home-meteo-sub">—</div>
+        </div>
+
+        <div class="home-meteo-card">
+          <div class="home-meteo-card-title" id="i18n-tomorrow-title">Amanhã</div>
+          <div id="home-meteo-tomorrow" class="home-meteo-main">—</div>
+          <div id="home-meteo-tomorrow-extra" class="home-meteo-sub">—</div>
+        </div>
+
+        <div class="home-meteo-card home-meteo-card-wide">
+          <div class="home-meteo-card-title" id="i18n-surf-title">🌊 Mar &amp; Surf</div>
+          <div id="home-surf" class="home-meteo-main">—</div>
+          <div id="home-surf-extra" class="home-meteo-sub">—</div>
+        </div>
+      </div>
+      </div></div>
+    </section>
+
+    <!-- 🏠 Informação da Casa -->
+    <section id="home-house" class="home-meteo home-house is-collapsed" aria-label="Informação da casa">
+      <div class="home-meteo-head" data-toggle-section="home-house">
+        <div class="home-meteo-head-left">
+          <button type="button" class="home-meteo-toggle" aria-expanded="false" aria-controls="home-house-body">▾</button>
+          <div class="home-meteo-title" id="i18n-house-title">🏠 Informação da Casa</div>
+        </div>
+      </div>
+
+      <div class="home-meteo-body" id="home-house-body"><div class="home-meteo-body-inner">
+      <div class="home-meteo-grid">
+        <div class="home-meteo-card home-house-card">
+          <div class="home-meteo-card-title" id="i18n-wifi-title">📶 WiFi</div>
+          <div class="home-meteo-main" id="wifi-ssid">VanBerto's</div>
+          <div class="home-meteo-sub home-house-wifi-row">
+            <span id="i18n-wifi-password-label">Password:</span> <span id="wifi-pass">VanBertos2026</span>
+            <button type="button" id="wifi-copy-btn" class="home-house-copy-btn">📋 Copiar</button>
+          </div>
+        </div>
+
+        <div class="home-meteo-card home-house-card">
+          <div class="home-meteo-card-title" id="i18n-checkin-title">🔑 Check-in / Check-out</div>
+          <div class="home-meteo-main">14h00 → 11h00</div>
+          <div class="home-meteo-sub" id="i18n-checkin-sub">Entrega das chaves em mão — o horário é combinado convosco antes da chegada.</div>
+        </div>
+
+        <div class="home-meteo-card home-meteo-card-wide home-house-card">
+          <div class="home-meteo-card-title" id="i18n-rules-title">📋 Regras da casa</div>
+          <ul class="home-house-rules" id="i18n-rules-list">
+            <li>🔇 Silêncio das 23h às 7h (período de descanso previsto na lei portuguesa)</li>
+            <li>🚭 Não é permitido fumar dentro de casa</li>
+            <li>🐾 Animais de estimação só mediante autorização prévia — fala connosco antes de reservar</li>
+            <li>🗑️ Lixo: coloca no contentor verde do parque de estacionamento, junto ao prédio</li>
+            <li>♻️ Reciclagem: ecoponto (papel/plástico/vidro) no início da rua, junto ao edifício "Shark's"</li>
+          </ul>
+        </div>
+      </div>
+      </div></div>
+    </section>
+
+    <!-- 🚨 Emergências & Saúde -->
+    <section id="home-sos" class="home-meteo home-sos is-collapsed" aria-label="Emergências e saúde">
+      <div class="home-meteo-head" data-toggle-section="home-sos">
+        <div class="home-meteo-head-left">
+          <button type="button" class="home-meteo-toggle" aria-expanded="false" aria-controls="home-sos-body">▾</button>
+          <div class="home-meteo-title" id="i18n-sos-title">🚨 Emergências &amp; Saúde</div>
+        </div>
+      </div>
+
+      <div class="home-meteo-body" id="home-sos-body"><div class="home-meteo-body-inner">
+      <div class="home-meteo-grid">
+        <a href="tel:112" class="home-meteo-card home-sos-card home-sos-card-emergency">
+          <div class="home-meteo-card-title" id="i18n-sos-emergency-title">Emergência nacional</div>
+          <div class="home-meteo-main">🆘 112</div>
+        </a>
+
+        <a href="https://www.farmaciasdeservico.net/localidade/leiria/peniche" target="_blank" rel="noopener noreferrer" class="home-meteo-card home-sos-card">
+          <div class="home-meteo-card-title" id="i18n-sos-pharmacy-title">Farmácia de serviço hoje</div>
+          <div class="home-meteo-main" id="i18n-sos-pharmacy-main">💊 Ver farmácia</div>
+        </a>
+
+        <a href="tel:262790027" class="home-meteo-card home-sos-card">
+          <div class="home-meteo-card-title">Centro de Saúde de Peniche (USF Marés)</div>
+          <div class="home-meteo-main">🏥 262 790 027</div>
+        </a>
+
+        <a href="tel:262109870" class="home-meteo-card home-sos-card">
+          <div class="home-meteo-card-title" id="i18n-sos-police-title">PSP Peniche (não urgente)</div>
+          <div class="home-meteo-main">👮 262 109 870</div>
+        </a>
+      </div>
+
+      <div class="home-sos-note" id="i18n-sos-note">Em caso de emergência, liga sempre primeiro para o 112.</div>
+      </div></div>
+    </section>
+
+    <!-- 🚗 Praticidades do dia a dia -->
+    <section id="home-practical" class="home-meteo home-practical is-collapsed" aria-label="Praticidades do dia a dia">
+      <div class="home-meteo-head" data-toggle-section="home-practical">
+        <div class="home-meteo-head-left">
+          <button type="button" class="home-meteo-toggle" aria-expanded="false" aria-controls="home-practical-body">▾</button>
+          <div class="home-meteo-title" id="i18n-practical-title">🚗 Praticidades do dia a dia</div>
+        </div>
+      </div>
+
+      <div class="home-meteo-body" id="home-practical-body"><div class="home-meteo-body-inner">
+      <div class="home-meteo-grid">
+        <div class="home-meteo-card home-house-card">
+          <div class="home-meteo-card-title" id="i18n-parking-title">🅿️ Estacionamento</div>
+          <div class="home-meteo-main" id="i18n-parking-main">Grátis, mesmo à porta</div>
+          <div class="home-meteo-sub" id="i18n-parking-sub">O parque junto ao prédio é gratuito e sem restrições — podes deixar lá o carro durante toda a estadia.</div>
+        </div>
+
+        <div class="home-meteo-card home-house-card">
+          <div class="home-meteo-card-title" id="i18n-transport-title">🚕 Transportes, táxi &amp; Uber</div>
+          <div class="home-meteo-main" id="i18n-transport-main">Uber e Bolt funcionam, mas com menos carros</div>
+          <div class="home-meteo-sub" id="i18n-transport-sub">Peniche não tem uma rede de transportes públicos muito forte, por isso ter carro é o mais prático. Uber e Bolt existem na zona, mas com menos motoristas do que em Lisboa — a espera pode ser maior. Preferes táxi? Liga para <a href="tel:262782687">262 782 687</a> ou <a href="tel:917296771">917 296 771</a>.</div>
+        </div>
+
+        <a href="https://www.google.com/maps/search/?api=1&query=Multibanco%20Estrada%20do%20Baleal%2C%20Peniche" target="_blank" rel="noopener noreferrer" class="home-meteo-card home-meteo-card-wide home-house-card home-link-card">
+          <div class="home-meteo-card-title" id="i18n-atm-title">🏧 Onde levantar dinheiro</div>
+          <div class="home-meteo-main" id="i18n-atm-main">Multibanco na Estrada do Baleal</div>
+          <div class="home-meteo-sub" id="i18n-atm-sub">O mais perto de casa fica na Estrada do Baleal, em Casais do Baleal, a poucos minutos. Há mais opções no centro de Peniche. Quase todos os estabelecimentos aceitam cartão, por isso raramente precisas de dinheiro vivo.</div>
+        </a>
+      </div>
+      </div></div>
+    </section>
+
+    <!-- 🌅 Antes de saíres (avaliação + checklist de saída) -->
+    <section id="home-checkout" class="home-meteo home-checkout is-collapsed" aria-label="Antes de saíres">
+      <div class="home-meteo-head" data-toggle-section="home-checkout">
+        <div class="home-meteo-head-left">
+          <button type="button" class="home-meteo-toggle" aria-expanded="false" aria-controls="home-checkout-body">▾</button>
+          <div class="home-meteo-title" id="i18n-checkout-title">🌅 Antes de saíres</div>
+        </div>
+      </div>
+
+      <div class="home-meteo-body" id="home-checkout-body"><div class="home-meteo-body-inner">
+      <div class="home-meteo-grid">
+
+        <div class="home-meteo-card home-meteo-card-wide home-house-card">
+          <div class="home-meteo-card-title" id="i18n-rating-title">⭐ Avaliar a estadia</div>
+          <div class="home-meteo-sub" id="i18n-rating-prompt">Como foi a tua estadia? A tua opinião ajuda-nos a melhorar.</div>
+
+          <div class="checkout-stars" id="checkout-stars" role="radiogroup" aria-label="Classificação da estadia">
+            <button type="button" class="checkout-star" data-value="1" aria-label="1 estrela">☆</button>
+            <button type="button" class="checkout-star" data-value="2" aria-label="2 estrelas">☆</button>
+            <button type="button" class="checkout-star" data-value="3" aria-label="3 estrelas">☆</button>
+            <button type="button" class="checkout-star" data-value="4" aria-label="4 estrelas">☆</button>
+            <button type="button" class="checkout-star" data-value="5" aria-label="5 estrelas">☆</button>
+          </div>
+
+          <textarea id="checkout-comment" class="checkout-textarea" rows="2" maxlength="500" placeholder="Comentário opcional…"></textarea>
+
+          <button type="button" id="checkout-send-btn" class="primary-btn checkout-send-btn" disabled>
+            💬 Enviar avaliação
+          </button>
+          <button type="button" id="checkout-google-btn" class="ghost-btn checkout-google-btn" hidden>
+            ⭐ Deixar também no Google
+          </button>
+        </div>
+
+        <div class="home-meteo-card home-meteo-card-wide home-house-card">
+          <div class="home-meteo-card-title" id="i18n-checklist-title">✅ Checklist de saída</div>
+          <ul class="checkout-checklist" id="checkout-checklist"></ul>
+          <div class="checkout-checklist-footer">
+            <div class="checkout-checklist-progress" id="checkout-checklist-progress">0/3</div>
+            <button type="button" id="checkout-checklist-reset" class="checkout-reset-btn" hidden>🔄 Repor</button>
+          </div>
+          <div class="checkout-checklist-nudge" id="checkout-checklist-nudge" hidden></div>
+        </div>
+
+      </div>
+      </div></div>
+    </section>
+
+<!-- Barra de pesquisa -->
+    <section class="search-row">
+      <input
+        type="search"
+        id="search-input"
+        placeholder="🔍 Procurar por praia, restaurante, pizza, sushi..."
+        aria-label="Pesquisar locais"
+      />
+    </section>
+
+    <!-- Ações rápidas -->
+    <section class="map-all-wrapper">
+      <button class="share-favs-btn" id="btn-cat-favs">⭐ Favoritos</button>
+      <button class="map-all-btn" id="btn-map-all">
+        🗺️ Ver todas as localizações no mapa
+      </button>
+      <button class="share-favs-btn" id="btn-share-favs">
+        🔗 Partilhar favoritos (QR)
+      </button>
+    </section>
+
+    <!-- Botão voltar (aparece quando se está dentro de uma categoria) -->
+    <button class="back-btn" id="btn-back-categories" hidden>← Voltar</button>
+
+    <!-- Cards -->
+    
+    <!-- 📅 Calendário (aparece na categoria Eventos) -->
+    <section id="events-calendar-section" class="mini-cal" hidden aria-label="Calendário de eventos">
+      <div class="mini-cal-head">
+        <div class="mini-cal-title">📅 Calendário de eventos</div>
+        <div class="mini-cal-controls">
+          <button class="mini-cal-btn" id="cal-prev" aria-label="Mês anterior">‹</button>
+          <div class="mini-cal-month" id="cal-month">—</div>
+          <button class="mini-cal-btn" id="cal-next" aria-label="Mês seguinte">›</button>
+        </div>
+      </div>
+
+      <div class="mini-cal-week" id="mini-cal-week" aria-hidden="true">
+        <span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span>
+      </div>
+
+      <div class="mini-cal-grid" id="cal-grid"></div>
+
+      <div class="mini-cal-events">
+        <div class="mini-cal-events-title" id="cal-events-title">Eventos</div>
+        <div id="cal-events-list" class="mini-cal-events-list">Seleciona um dia para ver eventos.</div>
+      </div>
+    </section>
+
+
+    <section id="cards-container" class="cards" aria-live="polite"></section>
+  </main>
+
+  <!-- Voltar ao topo -->
+  <button id="scroll-top" class="scroll-top" aria-label="Voltar ao topo">⬆️</button>
+
+
+  <!-- Modal de detalhes -->
+  <div id="detail-modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modal-close-btn" aria-label="Fechar">✕</button>
+
+      <img id="modal-photo" class="modal-photo" alt="" loading="lazy" referrerpolicy="no-referrer" hidden>
+
+      <div class="modal-header">
+        <h2 id="modal-title">Nome do local</h2>
+        <button id="fav-toggle" class="fav-toggle" aria-label="Adicionar aos favoritos">☆</button>
+      </div>
+      <p class="modal-category" id="modal-category"></p>
+
+      <!-- Dica da Vanda e do Berto -->
+      <div id="modal-owner-tip" style="display:none; background:linear-gradient(135deg,rgba(245,184,0,0.10),rgba(244,124,32,0.06)); border:1px solid rgba(245,184,0,0.22); border-radius:10px; padding:10px 13px; font-size:0.84rem; color:rgba(255,255,255,0.88); margin-bottom:10px; align-items:flex-start; gap:8px;">
+        <span style="font-size:1.1rem;flex-shrink:0">🤙</span>
+        <div>
+          <span style="display:block;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:#f5b800;font-weight:700;margin-bottom:2px">Dica da Vanda e do Berto</span>
+          <span id="modal-owner-tip-text"></span>
+        </div>
+      </div>
+
+      <div class="modal-tabs" role="tablist">
+        <button class="tab-btn active" data-tab="info" id="tab-info" role="tab" aria-selected="true">ℹ️ Info</button>
+        <button class="tab-btn" data-tab="event" id="tab-event" role="tab" aria-selected="false">📅 Evento</button>
+        <button class="tab-btn" data-tab="map" id="tab-map" role="tab" aria-selected="false">🗺️ Mapa</button>
+      </div>
+
+      <div class="modal-content">
+  <!-- 🌤️ Meteorologia -->
+  <div id="modal-meteo" class="modal-meteo">
+    <div class="meteo-local">🌤️ Peniche & Baleal</div>
+    <div id="meteo-info">A carregar meteorologia…</div>
+  </div>
+
+        <div class="tab-panel active" id="panel-info">
+          <p id="modal-desc"></p>
+          <div class="quick-actions" id="modal-actions" hidden>
+            <button id="btn-call" class="primary-btn">📞 Ligar</button>
+            <button id="btn-whatsapp" class="ghost-btn">💬 WhatsApp</button>
+          </div>
+        </div>
+
+       
+
+        
+        <div class="tab-panel" id="panel-event">
+          <div class="event-box">
+            <p class="event-date" id="event-date"></p>
+            <p class="event-meta" id="event-meta"></p>
+            <div class="event-actions">
+              <button id="event-add-calendar" class="primary-btn">📅 Adicionar ao calendário</button>
+              <button id="event-copy" class="ghost-btn">📋 Copiar detalhes</button>
+            </div>
+            <p class="event-note" id="event-note"></p>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-map">
+          <div class="map-preview">
+            <iframe id="modal-map-iframe" title="Mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div id="map-offline-msg" class="map-offline-msg" hidden>
+              <span class="map-offline-icon">🌐</span>
+              <p id="map-offline-text">Precisas de ligação à internet para ver o mapa aqui.</p>
+              <button id="map-offline-btn" class="primary-btn">📍 Abrir no Google Maps</button>
+            </div>
+          </div>
+          <p id="modal-map-text"></p>
+          <button id="modal-open-maps" class="primary-btn">
+            📍 Abrir no Google Maps
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal QR Favoritos -->
+  <div id="qr-modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <button class="modal-close" id="qr-close-btn" aria-label="Fechar">✕</button>
+
+      <div class="modal-header">
+        <h2 id="qr-title">Partilhar favoritos</h2>
+      </div>
+
+      <div class="modal-content">
+        <p id="qr-text" class="qr-text"></p>
+        <div class="qr-wrap">
+          <canvas id="qr-canvas" width="220" height="220" aria-label="QR code"></canvas>
+        </div>
+        <div class="qr-actions">
+          <button id="qr-copy" class="primary-btn">📋 Copiar link</button>
+          <button id="qr-clear" class="ghost-btn">🗑️ Limpar favoritos</button>
+        </div>
+        <p class="qr-hint" id="qr-hint"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contacto e rodapé -->
+  <div class="contact-bottom" style="gap:10px;flex-wrap:wrap;">
+    <a href="#" target="_blank" rel="noopener noreferrer" id="directions-btn" class="contact-btn"
+       style="background:linear-gradient(135deg,#f5b800,#f47c20);color:#fff;">
+      📍 Como chegar à casa
+    </a>
+
+    <a href="tel:+351966944973" class="contact-btn" id="contact-btn">
+      📱 966 944 973
+    </a>
+
+    <a href="https://wa.me/351966944973" target="_blank" rel="noopener noreferrer"
+       class="contact-btn" id="whatsapp-contact-btn"
+       style="background:linear-gradient(135deg,#25d366,#128c4e);color:#fff;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.116 1.535 5.845L.057 23.454a.75.75 0 0 0 .918.918l5.65-1.48A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.726 9.726 0 0 1-4.964-1.36l-.355-.212-3.683.965.981-3.586-.232-.368A9.726 9.726 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+
+  <footer>
+    <span id="footer-line1">📍 VanBerto's Beach House · Baleal · Peniche</span>
+    <span id="footer-line2">🌊 Guia rápido para aproveitares o melhor da tua estadia</span>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    // Registo do service worker para PWA + aviso de nova versão disponível
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js').then((reg) => {
+          reg.addEventListener('updatefound', () => {
+            const newWorker = reg.installing;
+            if (!newWorker) return;
+            newWorker.addEventListener('statechange', () => {
+              // "installed" + já existe um controller ativo = isto é uma atualização, não a 1ª instalação
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                const banner = document.getElementById('update-banner');
+                if (banner) banner.hidden = false;
+              }
+            });
+          });
+        }).catch(console.error);
+      });
+
+      const updateBannerBtn = document.getElementById('update-banner-btn');
+      if (updateBannerBtn) {
+        updateBannerBtn.addEventListener('click', () => window.location.reload());
+      }
+    }
+  </script>
+</body>
+</html>
