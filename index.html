@@ -261,20 +261,6 @@
       />
     </section>
 
-    <!-- Ações rápidas -->
-    <section class="map-all-wrapper">
-      <button class="share-favs-btn" id="btn-cat-favs">⭐ Favoritos</button>
-      <button class="map-all-btn" id="btn-map-all">
-        🗺️ Ver todas as localizações no mapa
-      </button>
-      <button class="share-favs-btn" id="btn-share-favs">
-        🔗 Partilhar favoritos (QR)
-      </button>
-    </section>
-
-    <!-- Botão voltar (aparece quando se está dentro de uma categoria) -->
-    <button class="back-btn" id="btn-back-categories" hidden>← Voltar</button>
-
     <!-- Cards -->
     
     <!-- 📅 Calendário (aparece na categoria Eventos) -->
@@ -304,7 +290,8 @@
     <section id="cards-container" class="cards" aria-live="polite"></section>
   </main>
 
-  <!-- Voltar ao topo -->
+  <!-- Voltar ao topo / Voltar às categorias -->
+  <button class="back-btn" id="btn-back-categories">← Voltar</button>
   <button id="scroll-top" class="scroll-top" aria-label="Voltar ao topo">⬆️</button>
 
 
@@ -318,7 +305,6 @@
 
       <div class="modal-header">
         <h2 id="modal-title">Nome do local</h2>
-        <button id="fav-toggle" class="fav-toggle" aria-label="Adicionar aos favoritos">☆</button>
       </div>
       <p class="modal-category" id="modal-category"></p>
 

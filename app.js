@@ -1278,7 +1278,6 @@ function gerarCardsDeCategoria(cat) {
       card.className = "card";
       card.dataset.cat = cat;
 
-      const fav = isFav(cat, item.nome);
       const descText = desc(item);
 
       const img = item.img || imgByCat[cat];
@@ -1291,19 +1290,8 @@ function gerarCardsDeCategoria(cat) {
         <div class="card-desc">${descText}</div>
         <div class="card-footer">
           <span class="card-meta">${getHomeI18n().tapForDetails}</span>
-          <button class="fav-btn" aria-label="Favorito">${fav ? "★" : "☆"}</button>
         </div>
       `;
-
-      const favBtn = card.querySelector(".fav-btn");
-      favBtn.addEventListener("click", ev => {
-        ev.stopPropagation();
-        toggleFav(cat, item.nome);
-        favBtn.textContent = isFav(cat, item.nome) ? "★" : "☆";
-        if (itemAtual && itemAtual.nome === item.nome && itemAtual.cat === cat) {
-          atualizarFavToggle();
-        }
-      });
 
       card.addEventListener("click", () => abrirModal(cat, item));
 
@@ -1394,7 +1382,7 @@ function renderAtual() {
     else if (currentCategory === "favoritos") gerarFavoritos();
     else gerarCardsDeCategoria(currentCategory);
 
-    if (backBtn) backBtn.hidden = currentCategory === "tudo";
+    if (backBtn) backBtn.classList.toggle("show", currentCategory !== "tudo");
 
     toggleEventsCalendar(currentCategory === "Eventos");
 
@@ -1826,7 +1814,7 @@ modal.setAttribute("aria-hidden", "true");
 }
 
 function atualizarFavToggle() {
-  if (!itemAtual) return;
+  if (!favToggleBtn || !itemAtual) return;
   const fav = isFav(itemAtual.cat, itemAtual.nome);
   favToggleBtn.textContent = fav ? "★" : "☆";
 }
@@ -2043,7 +2031,7 @@ function atualizarTextosEstaticos() {
   if (btnBares) btnBares.textContent = t.btnBares;
   if (btnEventos) btnEventos.textContent = t.btnEventos;
   if (btnFast) btnFast.textContent = t.btnFast;
-  btnMapAll.textContent = t.btnMapAll;
+  if (btnMapAll) btnMapAll.textContent = t.btnMapAll;
   if (shareFavsBtn) shareFavsBtn.textContent = t.btnShareFavs;
   if (backBtn) backBtn.textContent = t.back;
 
@@ -2145,21 +2133,11 @@ try{ toggleEventsCalendar(false); }catch{}
   }, 200);
 });
 
-document
-  .getElementById("btn-map-all")
-  .addEventListener("click", abrirTodasNoMapa);
+if (btnMapAll) btnMapAll.addEventListener("click", abrirTodasNoMapa);
 
 modalCloseBtn.addEventListener("click", fecharModal);
 modal.addEventListener("click", e => {
   if (e.target.classList.contains("modal-backdrop")) fecharModal();
-});
-
-favToggleBtn.addEventListener("click", () => {
-  if (!itemAtual) return;
-  toggleFav(itemAtual.cat, itemAtual.nome);
-  atualizarFavToggle();
-  renderAtual();
-try{ toggleEventsCalendar(false); }catch{}
 });
 
 tabButtons.forEach(btn => {
