@@ -1205,6 +1205,7 @@ function passaFiltroPesquisa(item) {
 
 function gerarCategoriasPrincipais() {
   cardsContainer.innerHTML = "";
+  cardsContainer.classList.add("cards-home");
   Object.keys(data).forEach(cat => {
     const label = labelCategoria(cat);
     const icon = iconByCat[cat] || "📍";
@@ -1276,6 +1277,7 @@ function isEventoParaCards(item){
 
 function gerarCardsDeCategoria(cat) {
   cardsContainer.innerHTML = "";
+  cardsContainer.classList.remove("cards-home");
   const lista = data[cat] || [];
   const labelCat = labelCategoria(cat);
   const icon = iconByCat[cat] || "📍";
@@ -1320,6 +1322,7 @@ function gerarCardsDeCategoria(cat) {
 
 function gerarFavoritos() {
   cardsContainer.innerHTML = "";
+  cardsContainer.classList.remove("cards-home");
   const itens = [];
   Object.keys(data).forEach(cat => {
     (data[cat] || []).forEach(item => {
@@ -2078,6 +2081,54 @@ function atualizarTextosEstaticos() {
     yes: t.importYes,
     no: t.importNo
   };
+
+  fitHeaderTexts();
+}
+
+// Ajusta dinamicamente o tamanho do título e do subtítulo do cabeçalho
+// para caberem sempre numa única linha em ecrãs de telemóvel, seja qual
+// for o idioma (os textos têm comprimentos diferentes) ou a largura do ecrã.
+function fitTextToOneLine(el, maxFS, minFS) {
+  if (!el) return;
+  const headerInner = document.querySelector(".header-inner");
+  if (!headerInner) return;
+
+  if (window.innerWidth > 720) {
+    el.style.fontSize = "";
+    el.style.whiteSpace = "";
+    return;
+  }
+
+  const cs = getComputedStyle(headerInner);
+  const padL = parseFloat(cs.paddingLeft) || 0;
+  const padR = parseFloat(cs.paddingRight) || 0;
+  const available = headerInner.clientWidth - padL - padR - 2;
+
+  el.style.whiteSpace = "nowrap";
+  el.style.fontSize = maxFS + "px";
+  const natural = el.scrollWidth;
+
+  let size = maxFS;
+  if (natural > available && natural > 0) {
+    size = Math.floor((available / natural) * maxFS) - 1;
+    size = Math.max(minFS, Math.min(maxFS, size));
+  }
+  el.style.fontSize = size + "px";
+}
+
+function fitHeaderTexts() {
+  fitTextToOneLine(brandTitleEl, 32, 13);
+  fitTextToOneLine(brandTaglineEl, 16, 10);
+}
+
+let _fitHeaderTimer = null;
+window.addEventListener("resize", () => {
+  clearTimeout(_fitHeaderTimer);
+  _fitHeaderTimer = setTimeout(fitHeaderTexts, 150);
+});
+
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(fitHeaderTexts);
 }
 
 function setLanguage(lang) {

@@ -18,6 +18,11 @@
   padding: 0;
 }
 
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background: radial-gradient(circle at top, #1a2a5a 0, #050b24 45%, #020615 100%);
@@ -25,6 +30,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* HEADER */
@@ -71,6 +78,7 @@ header {
 .header-inner {
   width: 100%;
   max-width: 1100px;
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 24px;
@@ -82,8 +90,9 @@ header {
 }
 
 .logo-img {
-  width: 120px;
+  width: 150px;
   height: auto;
+  flex-shrink: 0;
   border-radius: 50%;
   display: block;
   box-shadow: 0 8px 26px rgba(0, 0, 0, 0.7);
@@ -93,6 +102,7 @@ header {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  min-width: 0;
 }
 
 .brand-title {
@@ -101,17 +111,21 @@ header {
   font-weight: 700;
   color: #f9fafb;
   text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
+  overflow-wrap: break-word;
 }
 
 .brand-subtitle {
   font-size: 14px;
   color: var(--text-muted);
+  overflow-wrap: break-word;
 }
 
 /* MAIN */
 
 .container {
   max-width: 980px;
+  width: 100%;
+  min-width: 0;
   margin: 0 auto;
   padding: 12px 16px 24px;
   flex: 1;
@@ -263,12 +277,15 @@ header {
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
 }
 
 .card-title {
   font-size: 14px;
   font-weight: 600;
   gap: 12px;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .card-category {
@@ -291,6 +308,66 @@ header {
 .card-meta {
   font-size: 11px;
   color: #9ca3af;
+}
+
+/* Grelha principal de categorias (Praias, Locais, etc.) em smartphone: 3 por linha */
+@media (max-width: 720px) {
+  .cards.cards-home {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .cards-home .card {
+    min-height: 92px;
+    padding: 12px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .cards-home .card-img {
+    display: none;
+  }
+
+  .cards-home .card-desc,
+  .cards-home .card-footer {
+    display: none;
+  }
+
+  .cards-home .card-header {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cards-home .card-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .cards-home .card-ico {
+    font-size: 26px;
+  }
+
+  /* Cartão especial da Praia: mantém a foto, só encolhe o emblema de texto */
+  .cards-home .card[data-cat="Praias"] {
+    padding: 0;
+    min-height: 0;
+    display: block;
+  }
+
+  .cards-home .card-photo-badge {
+    top: 8px;
+    width: 92%;
+    gap: 4px;
+    font-size: 10px;
+    padding: 5px 8px;
+  }
 }
 
 /* MODAL */
@@ -459,17 +536,25 @@ footer {
 /* RESPONSIVE */
 
 @media (max-width: 720px) {
+  header {
+    padding: 22px 10px 12px;
+  }
+
   .header-inner {
     flex-direction: column;
     text-align: center;
+    padding: 20px 14px;
+    gap: 12px;
   }
 
   .logo-img {
-    width: 100px;
+    width: clamp(160px, 46vw, 220px);
   }
 
   .brand-title {
-    font-size: 24px;
+    font-size: clamp(11px, calc(4vw - 1.5px), 24px);
+    white-space: nowrap;
+    letter-spacing: -0.01em;
   }
 
   .lang-switcher {
@@ -742,7 +827,8 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  background: rgba(37, 99, 235, 0.35);
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(6px);
   color: #ffffff;
   font-size: 16px;
   font-weight: 700;
@@ -1128,12 +1214,18 @@ button, .lang-btn {
 .home-meteo-title{
   font-weight: 800;
   font-size: 14px;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .home-meteo-updated{
-  font-size: 12px;
-  color: var(--text-muted);
-  white-space: nowrap;
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .home-meteo-title {
+    font-size: clamp(12px, 3.6vw, 14px);
+  }
 }
 
 .home-meteo-grid{
