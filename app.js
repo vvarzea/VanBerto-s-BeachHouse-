@@ -309,6 +309,7 @@ const data = {
   Praias: [
     {
       nome: "Praia do Baleal – Norte e Sul",
+      img: "praia-do-baleal-norte-sul.jpg",
       descPT: "Praia icónica de Peniche, excelente para surf e famílias. A nossa praia — fica mesmo aqui ao pé!",
       descEN: "Iconic beach in Peniche, great for surfing and families. Our beach — right on the doorstep!",
       descES: "Playa icónica de Peniche, perfecta para surf y familias. ¡Está justo aquí al lado!",
@@ -1292,18 +1293,31 @@ function gerarCardsDeCategoria(cat) {
 
       const descText = desc(item);
 
+      const temFotoReal = !!item.img;
       const img = item.img || imgByCat[cat];
-      card.innerHTML = `
-        <img class="card-img" src="${img}" alt="${item.nome}" loading="lazy" />
-        <div class="card-header">
-          <div class="card-title"><span class="card-ico">${icon}</span><span>${item.nome}</span></div>
-        </div>
-        <div class="card-category">${labelCat}</div>
-        <div class="card-desc">${descText}</div>
-        <div class="card-footer">
-          <span class="card-meta">${getHomeI18n().tapForDetails}</span>
-        </div>
-      `;
+
+      if (temFotoReal) {
+        card.innerHTML = `
+          <div class="card-title-top">${item.nome}</div>
+          <img class="card-img-real" src="${img}" alt="${item.nome}" loading="lazy" />
+          <div class="card-desc card-desc-photo">${descText}</div>
+          <div class="card-footer">
+            <span class="card-meta">${getHomeI18n().tapForDetails}</span>
+          </div>
+        `;
+      } else {
+        card.innerHTML = `
+          <img class="card-img" src="${img}" alt="${item.nome}" loading="lazy" />
+          <div class="card-header">
+            <div class="card-title"><span class="card-ico">${icon}</span><span>${item.nome}</span></div>
+          </div>
+          <div class="card-category">${labelCat}</div>
+          <div class="card-desc">${descText}</div>
+          <div class="card-footer">
+            <span class="card-meta">${getHomeI18n().tapForDetails}</span>
+          </div>
+        `;
+      }
 
       card.addEventListener("click", () => abrirModal(cat, item));
 
@@ -1355,19 +1369,33 @@ function gerarFavoritos() {
 
       const descText = desc(item);
 
+      const temFotoReal = !!item.img;
       const img = item.img || imgByCat[cat];
-      card.innerHTML = `
-        <img class="card-img" src="${img}" alt="${item.nome}" loading="lazy" />
-        <div class="card-header">
-          <div class="card-title"><span class="card-ico">${icon}</span><span>${item.nome}</span></div>
-        </div>
-        <div class="card-category">${labelCat}</div>
-        <div class="card-desc">${descText}</div>
-        <div class="card-footer">
-          <span class="card-meta">${getHomeI18n().tapForDetails}</span>
-          <button class="fav-btn" aria-label="Favorito">★</button>
-        </div>
-      `;
+
+      if (temFotoReal) {
+        card.innerHTML = `
+          <div class="card-title-top">${item.nome}</div>
+          <img class="card-img-real" src="${img}" alt="${item.nome}" loading="lazy" />
+          <div class="card-desc card-desc-photo">${descText}</div>
+          <div class="card-footer">
+            <span class="card-meta">${getHomeI18n().tapForDetails}</span>
+            <button class="fav-btn" aria-label="Favorito">★</button>
+          </div>
+        `;
+      } else {
+        card.innerHTML = `
+          <img class="card-img" src="${img}" alt="${item.nome}" loading="lazy" />
+          <div class="card-header">
+            <div class="card-title"><span class="card-ico">${icon}</span><span>${item.nome}</span></div>
+          </div>
+          <div class="card-category">${labelCat}</div>
+          <div class="card-desc">${descText}</div>
+          <div class="card-footer">
+            <span class="card-meta">${getHomeI18n().tapForDetails}</span>
+            <button class="fav-btn" aria-label="Favorito">★</button>
+          </div>
+        `;
+      }
 
       const favBtn = card.querySelector(".fav-btn");
       favBtn.addEventListener("click", ev => {

@@ -312,6 +312,11 @@ header {
 
 /* Grelha principal de categorias (Praias, Locais, etc.) em smartphone: 3 por linha */
 @media (max-width: 720px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
   .cards.cards-home {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -367,6 +372,19 @@ header {
     gap: 4px;
     font-size: 10px;
     padding: 5px 8px;
+  }
+
+  /* Cartões com foto real (ex: praias) na lista: título numa linha, descrição mais compacta */
+  .card-title-top {
+    font-size: clamp(11.5px, 3.6vw, 13.5px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-desc-photo {
+    font-size: 11px;
+    line-height: 1.35;
   }
 }
 
@@ -835,8 +853,30 @@ footer {
   background: rgba(15, 23, 42, 0.35);
 }
 
-/* Cartão especial da categoria Praias: foto real em vez do gráfico gerado */
-.card[data-cat="Praias"]{
+/* Cartões com foto real do local (título em cima, foto a seguir, depois descrição) */
+.card-title-top{
+  font-size: 15px;
+  font-weight: 700;
+  color: #38bdf8;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.card-desc-photo{
+  color: #7dd3fc;
+}
+
+.card-img-real{
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  display: block;
+}
+
+/* Cartão especial da categoria Praias na grelha principal: foto real em vez do gráfico gerado */
+.cards-home .card[data-cat="Praias"]{
   padding: 0;
   align-self: start;
   aspect-ratio: 11 / 10;
@@ -1145,6 +1185,14 @@ button, .lang-btn {
   }
 
   .card p{ color:#334155; }
+
+  .card-title-top{
+    color: #0c4a6e;
+  }
+
+  .card-desc-photo{
+    color: #0e7490;
+  }
 
   .card-img{
     border-color: rgba(15,23,42,.12);
