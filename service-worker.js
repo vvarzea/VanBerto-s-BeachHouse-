@@ -1,5 +1,5 @@
-/* VanBerto's PWA Service Worker (offline-first) */
-const CACHE_VERSION = "vanbertos-v18";
+/* VanBerto's PWA Service Worker (offline-first, mas sempre atualizado quando há rede) */
+const CACHE_VERSION = "vanbertos-v19";
 const FONTS_CACHE = "vanbertos-fonts-v1";
 const CORE_ASSETS = [
   "./",
@@ -30,10 +30,17 @@ self.addEventListener("fetch", (event) => {
   const req = event.request;
   const url = new URL(req.url);
 
-  // Navegação: devolve sempre index.html do cache (offline-friendly)
+  // Navegação (abrir/recarregar a página): tenta sempre a rede primeiro, para nunca
+  // ficar preso a uma versão antiga em cache. Só usa a cache se não houver ligação.
   if (req.mode === "navigate") {
     event.respondWith(
-      caches.match("./index.html").then((cached) => cached || fetch(req).catch(() => cached))
+      fetch(req)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(CACHE_VERSION).then((cache) => cache.put("./index.html", copy));
+          return res;
+        })
+        .catch(() => caches.match("./index.html"))
     );
     return;
   }
@@ -59,14 +66,27 @@ self.addEventListener("fetch", (event) => {
   // Só cachear same-origin
   if (url.origin !== self.location.origin) return;
 
-  // Cache-first para assets (css/js/img)
-  const isStatic =
-    req.destination === "style" ||
-    req.destination === "script" ||
-    req.destination === "image" ||
-    req.destination === "font";
+  // CSS e JS mudam com frequência durante o desenvolvimento — rede primeiro, cache
+  // só como reserva quando não há ligação. Assim, uma alteração feita no GitHub
+  // aparece sempre que houver rede, e continua a funcionar offline com a última
+  // versão conhecida.
+  const isCodeAsset = req.destination === "style" || req.destination === "script";
+  if (isCodeAsset) {
+    event.respondWith(
+      fetch(req)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(CACHE_VERSION).then((cache) => cache.put(req, copy));
+          return res;
+        })
+        .catch(() => caches.match(req))
+    );
+    return;
+  }
 
-  if (isStatic) {
+  // Imagens e tipos de letra locais mudam pouco — cache-first, mais rápido e poupa dados.
+  const isMedia = req.destination === "image" || req.destination === "font";
+  if (isMedia) {
     event.respondWith(
       caches.match(req).then((cached) => {
         if (cached) return cached;
