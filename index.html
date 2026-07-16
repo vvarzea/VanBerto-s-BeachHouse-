@@ -57,11 +57,6 @@
     </div>
   </header>
   <main class="container">
-    <section class="intro">
-      <h1 id="main-heading">Dicas para aproveitar Peniche</h1>
-    </section>
-
-
     <!-- 🌤️ Meteorologia (Peniche & Baleal) -->
     <section id="home-meteo" class="home-meteo is-collapsed" aria-live="polite">
       <div class="home-meteo-head" data-toggle-section="home-meteo">
@@ -86,10 +81,14 @@
           <div id="home-meteo-tomorrow-extra" class="home-meteo-sub">—</div>
         </div>
 
-        <div class="home-meteo-card home-meteo-card-wide">
-          <div class="home-meteo-card-title" id="i18n-surf-title">🌊 Mar &amp; Surf</div>
-          <div id="home-surf" class="home-meteo-main">—</div>
+        <div class="home-meteo-card">
+          <div class="home-meteo-card-title" id="i18n-surf-title">🌊 Mar &amp; Surf · Hoje</div>
           <div id="home-surf-extra" class="home-meteo-sub">—</div>
+        </div>
+
+        <div class="home-meteo-card">
+          <div class="home-meteo-card-title" id="i18n-surf-tomorrow-title">🌊 Mar &amp; Surf · Amanhã</div>
+          <div id="home-surf-tomorrow-extra" class="home-meteo-sub">—</div>
         </div>
       </div>
       </div></div>
@@ -162,12 +161,10 @@
         </a>
 
         <a href="tel:262109870" class="home-meteo-card home-sos-card">
-          <div class="home-meteo-card-title" id="i18n-sos-police-title">PSP Peniche (não urgente)</div>
+          <div class="home-meteo-card-title" id="i18n-sos-police-title">PSP Peniche</div>
           <div class="home-meteo-main">👮 262 109 870</div>
         </a>
       </div>
-
-      <div class="home-sos-note" id="i18n-sos-note">Em caso de emergência, liga sempre primeiro para o 112.</div>
       </div></div>
     </section>
 
@@ -194,10 +191,10 @@
           <div class="home-meteo-sub" id="i18n-transport-sub">Peniche não tem uma rede de transportes públicos muito forte, por isso ter carro é o mais prático. Uber e Bolt existem na zona, mas com menos motoristas do que em Lisboa — a espera pode ser maior. Preferes táxi? Liga para <a href="tel:262782687">262 782 687</a> ou <a href="tel:917296771">917 296 771</a>.</div>
         </div>
 
-        <a href="https://www.google.com/maps/search/?api=1&query=Multibanco%20Estrada%20do%20Baleal%2C%20Peniche" target="_blank" rel="noopener noreferrer" class="home-meteo-card home-meteo-card-wide home-house-card home-link-card">
+        <a href="https://www.google.com/maps/search/?api=1&query=Multibanco%2C%20R.%20Dr.%20Ernesto%20Moreira%20J%2C%202520-621%20Peniche" target="_blank" rel="noopener noreferrer" class="home-meteo-card home-meteo-card-wide home-house-card home-link-card">
           <div class="home-meteo-card-title" id="i18n-atm-title">🏧 Onde levantar dinheiro</div>
-          <div class="home-meteo-main" id="i18n-atm-main">Multibanco na Estrada do Baleal</div>
-          <div class="home-meteo-sub" id="i18n-atm-sub">O mais perto de casa fica na Estrada do Baleal, em Casais do Baleal, a poucos minutos. Há mais opções no centro de Peniche. Quase todos os estabelecimentos aceitam cartão, por isso raramente precisas de dinheiro vivo.</div>
+          <div class="home-meteo-main" id="i18n-atm-main">Multibanco no Pingo Doce</div>
+          <div class="home-meteo-sub" id="i18n-atm-sub">O mais perto de casa fica no Pingo Doce de Peniche, a 5 minutos de distância. Há mais opções no centro de Peniche. Quase todos os estabelecimentos aceitam cartão, por isso raramente precisas de dinheiro vivo.</div>
         </a>
       </div>
       </div></div>
@@ -241,7 +238,7 @@
           <div class="home-meteo-card-title" id="i18n-checklist-title">✅ Checklist de saída</div>
           <ul class="checkout-checklist" id="checkout-checklist"></ul>
           <div class="checkout-checklist-footer">
-            <div class="checkout-checklist-progress" id="checkout-checklist-progress">0/3</div>
+            <div class="checkout-checklist-progress" id="checkout-checklist-progress">0/6</div>
             <button type="button" id="checkout-checklist-reset" class="checkout-reset-btn" hidden>🔄 Repor</button>
           </div>
           <div class="checkout-checklist-nudge" id="checkout-checklist-nudge" hidden></div>
@@ -251,14 +248,8 @@
       </div></div>
     </section>
 
-<!-- Barra de pesquisa -->
-    <section class="search-row">
-      <input
-        type="search"
-        id="search-input"
-        placeholder="🔍 Procurar por praia, restaurante, pizza, sushi..."
-        aria-label="Pesquisar locais"
-      />
+    <section class="intro">
+      <h1 id="main-heading">Dicas para aproveitar Peniche</h1>
     </section>
 
     <!-- Cards -->
@@ -414,11 +405,6 @@
       WhatsApp
     </a>
   </div>
-
-  <footer>
-    <span id="footer-line1">📍 VanBerto's Beach House · Baleal · Peniche</span>
-    <span id="footer-line2">🌊 Guia rápido para aproveitares o melhor da tua estadia</span>
-  </footer>
 
   <script src="app.js"></script>
   <script>

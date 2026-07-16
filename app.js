@@ -1214,17 +1214,27 @@ function gerarCategoriasPrincipais() {
     card.className = "card";
     card.dataset.cat = cat;
 
-    const img = imgByCat[cat];
-    card.innerHTML = `
-      <img class="card-img" src="${img}" alt="${label}" loading="lazy" />
-      <div class="card-header">
-        <div class="card-title"><span class="card-ico">${icon}</span><span>${label}</span></div>
-      </div>
-      <div class="card-desc">${texto}</div>
-      <div class="card-footer">
-        <span class="card-meta">${getHomeI18n().vanBertoSuggestions}</span>
-      </div>
-    `;
+    if (cat === "Praias") {
+      // Cartão especial: foto real da Praia do Baleal + emblema com o emoji e o nome
+      card.innerHTML = `
+        <div class="card-photo-wrap">
+          <img class="card-img-photo" src="praia-baleal.jpg" alt="${label}" loading="lazy" />
+          <span class="card-photo-badge">🏖️ ${label}</span>
+        </div>
+      `;
+    } else {
+      const img = imgByCat[cat];
+      card.innerHTML = `
+        <img class="card-img" src="${img}" alt="${label}" loading="lazy" />
+        <div class="card-header">
+          <div class="card-title"><span class="card-ico">${icon}</span><span>${label}</span></div>
+        </div>
+        <div class="card-desc">${texto}</div>
+        <div class="card-footer">
+          <span class="card-meta">${getHomeI18n().vanBertoSuggestions}</span>
+        </div>
+      `;
+    }
 
     card.addEventListener("click", () => {
       switchCategory(cat);
@@ -2035,11 +2045,11 @@ function atualizarTextosEstaticos() {
   if (shareFavsBtn) shareFavsBtn.textContent = t.btnShareFavs;
   if (backBtn) backBtn.textContent = t.back;
 
-  searchInput.placeholder = t.searchPh;
+  if (searchInput) searchInput.placeholder = t.searchPh;
   contactBtn.textContent = t.contact;
   if (directionsBtn) directionsBtn.textContent = t.directions;
-  footer1.textContent = t.footer1;
-  footer2.textContent = t.footer2;
+  if (footer1) footer1.textContent = t.footer1;
+  if (footer2) footer2.textContent = t.footer2;
 
   tabInfo.textContent = t.tabInfo;
   tabMap.textContent = t.tabMap;
@@ -2124,20 +2134,30 @@ langButtons.forEach(btn => {
 });
 
 let searchDebounceTimer = null;
-searchInput.addEventListener("input", () => {
-  clearTimeout(searchDebounceTimer);
-  searchDebounceTimer = setTimeout(() => {
-    searchTerm = searchInput.value;
-    renderAtual();
-try{ toggleEventsCalendar(false); }catch{}
-  }, 200);
-});
+if (searchInput) {
+  searchInput.addEventListener("input", () => {
+    clearTimeout(searchDebounceTimer);
+    searchDebounceTimer = setTimeout(() => {
+      searchTerm = searchInput.value;
+      renderAtual();
+  try{ toggleEventsCalendar(false); }catch{}
+    }, 200);
+  });
+}
 
 if (btnMapAll) btnMapAll.addEventListener("click", abrirTodasNoMapa);
 
 modalCloseBtn.addEventListener("click", fecharModal);
 modal.addEventListener("click", e => {
   if (e.target.classList.contains("modal-backdrop")) fecharModal();
+});
+
+if (favToggleBtn) favToggleBtn.addEventListener("click", () => {
+  if (!itemAtual) return;
+  toggleFav(itemAtual.cat, itemAtual.nome);
+  atualizarFavToggle();
+  renderAtual();
+try{ toggleEventsCalendar(false); }catch{}
 });
 
 tabButtons.forEach(btn => {
@@ -2484,7 +2504,7 @@ const HOME_I18N = {
     sosEmergencyTitle: "Emergência nacional",
     sosPharmacyTitle: "Farmácia de serviço hoje",
     sosPharmacyMain: "💊 Ver farmácia",
-    sosPoliceTitle: "PSP Peniche (não urgente)",
+    sosPoliceTitle: "PSP Peniche",
     sosNote: "Em caso de emergência, liga sempre primeiro para o 112.",
 
     practicalTitle: "🚗 Praticidades do dia a dia",
@@ -2495,8 +2515,8 @@ const HOME_I18N = {
     transportMain: "Uber e Bolt funcionam, mas com menos carros",
     transportSub: "Peniche não tem uma rede de transportes públicos muito forte, por isso ter carro é o mais prático. Uber e Bolt existem na zona, mas com menos motoristas do que em Lisboa — a espera pode ser maior. Preferes táxi? Liga para <a href=\"tel:262782687\">262 782 687</a> ou <a href=\"tel:917296771\">917 296 771</a>.",
     atmTitle: "🏧 Onde levantar dinheiro",
-    atmMain: "Multibanco na Estrada do Baleal",
-    atmSub: "O mais perto de casa fica na Estrada do Baleal, em Casais do Baleal, a poucos minutos. Há mais opções no centro de Peniche. Quase todos os estabelecimentos aceitam cartão, por isso raramente precisas de dinheiro vivo.",
+    atmMain: "Multibanco no Pingo Doce",
+    atmSub: "O mais perto de casa fica no Pingo Doce de Peniche, a 5 minutos de distância. Há mais opções no centro de Peniche. Quase todos os estabelecimentos aceitam cartão, por isso raramente precisas de dinheiro vivo.",
 
     checkoutTitle: "🌅 Antes de saíres",
     ratingTitle: "⭐ Avaliar a estadia",
@@ -2508,8 +2528,11 @@ const HOME_I18N = {
       (comment ? `\n\n💬 ${comment}` : ""),
     checklistTitle: "✅ Checklist de saída",
     checklist: [
-      { key: "luzes", label: "💡 Luzes apagadas" },
+      { key: "loica", label: "🍽️ Lavar a loiça utilizada ou colocá-la na máquina de lavar loiça e iniciar o programa" },
+      { key: "toalhas", label: "🧺 Colocar as toalhas usadas no local indicado" },
       { key: "lixo", label: "🗑️ Lixo despejado no contentor" },
+      { key: "objetos", label: "🎒 Verificar se não ficou nenhum objeto pessoal nos quartos, casas de banho, armários ou tomadas" },
+      { key: "luzes", label: "💡 Luzes apagadas" },
       { key: "chave", label: "🔑 Chave no local combinado" }
     ],
     checklistProgress: (done, total) => `${done}/${total} concluído${done === total ? " 🎉" : ""}`,
@@ -2583,7 +2606,7 @@ const HOME_I18N = {
     sosEmergencyTitle: "National emergency",
     sosPharmacyTitle: "Pharmacy on duty today",
     sosPharmacyMain: "💊 View pharmacy",
-    sosPoliceTitle: "PSP Peniche (non-urgent)",
+    sosPoliceTitle: "PSP Peniche",
     sosNote: "In an emergency, always call 112 first.",
 
     practicalTitle: "🚗 Everyday practicalities",
@@ -2594,8 +2617,8 @@ const HOME_I18N = {
     transportMain: "Uber and Bolt work, but with fewer cars",
     transportSub: "Peniche doesn't have a very strong public transport network, so having a car is the most practical option. Uber and Bolt operate in the area, but with fewer drivers than in Lisbon — waiting times can be longer. Prefer a taxi? Call <a href=\"tel:262782687\">262 782 687</a> or <a href=\"tel:917296771\">917 296 771</a>.",
     atmTitle: "🏧 Where to withdraw cash",
-    atmMain: "ATM on Estrada do Baleal",
-    atmSub: "The closest one to the house is on Estrada do Baleal, in Casais do Baleal, a few minutes away. There are more options in central Peniche. Almost every place accepts card, so you rarely need cash.",
+    atmMain: "ATM at Pingo Doce",
+    atmSub: "The closest one to the house is at Pingo Doce in Peniche, 5 minutes away. There are more options in central Peniche. Almost every place accepts card, so you rarely need cash.",
 
     checkoutTitle: "🌅 Before you leave",
     ratingTitle: "⭐ Rate your stay",
@@ -2607,8 +2630,11 @@ const HOME_I18N = {
       (comment ? `\n\n💬 ${comment}` : ""),
     checklistTitle: "✅ Departure checklist",
     checklist: [
-      { key: "luzes", label: "💡 Lights off" },
+      { key: "loica", label: "🍽️ Wash the dishes used or load the dishwasher and start it" },
+      { key: "toalhas", label: "🧺 Put used towels in the indicated spot" },
       { key: "lixo", label: "🗑️ Rubbish taken to the bin" },
+      { key: "objetos", label: "🎒 Check no personal items were left in the bedrooms, bathrooms, wardrobes or sockets" },
+      { key: "luzes", label: "💡 Lights off" },
       { key: "chave", label: "🔑 Key left in the agreed spot" }
     ],
     checklistProgress: (done, total) => `${done}/${total} done${done === total ? " 🎉" : ""}`,
@@ -2682,7 +2708,7 @@ const HOME_I18N = {
     sosEmergencyTitle: "Emergencia nacional",
     sosPharmacyTitle: "Farmacia de guardia hoy",
     sosPharmacyMain: "💊 Ver farmacia",
-    sosPoliceTitle: "PSP Peniche (no urgente)",
+    sosPoliceTitle: "PSP Peniche",
     sosNote: "En caso de emergencia, llama siempre primero al 112.",
 
     practicalTitle: "🚗 Cosas prácticas del día a día",
@@ -2693,8 +2719,8 @@ const HOME_I18N = {
     transportMain: "Uber y Bolt funcionan, pero con menos coches",
     transportSub: "Peniche no tiene una red de transporte público muy fuerte, así que tener coche es lo más práctico. Uber y Bolt existen en la zona, pero con menos conductores que en Lisboa — la espera puede ser mayor. ¿Prefieres taxi? Llama al <a href=\"tel:262782687\">262 782 687</a> o al <a href=\"tel:917296771\">917 296 771</a>.",
     atmTitle: "🏧 Dónde sacar dinero",
-    atmMain: "Cajero en la Estrada do Baleal",
-    atmSub: "El más cercano a la casa está en la Estrada do Baleal, en Casais do Baleal, a pocos minutos. Hay más opciones en el centro de Peniche. Casi todos los establecimientos aceptan tarjeta, así que raramente necesitas dinero en efectivo.",
+    atmMain: "Cajero en el Pingo Doce",
+    atmSub: "El más cercano a la casa está en el Pingo Doce de Peniche, a 5 minutos. Hay más opciones en el centro de Peniche. Casi todos los establecimientos aceptan tarjeta, así que raramente necesitas dinero en efectivo.",
 
     checkoutTitle: "🌅 Antes de irte",
     ratingTitle: "⭐ Valorar la estancia",
@@ -2706,8 +2732,11 @@ const HOME_I18N = {
       (comment ? `\n\n💬 ${comment}` : ""),
     checklistTitle: "✅ Checklist de salida",
     checklist: [
-      { key: "luzes", label: "💡 Luces apagadas" },
+      { key: "loica", label: "🍽️ Lavar los platos utilizados o ponerlos en el lavavajillas e iniciar el programa" },
+      { key: "toalhas", label: "🧺 Colocar las toallas usadas en el lugar indicado" },
       { key: "lixo", label: "🗑️ Basura en el contenedor" },
+      { key: "objetos", label: "🎒 Comprobar que no quedó ningún objeto personal en habitaciones, baños, armarios o enchufes" },
+      { key: "luzes", label: "💡 Luces apagadas" },
       { key: "chave", label: "🔑 Llave en el lugar acordado" }
     ],
     checklistProgress: (done, total) => `${done}/${total} completado${done === total ? " 🎉" : ""}`,
@@ -2781,7 +2810,7 @@ const HOME_I18N = {
     sosEmergencyTitle: "Urgence nationale",
     sosPharmacyTitle: "Pharmacie de garde aujourd'hui",
     sosPharmacyMain: "💊 Voir la pharmacie",
-    sosPoliceTitle: "PSP Peniche (non urgent)",
+    sosPoliceTitle: "PSP Peniche",
     sosNote: "En cas d'urgence, appelle toujours d'abord le 112.",
 
     practicalTitle: "🚗 Pratique au quotidien",
@@ -2792,8 +2821,8 @@ const HOME_I18N = {
     transportMain: "Uber et Bolt fonctionnent, mais avec moins de voitures",
     transportSub: "Peniche n'a pas un réseau de transports publics très développé, donc avoir une voiture est le plus pratique. Uber et Bolt existent dans la région, mais avec moins de chauffeurs qu'à Lisbonne — l'attente peut être plus longue. Tu préfères un taxi ? Appelle le <a href=\"tel:262782687\">262 782 687</a> ou le <a href=\"tel:917296771\">917 296 771</a>.",
     atmTitle: "🏧 Où retirer de l'argent",
-    atmMain: "Distributeur sur l'Estrada do Baleal",
-    atmSub: "Le plus proche de la maison se trouve sur l'Estrada do Baleal, à Casais do Baleal, à quelques minutes. Il y a plus d'options dans le centre de Peniche. Presque tous les établissements acceptent la carte, donc tu as rarement besoin d'argent liquide.",
+    atmMain: "Distributeur au Pingo Doce",
+    atmSub: "Le plus proche de la maison se trouve au Pingo Doce de Peniche, à 5 minutes. Il y a plus d'options dans le centre de Peniche. Presque tous les établissements acceptent la carte, donc tu as rarement besoin d'argent liquide.",
 
     checkoutTitle: "🌅 Avant de partir",
     ratingTitle: "⭐ Évaluer le séjour",
@@ -2805,8 +2834,11 @@ const HOME_I18N = {
       (comment ? `\n\n💬 ${comment}` : ""),
     checklistTitle: "✅ Checklist de départ",
     checklist: [
-      { key: "luzes", label: "💡 Lumières éteintes" },
+      { key: "loica", label: "🍽️ Laver la vaisselle utilisée ou la mettre au lave-vaisselle et lancer le programme" },
+      { key: "toalhas", label: "🧺 Déposer les serviettes utilisées à l'endroit indiqué" },
       { key: "lixo", label: "🗑️ Poubelles sorties" },
+      { key: "objetos", label: "🎒 Vérifier qu'aucun objet personnel n'est resté dans les chambres, salles de bain, armoires ou prises" },
+      { key: "luzes", label: "💡 Lumières éteintes" },
       { key: "chave", label: "🔑 Clé à l'endroit convenu" }
     ],
     checklistProgress: (done, total) => `${done}/${total} fait${done === total ? " 🎉" : ""}`,
@@ -2869,7 +2901,8 @@ function applyHomeSectionsI18n(){
   setText("i18n-meteo-title", T.meteoTitle);
   setText("i18n-today-title", T.todayTitle);
   setText("i18n-tomorrow-title", T.tomorrowTitle);
-  setText("i18n-surf-title", T.surfTitle);
+  setText("i18n-surf-title", `${T.surfTitle} · ${T.todayTitle}`);
+  setText("i18n-surf-tomorrow-title", `${T.surfTitle} · ${T.tomorrowTitle}`);
   const meteoUpdated = document.getElementById("home-meteo-updated");
   if (meteoUpdated && (meteoUpdated.textContent.trim() === "" || meteoUpdated.dataset.state === "loading")) {
     meteoUpdated.textContent = T.loadingUpdated;
@@ -2895,7 +2928,6 @@ function applyHomeSectionsI18n(){
   setText("i18n-sos-pharmacy-title", T.sosPharmacyTitle);
   setText("i18n-sos-pharmacy-main", T.sosPharmacyMain);
   setText("i18n-sos-police-title", T.sosPoliceTitle);
-  setText("i18n-sos-note", T.sosNote);
 
   // Praticidades
   setText("i18n-practical-title", T.practicalTitle);
@@ -3170,15 +3202,15 @@ function relativeTimeLabel(savedAt){
   return T.hoursAgo(diffH);
 }
 
-function renderHomeMeteoFromData({ today, tom, waveH, waveP, waveD }, { offline, savedAt } = {}){
+function renderHomeMeteoFromData({ today, tom, waveH, waveP, waveD, waveHTom, wavePTom, waveDTom }, { offline, savedAt } = {}){
   const elUpdated = document.getElementById("home-meteo-updated");
   const elToday = document.getElementById("home-meteo-today");
   const elTodayExtra = document.getElementById("home-meteo-today-extra");
   const elTom = document.getElementById("home-meteo-tomorrow");
   const elTomExtra = document.getElementById("home-meteo-tomorrow-extra");
-  const elSurf = document.getElementById("home-surf");
   const elSurfExtra = document.getElementById("home-surf-extra");
-  if (!elUpdated || !elToday || !elTom || !elSurf) return;
+  const elSurfTomExtra = document.getElementById("home-surf-tomorrow-extra");
+  if (!elUpdated || !elToday || !elTom) return;
 
   const Ti18nA = getHomeI18n();
   const icToday = iconFromWeatherCode(today.code);
@@ -3190,10 +3222,14 @@ function renderHomeMeteoFromData({ today, tom, waveH, waveP, waveD }, { offline,
   elTom.textContent = `${icTom} ${tom.tmin}°–${tom.tmax}°`;
   elTomExtra.textContent = `🌅 ${tom.sunrise ? tom.sunrise.split("T")[1].slice(0,5) : "—"} · 🌇 ${tom.sunset ? tom.sunset.split("T")[1].slice(0,5) : "—"} · 🌬️ ${Ti18nA.windUpTo} ${tom.windMax ?? "—"} km/h · 🌧️ ${tom.rain ?? "—"} mm`;
 
-  const rating = surfRating({ waveHeight: waveH, wavePeriod: waveP, windSpeed: Number(today.windMax ?? 0) });
-  const dirTxt = humanDirFromDegrees(waveD);
-  elSurf.textContent = `${rating.emoji} ${rating.label}`;
-  elSurfExtra.textContent = `${Ti18nA.waveHeight} ${waveH.toFixed(1)} m · ${Ti18nA.wavePeriod} ${waveP.toFixed(0)} s · ${Ti18nA.waveDirection} ${dirTxt || "—"}`;
+  if (elSurfExtra && waveH !== undefined){
+    const dirTxt = humanDirFromDegrees(waveD);
+    elSurfExtra.textContent = `${Ti18nA.waveHeight} ${waveH.toFixed(1)} m · ${Ti18nA.wavePeriod} ${waveP.toFixed(0)} s · ${Ti18nA.waveDirection} ${dirTxt || "—"}`;
+  }
+  if (elSurfTomExtra && waveHTom !== undefined){
+    const dirTxtTom = humanDirFromDegrees(waveDTom);
+    elSurfTomExtra.textContent = `${Ti18nA.waveHeight} ${waveHTom.toFixed(1)} m · ${Ti18nA.wavePeriod} ${wavePTom.toFixed(0)} s · ${Ti18nA.waveDirection} ${dirTxtTom || "—"}`;
+  }
 
   if (offline){
     elUpdated.textContent = `📴 ${Ti18nA.offlineData} · ${relativeTimeLabel(savedAt)}`;
@@ -3207,10 +3243,11 @@ async function carregarHomeMeteoESurf(){
   const elUpdated = document.getElementById("home-meteo-updated");
   const elToday = document.getElementById("home-meteo-today");
   const elTom = document.getElementById("home-meteo-tomorrow");
-  const elSurf = document.getElementById("home-surf");
+  const elSurfExtra = document.getElementById("home-surf-extra");
+  const elSurfTomExtra = document.getElementById("home-surf-tomorrow-extra");
 
   // Se a homepage não tiver o bloco, não faz nada
-  if (!elUpdated || !elToday || !elTom || !elSurf) return;
+  if (!elUpdated || !elToday || !elTom) return;
 
   try{
     // 1) Weather daily (hoje + amanhã) + vento máx
@@ -3266,7 +3303,21 @@ async function carregarHomeMeteoESurf(){
     const waveP = Number(period[best] ?? 0);
     const waveD = Number(wdir[best] ?? NaN);
 
-    const payload = { today, tom, waveH, waveP, waveD };
+    // encontra índice da mesma hora, amanhã
+    const targetTom = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+    let bestTom = -1;
+    let bestDiffTom = Infinity;
+    for(let i=0;i<times.length;i++){
+      const t = new Date(times[i]);
+      const diff = Math.abs(t.getTime() - targetTom.getTime());
+      if (diff < bestDiffTom){ bestDiffTom = diff; bestTom = i; }
+    }
+
+    const waveHTom = bestTom >= 0 ? Number(waves[bestTom] ?? 0) : waveH;
+    const wavePTom = bestTom >= 0 ? Number(period[bestTom] ?? 0) : waveP;
+    const waveDTom = bestTom >= 0 ? Number(wdir[bestTom] ?? NaN) : waveD;
+
+    const payload = { today, tom, waveH, waveP, waveD, waveHTom, wavePTom, waveDTom };
     renderHomeMeteoFromData(payload);
     saveMeteoCache(payload);
 
@@ -3279,7 +3330,8 @@ async function carregarHomeMeteoESurf(){
       elUpdated.textContent = Ti18nErr.unavailable;
       elToday.textContent = "—";
       elTom.textContent = "—";
-      elSurf.textContent = "—";
+      if (elSurfExtra) elSurfExtra.textContent = "—";
+      if (elSurfTomExtra) elSurfTomExtra.textContent = "—";
     }
   }
 }

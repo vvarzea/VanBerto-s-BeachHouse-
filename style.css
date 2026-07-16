@@ -120,8 +120,8 @@ header {
 .intro h1 {
   text-align: center;
   font-size: 22px;
-  margin-top: 6px;
-  margin-bottom: 4px;
+  margin-top: 28px;
+  margin-bottom: 10px;
 }
 
 .subtitle {
@@ -136,6 +136,12 @@ header {
 .search-row {
   max-width: 780px;
   margin: 0 auto 16px;
+}
+
+.search-row-bottom {
+  margin-top: 26px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 #search-input {
@@ -185,12 +191,37 @@ header {
   border-color: var(--accent);
 }
 
+/* MAP BUTTON */
+
+.map-all-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.map-all-btn {
+  background: linear-gradient(135deg, #22c55e, #0ea5e9);
+  color: #0b1220;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: none;
+  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.7);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 /* CARDS */
 
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 14px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .card {
@@ -488,6 +519,27 @@ footer {
 }
 
 
+/* MAP-ALL EXTRA BUTTON */
+.map-all-wrapper {
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.share-favs-btn {
+  background: rgba(15, 23, 42, 0.85);
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.45);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 /* MAP PREVIEW (MODAL) */
 .map-preview {
   position: relative;
@@ -657,6 +709,47 @@ footer {
   border-radius: 16px;
   border: 1px solid rgba(148, 163, 184, 0.25);
   background: rgba(15, 23, 42, 0.35);
+}
+
+/* Cartão especial da categoria Praias: foto real em vez do gráfico gerado */
+.card[data-cat="Praias"]{
+  padding: 0;
+  align-self: start;
+  aspect-ratio: 11 / 10;
+}
+
+.card-photo-wrap{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.card-img-photo{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-photo-badge{
+  position: absolute;
+  top: 14px;
+  left: 0;
+  right: 0;
+  width: 80%;
+  margin: 0 auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(37, 99, 235, 0.35);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  text-align: center;
 }
 
 
@@ -863,12 +956,12 @@ button, .lang-btn {
 }
 
 
-/* Mobile-first: manter pesquisa acessível ao fazer scroll */
+/* Mobile-first: manter ações rápidas acessíveis ao fazer scroll pelos cards */
 @media (max-width: 768px){
-  .search-row{
+  .map-all-wrapper{
     position: sticky;
     top: 0;
-    z-index: 60;
+    z-index: 59;
     background: rgba(5, 11, 36, 0.85);
     backdrop-filter: blur(10px);
     padding-top: 10px;
@@ -938,7 +1031,7 @@ button, .lang-btn {
     background: rgba(226,232,240,.7);
   }
 
-  .search-row{
+  .search-row, .map-all-wrapper{
     background: rgba(248,250,252,.9);
   }
 }
