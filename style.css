@@ -365,10 +365,11 @@ header {
 
   .cards-home .card-photo-badge {
     top: 8px;
-    width: 92%;
-    gap: 4px;
-    font-size: 10px;
-    padding: 5px 8px;
+    width: 96%;
+    gap: 3px;
+    font-size: clamp(7.8px, 2.9vw, 10.5px);
+    padding: 5px 5px;
+    letter-spacing: -0.1px;
   }
 
   /* Cartões com foto real (ex: praias) na lista: título numa linha, descrição mais compacta */
@@ -970,6 +971,19 @@ footer {
   border-radius: 999px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
   text-align: center;
+  max-width: 100%;
+}
+
+.card-photo-badge-emoji{
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.card-photo-badge-text{
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 

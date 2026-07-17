@@ -303,6 +303,21 @@ const badgeEmojiByCat = {
   Eventos: "📅"
 };
 
+// Versão curta do nome só para o emblema do cartão principal (grelha inicial),
+// para o texto caber sempre numa única linha em ecrãs de smartphone.
+// O nome completo (labelCategoria) continua a ser usado em todo o resto da app.
+const homeBadgeShortLabel = {
+  Locais: { pt: "Locais", en: "Places", es: "Lugares", fr: "Lieux" },
+  Supermercados: { pt: "Mercados", en: "Markets", es: "Mercados", fr: "Marchés" },
+  Churrasqueiras: { pt: "Churrasco", en: "BBQ", es: "Parrilla", fr: "Grillades" }
+};
+
+function labelCategoriaCurta(cat) {
+  const lang = homeBadgeShortLabel[cat] && homeBadgeShortLabel[cat][currentLang] ? currentLang : null;
+  if (lang) return homeBadgeShortLabel[cat][lang];
+  return labelCategoria(cat);
+}
+
 function svgDataUri(title, c1, c2, emoji) {
   const svg = `
   <svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
@@ -1243,6 +1258,7 @@ function gerarCategoriasPrincipais() {
   cardsContainer.classList.remove("cards-praias");
   Object.keys(data).forEach(cat => {
     const label = labelCategoria(cat);
+    const badgeLabel = labelCategoriaCurta(cat);
     const emoji = badgeEmojiByCat[cat] || "📍";
     const photo = photoByCat[cat] || imgByCat[cat];
 
@@ -1253,7 +1269,10 @@ function gerarCategoriasPrincipais() {
     card.innerHTML = `
       <div class="card-photo-wrap">
         <img class="card-img-photo" src="${photo}" alt="${label}" loading="lazy" />
-        <span class="card-photo-badge">${emoji} ${label}</span>
+        <span class="card-photo-badge">
+          <span class="card-photo-badge-emoji" aria-hidden="true">${emoji}</span>
+          <span class="card-photo-badge-text">${badgeLabel}</span>
+        </span>
       </div>
     `;
 
