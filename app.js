@@ -291,31 +291,7 @@ const photoByCat = {
   Eventos: "images/eventos/evento.jpg"
 };
 
-// Emoji do emblema de cada cartão principal (mesmo emoji já usado no imgByCat)
-const badgeEmojiByCat = {
-  Praias: "🏖️",
-  Locais: "📌",
-  Supermercados: "🛒",
-  Restaurantes: "🍽️",
-  Churrasqueiras: "🔥",
-  Bares: "🍹",
-  FastFood: "🍔",
-  Farmacias: "💊",
-  Eventos: "📅"
-};
-
-// Versão curta do nome só para o emblema do cartão principal (grelha inicial),
-// para o texto caber sempre numa única linha em ecrãs de smartphone.
-// O nome completo (labelCategoria) continua a ser usado em todo o resto da app.
-const homeBadgeShortLabel = {
-  Locais: { pt: "Locais", en: "Places", es: "Lugares", fr: "Lieux" },
-  Supermercados: { pt: "Mercados", en: "Markets", es: "Mercados", fr: "Marchés" },
-  Churrasqueiras: { pt: "Churrasco", en: "BBQ", es: "Parrilla", fr: "Grillades" }
-};
-
 function labelCategoriaCurta(cat) {
-  const lang = homeBadgeShortLabel[cat] && homeBadgeShortLabel[cat][currentLang] ? currentLang : null;
-  if (lang) return homeBadgeShortLabel[cat][lang];
   return labelCategoria(cat);
 }
 
@@ -453,6 +429,7 @@ const data = {
   Locais: [
     {
       nome: "Ilha do Baleal",
+      img: "images/locais/ilha-do-baleal.jpg",
       descPT: "Ilhote ligado por istmo de areia, perfeito para fotos e passeios ao pôr do sol.",
       descEN: "Small island connected by a sand isthmus, perfect for photos and sunset walks.",
       descES: "Pequeña isla unida por un istmo de arena, perfecta para fotos y paseos al atardecer.",
@@ -462,6 +439,7 @@ const data = {
     },
     {
       nome: "Berlengas",
+      img: "images/locais/berlengas.jpg",
       descPT: "Reserva natural com águas cristalinas. Acesso de barco a partir de Peniche (45 min).",
       descEN: "Natural reserve with crystal clear waters. Boat trip from Peniche (45 min).",
       descES: "Reserva natural con aguas cristalinas. Barco desde Peniche (45 min).",
@@ -470,7 +448,8 @@ const data = {
       mapa: "Ilhas Berlengas"
     },
     {
-      nome: "Museu da Renda de Bilros de Peniche",
+      nome: "Museu da Renda de Bilros",
+      img: "images/locais/museu-renda-bilros.jpg",
       horarioPT: "Terça a domingo 10h00–13h00 e 14h00–18h00. Encerra à segunda.",
       horarioEN: "Tue–Sun 10:00–13:00 and 14:00–18:00. Closed Mon.",
       descPT: "Museu dedicado à famosa renda de bilros de Peniche.",
@@ -480,7 +459,8 @@ const data = {
       mapa: "Museu da Renda de Bilros Peniche"
     },
     {
-      nome: "Museu Nacional Resistência e Liberdade (Fortaleza)",
+      nome: "Museu Nacional Resistência e Liberdade",
+      img: "images/locais/museu-resistencia-liberdade.jpg",
       horarioPT: "Terça a domingo 10h00–18h00 (última entrada 17h15). Encerra à segunda e em 1 jan, Domingo de Páscoa, 1 maio e 25 dez.",
       horarioEN: "Tue–Sun 10:00–18:00 (last entry 17:15). Closed Mon and on Jan 1, Easter Sunday, May 1, Dec 25.",
       descPT: "Antiga prisão política do Estado Novo, hoje museu de memória com vista para o mar.",
@@ -491,7 +471,8 @@ const data = {
       mapa: "Fortaleza de Peniche"
     },
     {
-      nome: "Farol do Cabo Carvoeiro + Miradouro",
+      nome: "Farol do Cabo Carvoeiro",
+      img: "images/locais/farol-cabo-carvoeiro.jpg",
       descPT: "Vista deslumbrante sobre o Atlântico e as ilhas Berlengas.",
       descEN: "Stunning views over the Atlantic and the Berlengas islands.",
       descES: "Vistas impresionantes al Atlántico y las islas Berlengas.",
@@ -501,6 +482,7 @@ const data = {
     },
     {
       nome: "Castelo de Óbidos",
+      img: "images/locais/castelo-de-obidos.jpg",
       descPT: "Vila medieval encantadora com muralhas intactas, a cerca de 25 minutos de Peniche.",
       descEN: "Charming medieval walled village, about 25 minutes away.",
       descES: "Encantadora villa medieval amurallada, a unos 25 minutos.",
@@ -510,6 +492,7 @@ const data = {
     },
     {
       nome: "Dino Parque da Lourinhã",
+      img: "images/locais/dino-parque-lourinha.jpg",
       descPT: "Parque temático com dinossauros em tamanho real, ótimo para famílias.",
       descEN: "Outdoor dinosaur theme park, great for families.",
       descES: "Parque temático con dinosaurios a tamaño real, ideal para familias.",
@@ -519,6 +502,7 @@ const data = {
     },
     {
       nome: "Jardim Buddha Eden",
+      img: "images/locais/jardim-buddha-eden.jpg",
       descPT: "Grande jardim oriental com esculturas, lagos e budas gigantes.",
       descEN: "Huge oriental garden with giant sculptures, lakes and buddhas.",
       descES: "Enorme jardín oriental con esculturas gigantes, lagos y budas.",
@@ -528,6 +512,7 @@ const data = {
     },
     {
       nome: "Praia da Foz do Arelho",
+      img: "images/locais/praia-da-foz-do-arelho.jpg",
       descPT: "Onde a lagoa de Óbidos encontra o mar — ótima para famílias e desportos náuticos.",
       descEN: "Where the Óbidos lagoon meets the sea — great for families and water sports.",
       descES: "Donde la laguna de Óbidos se encuentra con el mar — ideal para familias y deportes náuticos.",
@@ -581,92 +566,6 @@ const data = {
       descFR: "Pratique pour les courses rapides du quotidien à bons prix.",
       tipVB: "Muito perto do centro — ideal quando só precisas de algumas coisas.",
       mapa: "Aldi Peniche"
-    }
-  ],
-  Farmacias: [
-    {
-      nome: "Farmácia Central",
-      descPT: "Farmácia no centro de Peniche, na Rua José Estevão.",
-      descEN: "Pharmacy in central Peniche, on Rua José Estevão.",
-      descES: "Farmacia en el centro de Peniche, en la Rua José Estevão.",
-      descFR: "Pharmacie au centre de Peniche, Rua José Estevão.",
-      tipVB: "Fica mesmo no centro da cidade — fácil de combinar com outras compras.",
-      mapa: "Farmácia Central, Rua José Estevão 16, Peniche",
-      telefone: "262782135",
-      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
-      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
-    },
-    {
-      nome: "Farmácia Proença",
-      descPT: "Farmácia na Praça Jacob Rodrigues Pereira, junto à zona da Ajuda.",
-      descEN: "Pharmacy on Praça Jacob Rodrigues Pereira, near Ajuda.",
-      descES: "Farmacia en la Praça Jacob Rodrigues Pereira, cerca de Ajuda.",
-      descFR: "Pharmacie sur la Praça Jacob Rodrigues Pereira, près d'Ajuda.",
-      tipVB: "Costuma ter horário alargado — boa opção se precisares mais tarde.",
-      mapa: "Farmácia Proença, Praça Jacob Rodrigues Pereira 14-15, Peniche",
-      telefone: "262782100",
-      horarioPT: "Aproximadamente 09:00–19:00 (confirma localmente, pode variar).",
-      horarioEN: "Roughly 09:00–19:00 (please confirm locally, may vary)."
-    },
-    {
-      nome: "Farmácia Higiénica",
-      descPT: "Farmácia na Rua António da Conceição Bento, em Peniche.",
-      descEN: "Pharmacy on Rua António da Conceição Bento, in Peniche.",
-      descES: "Farmacia en la Rua António da Conceição Bento, en Peniche.",
-      descFR: "Pharmacie Rua António da Conceição Bento, à Peniche.",
-      tipVB: "Boa opção alternativa se a farmácia central estiver cheia.",
-      mapa: "Farmácia Higiénica, Rua António da Conceição Bento 21-B, Peniche",
-      telefone: "262782415",
-      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
-      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
-    },
-    {
-      nome: "Farmácia Santo Estêvão",
-      descPT: "Farmácia em Ferrel, muito perto do VanBerto's Beach House.",
-      descEN: "Pharmacy in Ferrel, very close to VanBerto's Beach House.",
-      descES: "Farmacia en Ferrel, muy cerca de VanBerto's Beach House.",
-      descFR: "Pharmacie à Ferrel, tout près de VanBerto's Beach House.",
-      tipVB: "A mais perto de casa! Ótima para uma emergência rápida sem ires até Peniche.",
-      mapa: "Farmácia Santo Estêvão, Rua do Brejo 6-B, Ferrel, Peniche",
-      telefone: "262758029",
-      horarioPT: "Aproximadamente 09:00–13:00 e 14:30–19:30 (confirma localmente).",
-      horarioEN: "Roughly 09:00–13:00 and 14:30–19:30 (please confirm locally)."
-    },
-    {
-      nome: "Farmácia Serra",
-      descPT: "Farmácia em Serra d'El-Rei, na Avenida da Liberdade (EN 114).",
-      descEN: "Pharmacy in Serra d'El-Rei, on Avenida da Liberdade (EN 114).",
-      descES: "Farmacia en Serra d'El-Rei, en la Avenida da Liberdade (EN 114).",
-      descFR: "Pharmacie à Serra d'El-Rei, Avenida da Liberdade (EN 114).",
-      tipVB: "Útil se estiveres a passar por Serra d'El-Rei ou vindo de Óbidos.",
-      mapa: "Farmácia Serra, Avenida da Liberdade 78, Serra d'El-Rei",
-      telefone: "262909122",
-      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
-      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
-    },
-    {
-      nome: "Farmácia Santa Luzia",
-      descPT: "Farmácia em Atouguia da Baleia, junto à Praça Geraldes.",
-      descEN: "Pharmacy in Atouguia da Baleia, near Praça Geraldes.",
-      descES: "Farmacia en Atouguia da Baleia, junto a la Praça Geraldes.",
-      descFR: "Pharmacie à Atouguia da Baleia, près de la Praça Geraldes.",
-      tipVB: "Boa opção se estiveres do lado de Atouguia da Baleia.",
-      mapa: "Farmácia Santa Luzia, Praça Geraldes 1, Atouguia da Baleia",
-      telefone: "262769265",
-      horarioPT: "Aproximadamente 09:00–13:00 e 15:00–20:00 (confirma localmente).",
-      horarioEN: "Roughly 09:00–13:00 and 15:00–20:00 (please confirm locally)."
-    },
-    {
-      nome: "Farmácia Confiança",
-      descPT: "Farmácia na Rua José Augusto Vaz, do lado de Atouguia da Baleia.",
-      descEN: "Pharmacy on Rua José Augusto Vaz, on the Atouguia da Baleia side.",
-      descES: "Farmacia en la Rua José Augusto Vaz, del lado de Atouguia da Baleia.",
-      descFR: "Pharmacie Rua José Augusto Vaz, côté Atouguia da Baleia.",
-      tipVB: "Mais uma opção se as farmácias do centro estiverem fechadas.",
-      mapa: "Farmácia Confiança, Rua José Augusto Vaz 5, Atouguia da Baleia",
-      telefone: "262759171",
-      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
-      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
     }
   ],
   Restaurantes: [
@@ -799,6 +698,54 @@ const data = {
       mapa: "Churrasqueira Vó Dina Peniche"
     }
   ],
+  FastFood: [
+    {
+      nome: "Burger King",
+      descPT: "Fast-food internacional perto da zona comercial de Peniche.",
+      descEN: "International fast-food near Peniche's commercial area.",
+      descES: "Comida rápida internacional cerca de la zona comercial de Peniche.",
+      descFR: "Restauration rapide internationale près de la zone commerciale de Peniche.",
+      tipVB: "Quando as crianças insistem! Fica no centro comercial a 5 minutos de carro.",
+      mapa: "Burger King Peniche"
+    },
+    {
+      nome: "Telepizza 🍕",
+      descPT: "Pizzas para levar ou pedir entrega em casa — rápido e prático.",
+      descEN: "Pizza for takeaway or home delivery — quick and convenient.",
+      descES: "Pizzas para llevar o pedir a domicilio — rápido y práctico.",
+      descFR: "Pizzas à emporter ou en livraison — rapide et pratique.",
+      tipVB: "Boa opção para quando estão todos cansados e querem uma noite de filme com pizza!",
+      mapa: "Telepizza Peniche"
+    },
+    {
+      nome: "Duna Kebab",
+      descPT: "Kebabs e refeições rápidas muito populares entre os surfistas.",
+      descEN: "Kebabs and quick meals very popular with surfers.",
+      descES: "Kebabs y comidas rápidas muy populares entre los surfistas.",
+      descFR: "Kebabs et repas rapides très populaires parmi les surfeurs.",
+      tipVB: "Depois de um dia de surf, um kebab grande resolve tudo! Atende tarde — ótimo para saídas noturnas.",
+      mapa: "Duna Kebab Peniche"
+    },
+    {
+      nome: "Yo-Yo Kebab e Pizzas 🍕",
+      descPT: "Kebabs, pizzas e hambúrgueres — boa variedade para toda a família.",
+      descEN: "Kebabs, pizzas and burgers — great variety for the whole family.",
+      descES: "Kebabs, pizzas y hamburguesas — gran variedad para toda la familia.",
+      descFR: "Kebabs, pizzas et burgers — grande variété pour toute la famille.",
+      tipVB: "Prático e rápido quando o tempo escasseia. As pizzas são surpreendentemente boas!",
+      mapa: "Yo Yo Kebab Peniche"
+    },
+    {
+      nome: "Boina Verde Snack-Bar",
+      descPT: "Petiscos e refeições rápidas num ambiente local e descontraído.",
+      descEN: "Snacks and quick meals in a local, relaxed setting.",
+      descES: "Tapas y comidas rápidas en un ambiente local y relajado.",
+      descFR: "Snacks et repas rapides dans un cadre local et décontracté.",
+      tipVB: "Um sítio simpático para um almoço rápido e sem pretensões. Os bifanas são muito bons!",
+      mapa: "Boina Verde Peniche"
+    }
+
+  ],
   Bares: [
     {
       nome: "Danau Beach Bar",
@@ -881,54 +828,6 @@ const data = {
       tipVB: "Ótimo para um almoço descontraído de pés na areia — os batidos são deliciosos!",
       mapa: "Bananas Beach Bar Baleal"
     }
-  ],
-  FastFood: [
-    {
-      nome: "Burger King",
-      descPT: "Fast-food internacional perto da zona comercial de Peniche.",
-      descEN: "International fast-food near Peniche's commercial area.",
-      descES: "Comida rápida internacional cerca de la zona comercial de Peniche.",
-      descFR: "Restauration rapide internationale près de la zone commerciale de Peniche.",
-      tipVB: "Quando as crianças insistem! Fica no centro comercial a 5 minutos de carro.",
-      mapa: "Burger King Peniche"
-    },
-    {
-      nome: "Telepizza 🍕",
-      descPT: "Pizzas para levar ou pedir entrega em casa — rápido e prático.",
-      descEN: "Pizza for takeaway or home delivery — quick and convenient.",
-      descES: "Pizzas para llevar o pedir a domicilio — rápido y práctico.",
-      descFR: "Pizzas à emporter ou en livraison — rapide et pratique.",
-      tipVB: "Boa opção para quando estão todos cansados e querem uma noite de filme com pizza!",
-      mapa: "Telepizza Peniche"
-    },
-    {
-      nome: "Duna Kebab",
-      descPT: "Kebabs e refeições rápidas muito populares entre os surfistas.",
-      descEN: "Kebabs and quick meals very popular with surfers.",
-      descES: "Kebabs y comidas rápidas muy populares entre los surfistas.",
-      descFR: "Kebabs et repas rapides très populaires parmi les surfeurs.",
-      tipVB: "Depois de um dia de surf, um kebab grande resolve tudo! Atende tarde — ótimo para saídas noturnas.",
-      mapa: "Duna Kebab Peniche"
-    },
-    {
-      nome: "Yo-Yo Kebab e Pizzas 🍕",
-      descPT: "Kebabs, pizzas e hambúrgueres — boa variedade para toda a família.",
-      descEN: "Kebabs, pizzas and burgers — great variety for the whole family.",
-      descES: "Kebabs, pizzas y hamburguesas — gran variedad para toda la familia.",
-      descFR: "Kebabs, pizzas et burgers — grande variété pour toute la famille.",
-      tipVB: "Prático e rápido quando o tempo escasseia. As pizzas são surpreendentemente boas!",
-      mapa: "Yo Yo Kebab Peniche"
-    },
-    {
-      nome: "Boina Verde Snack-Bar",
-      descPT: "Petiscos e refeições rápidas num ambiente local e descontraído.",
-      descEN: "Snacks and quick meals in a local, relaxed setting.",
-      descES: "Tapas y comidas rápidas en un ambiente local y relajado.",
-      descFR: "Snacks et repas rapides dans un cadre local et décontracté.",
-      tipVB: "Um sítio simpático para um almoço rápido e sem pretensões. Os bifanas são muito bons!",
-      mapa: "Boina Verde Peniche"
-    }
-
   ],
   Eventos: [{
       nome: "Mercado Municipal de Peniche",
@@ -1154,7 +1053,93 @@ const data = {
       mapa: "Ilha do Baleal",
       local: "Baleal"
     }
-]
+],
+  Farmacias: [
+    {
+      nome: "Farmácia Central",
+      descPT: "Farmácia no centro de Peniche, na Rua José Estevão.",
+      descEN: "Pharmacy in central Peniche, on Rua José Estevão.",
+      descES: "Farmacia en el centro de Peniche, en la Rua José Estevão.",
+      descFR: "Pharmacie au centre de Peniche, Rua José Estevão.",
+      tipVB: "Fica mesmo no centro da cidade — fácil de combinar com outras compras.",
+      mapa: "Farmácia Central, Rua José Estevão 16, Peniche",
+      telefone: "262782135",
+      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
+      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
+    },
+    {
+      nome: "Farmácia Proença",
+      descPT: "Farmácia na Praça Jacob Rodrigues Pereira, junto à zona da Ajuda.",
+      descEN: "Pharmacy on Praça Jacob Rodrigues Pereira, near Ajuda.",
+      descES: "Farmacia en la Praça Jacob Rodrigues Pereira, cerca de Ajuda.",
+      descFR: "Pharmacie sur la Praça Jacob Rodrigues Pereira, près d'Ajuda.",
+      tipVB: "Costuma ter horário alargado — boa opção se precisares mais tarde.",
+      mapa: "Farmácia Proença, Praça Jacob Rodrigues Pereira 14-15, Peniche",
+      telefone: "262782100",
+      horarioPT: "Aproximadamente 09:00–19:00 (confirma localmente, pode variar).",
+      horarioEN: "Roughly 09:00–19:00 (please confirm locally, may vary)."
+    },
+    {
+      nome: "Farmácia Higiénica",
+      descPT: "Farmácia na Rua António da Conceição Bento, em Peniche.",
+      descEN: "Pharmacy on Rua António da Conceição Bento, in Peniche.",
+      descES: "Farmacia en la Rua António da Conceição Bento, en Peniche.",
+      descFR: "Pharmacie Rua António da Conceição Bento, à Peniche.",
+      tipVB: "Boa opção alternativa se a farmácia central estiver cheia.",
+      mapa: "Farmácia Higiénica, Rua António da Conceição Bento 21-B, Peniche",
+      telefone: "262782415",
+      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
+      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
+    },
+    {
+      nome: "Farmácia Santo Estêvão",
+      descPT: "Farmácia em Ferrel, muito perto do VanBerto's Beach House.",
+      descEN: "Pharmacy in Ferrel, very close to VanBerto's Beach House.",
+      descES: "Farmacia en Ferrel, muy cerca de VanBerto's Beach House.",
+      descFR: "Pharmacie à Ferrel, tout près de VanBerto's Beach House.",
+      tipVB: "A mais perto de casa! Ótima para uma emergência rápida sem ires até Peniche.",
+      mapa: "Farmácia Santo Estêvão, Rua do Brejo 6-B, Ferrel, Peniche",
+      telefone: "262758029",
+      horarioPT: "Aproximadamente 09:00–13:00 e 14:30–19:30 (confirma localmente).",
+      horarioEN: "Roughly 09:00–13:00 and 14:30–19:30 (please confirm locally)."
+    },
+    {
+      nome: "Farmácia Serra",
+      descPT: "Farmácia em Serra d'El-Rei, na Avenida da Liberdade (EN 114).",
+      descEN: "Pharmacy in Serra d'El-Rei, on Avenida da Liberdade (EN 114).",
+      descES: "Farmacia en Serra d'El-Rei, en la Avenida da Liberdade (EN 114).",
+      descFR: "Pharmacie à Serra d'El-Rei, Avenida da Liberdade (EN 114).",
+      tipVB: "Útil se estiveres a passar por Serra d'El-Rei ou vindo de Óbidos.",
+      mapa: "Farmácia Serra, Avenida da Liberdade 78, Serra d'El-Rei",
+      telefone: "262909122",
+      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
+      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
+    },
+    {
+      nome: "Farmácia Santa Luzia",
+      descPT: "Farmácia em Atouguia da Baleia, junto à Praça Geraldes.",
+      descEN: "Pharmacy in Atouguia da Baleia, near Praça Geraldes.",
+      descES: "Farmacia en Atouguia da Baleia, junto a la Praça Geraldes.",
+      descFR: "Pharmacie à Atouguia da Baleia, près de la Praça Geraldes.",
+      tipVB: "Boa opção se estiveres do lado de Atouguia da Baleia.",
+      mapa: "Farmácia Santa Luzia, Praça Geraldes 1, Atouguia da Baleia",
+      telefone: "262769265",
+      horarioPT: "Aproximadamente 09:00–13:00 e 15:00–20:00 (confirma localmente).",
+      horarioEN: "Roughly 09:00–13:00 and 15:00–20:00 (please confirm locally)."
+    },
+    {
+      nome: "Farmácia Confiança",
+      descPT: "Farmácia na Rua José Augusto Vaz, do lado de Atouguia da Baleia.",
+      descEN: "Pharmacy on Rua José Augusto Vaz, on the Atouguia da Baleia side.",
+      descES: "Farmacia en la Rua José Augusto Vaz, del lado de Atouguia da Baleia.",
+      descFR: "Pharmacie Rua José Augusto Vaz, côté Atouguia da Baleia.",
+      tipVB: "Mais uma opção se as farmácias do centro estiverem fechadas.",
+      mapa: "Farmácia Confiança, Rua José Augusto Vaz 5, Atouguia da Baleia",
+      telefone: "262759171",
+      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
+      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
+    }
+  ],
 };
 
 // --------- UTILITÁRIAS ---------
@@ -1167,7 +1152,7 @@ function labelCategoria(cat) {
       Restaurantes: "Restaurantes",
       Churrasqueiras: "Churrasqueiras",
       Bares: "Bares",
-      FastFood: "Fast-Food",
+      FastFood: "Fast Food",
       Farmacias: "Farmácias",
       Eventos: "Eventos"
     },
@@ -1277,10 +1262,10 @@ function gerarCategoriasPrincipais() {
   cardsContainer.innerHTML = "";
   cardsContainer.classList.add("cards-home");
   cardsContainer.classList.remove("cards-praias");
+  cardsContainer.classList.remove("cards-locais");
   Object.keys(data).forEach(cat => {
     const label = labelCategoria(cat);
     const badgeLabel = labelCategoriaCurta(cat);
-    const emoji = badgeEmojiByCat[cat] || "📍";
     const photo = photoByCat[cat] || imgByCat[cat];
 
     const card = document.createElement("article");
@@ -1291,7 +1276,6 @@ function gerarCategoriasPrincipais() {
       <div class="card-photo-wrap">
         <img class="card-img-photo" src="${photo}" alt="${label}" loading="lazy" />
         <span class="card-photo-badge">
-          <span class="card-photo-badge-emoji" aria-hidden="true">${emoji}</span>
           <span class="card-photo-badge-text">${badgeLabel}</span>
         </span>
       </div>
@@ -1339,6 +1323,7 @@ function gerarCardsDeCategoria(cat) {
   cardsContainer.innerHTML = "";
   cardsContainer.classList.remove("cards-home");
   cardsContainer.classList.toggle("cards-praias", cat === "Praias");
+  cardsContainer.classList.toggle("cards-locais", cat === "Locais");
   const lista = data[cat] || [];
   const labelCat = labelCategoria(cat);
   const icon = iconByCat[cat] || "📍";
@@ -1358,7 +1343,7 @@ function gerarCardsDeCategoria(cat) {
 
       if (temFotoReal) {
         card.innerHTML = `
-          <div class="card-title-top">${item.nome}</div>
+          <div class="card-title-top-wrap"><div class="card-title-top">${item.nome}</div></div>
           <img class="card-img-real" src="${img}" alt="${item.nome}" loading="lazy" />
           <div class="card-desc card-desc-photo card-has-icon">${descText}</div>
           <span class="card-corner-icon" aria-hidden="true"></span>
@@ -1394,6 +1379,7 @@ function gerarFavoritos() {
   cardsContainer.innerHTML = "";
   cardsContainer.classList.remove("cards-home");
   cardsContainer.classList.remove("cards-praias");
+  cardsContainer.classList.remove("cards-locais");
   const itens = [];
   Object.keys(data).forEach(cat => {
     (data[cat] || []).forEach(item => {
@@ -1431,7 +1417,7 @@ function gerarFavoritos() {
 
       if (temFotoReal) {
         card.innerHTML = `
-          <div class="card-title-top">${item.nome}</div>
+          <div class="card-title-top-wrap"><div class="card-title-top">${item.nome}</div></div>
           <img class="card-img-real" src="${img}" alt="${item.nome}" loading="lazy" />
           <div class="card-desc card-desc-photo">${descText}</div>
           <div class="card-footer">

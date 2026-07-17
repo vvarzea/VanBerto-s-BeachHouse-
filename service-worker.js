@@ -1,5 +1,5 @@
 /* VanBerto's PWA Service Worker (offline-first, mas sempre atualizado quando há rede) */
-const CACHE_VERSION = "vanbertos-v20";
+const CACHE_VERSION = "vanbertos-v25";
 const FONTS_CACHE = "vanbertos-fonts-v1";
 const CORE_ASSETS = [
   "./",
