@@ -145,6 +145,7 @@ const shareFavsBtn = document.getElementById("btn-share-favs");
 
 // Modal
 const modal = document.getElementById("detail-modal");
+const modalDialog = modal ? modal.querySelector(".modal-dialog") : null;
 const modalCloseBtn = document.getElementById("modal-close-btn");
 const modalTitle = document.getElementById("modal-title");
 const modalCategory = document.getElementById("modal-category");
@@ -348,6 +349,26 @@ function escapeXml(s) {
 // --------- DADOS (PT + EN + ES + FR + Dicas VanBerto's) ---------
 const data = {
   Praias: [
+    {
+      nome: "Praia da Baía",
+      img: "images/praias/praia-da-baia.jpg",
+      descPT: "Praia extensa na baía entre Peniche e o Baleal, com vista para a vila do Baleal ao fundo.",
+      descEN: "Long beach in the bay between Peniche and Baleal, with views of Baleal village in the distance.",
+      descES: "Playa extensa en la bahía entre Peniche y Baleal, con vistas al pueblo de Baleal al fondo.",
+      descFR: "Longue plage dans la baie entre Peniche et Baleal, avec vue sur le village de Baleal au loin.",
+      tipVB: "Ótima para um passeio a pé ao fim da tarde — a luz sobre a baía com o Baleal ao fundo é linda.",
+      mapa: "Praia da Baía Peniche"
+    },
+    {
+      nome: "Praia da Cova da Alfarroba",
+      img: "images/praias/praia-da-cova-da-alfarroba.jpg",
+      descPT: "Praia extensa de dunas, a meio da baía entre Peniche e o Baleal. Bandeira Azul, com boas infraestruturas de apoio.",
+      descEN: "Long dune-backed beach, midway through the bay between Peniche and Baleal. Blue Flag, with good facilities.",
+      descES: "Playa extensa de dunas, a medio camino de la bahía entre Peniche y Baleal. Bandera Azul, con buenas infraestructuras de apoyo.",
+      descFR: "Longue plage de dunes, à mi-chemin dans la baie entre Peniche et Baleal. Pavillon Bleu, avec de bonnes infrastructures d'accueil.",
+      tipVB: "Boa opção para surf mais tranquilo e para quem gosta de pesca desportiva — tem também bar e restaurante na praia.",
+      mapa: "Praia da Cova da Alfarroba Peniche"
+    },
     {
       nome: "Praia do Baleal – Norte e Sul",
       img: "images/praias/praia-do-baleal-norte-sul.jpg",
@@ -1846,8 +1867,9 @@ function abrirModal(cat, item) {
   }
 
   // Evento: mostra/oculta separador e painel
+  const isEvent = cat === "Eventos";
+  if (modalDialog) modalDialog.classList.toggle("simple-layout", !isEvent);
   if (tabEvent) {
-    const isEvent = cat === "Eventos";
     tabEvent.style.display = isEvent ? "" : "none";
     const panelEvent = document.getElementById("panel-event");
     if (panelEvent) panelEvent.style.display = isEvent ? "" : "none";
@@ -2120,6 +2142,8 @@ function atualizarTextosEstaticos() {
 
   tabInfo.textContent = t.tabInfo;
   tabMap.textContent = t.tabMap;
+  const modalMapHeadingEl = document.getElementById("modal-map-heading");
+  if (modalMapHeadingEl) modalMapHeadingEl.textContent = t.tabMap;
 
   // Textos do modal (os restantes são preenchidos quando abre)
   if (qrTitle) qrTitle.textContent = t.qrTitle;

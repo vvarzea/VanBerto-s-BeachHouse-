@@ -292,11 +292,12 @@
     <div class="modal-dialog" role="dialog" aria-modal="true">
       <button class="modal-close" id="modal-close-btn" aria-label="Fechar">✕</button>
 
-      <img id="modal-photo" class="modal-photo" alt="" loading="lazy" referrerpolicy="no-referrer" hidden>
-
       <div class="modal-header">
         <h2 id="modal-title">Nome do local</h2>
       </div>
+
+      <img id="modal-photo" class="modal-photo" alt="" loading="lazy" referrerpolicy="no-referrer" hidden>
+
       <p class="modal-category" id="modal-category"></p>
 
       <!-- Dica da Vanda e do Berto -->
@@ -345,6 +346,7 @@
         </div>
 
         <div class="tab-panel" id="panel-map">
+          <p class="modal-map-heading" id="modal-map-heading">Mapa</p>
           <div class="map-preview">
             <iframe id="modal-map-iframe" title="Mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <div id="map-offline-msg" class="map-offline-msg" hidden>
