@@ -399,26 +399,46 @@ header {
     line-height: 1.35;
   }
 
-  /* Lista de Praias/Locais (cartões com foto) em smartphone: 2 por linha em vez de 1 */
+  /* Lista de Praias/Locais/Supermercados/Restaurantes/Churrasqueiras/FastFood/Eventos (cartões com foto) em smartphone: 2 por linha em vez de 1 */
   .cards.cards-praias,
-  .cards.cards-locais {
+  .cards.cards-locais,
+  .cards.cards-supermercados,
+  .cards.cards-restaurantes,
+  .cards.cards-churrasqueiras,
+  .cards.cards-fastfood,
+  .cards.cards-eventos {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
   .cards-praias .card,
-  .cards-locais .card {
+  .cards-locais .card,
+  .cards-supermercados .card,
+  .cards-restaurantes .card,
+  .cards-churrasqueiras .card,
+  .cards-fastfood .card,
+  .cards-eventos .card {
     padding: 8px 9px 10px;
     min-height: 0;
   }
 
   .cards-praias .card-title-top-wrap,
-  .cards-locais .card-title-top-wrap {
+  .cards-locais .card-title-top-wrap,
+  .cards-supermercados .card-title-top-wrap,
+  .cards-restaurantes .card-title-top-wrap,
+  .cards-churrasqueiras .card-title-top-wrap,
+  .cards-fastfood .card-title-top-wrap,
+  .cards-eventos .card-title-top-wrap {
     min-height: 31.25px; /* 2 linhas a 12.5px/1.25 */
   }
 
   .cards-praias .card-title-top,
-  .cards-locais .card-title-top {
+  .cards-locais .card-title-top,
+  .cards-supermercados .card-title-top,
+  .cards-restaurantes .card-title-top,
+  .cards-churrasqueiras .card-title-top,
+  .cards-fastfood .card-title-top,
+  .cards-eventos .card-title-top {
     font-size: 12.5px;
     white-space: normal;
     overflow: visible;
@@ -429,36 +449,71 @@ header {
   }
 
   .cards-praias .card-title,
-  .cards-locais .card-title {
+  .cards-locais .card-title,
+  .cards-supermercados .card-title,
+  .cards-restaurantes .card-title,
+  .cards-churrasqueiras .card-title,
+  .cards-fastfood .card-title,
+  .cards-eventos .card-title {
     font-size: 12.5px;
   }
 
   .cards-praias .card-ico,
-  .cards-locais .card-ico {
+  .cards-locais .card-ico,
+  .cards-supermercados .card-ico,
+  .cards-restaurantes .card-ico,
+  .cards-churrasqueiras .card-ico,
+  .cards-fastfood .card-ico,
+  .cards-eventos .card-ico {
     font-size: 18px;
   }
 
   .cards-praias .card-desc-photo,
   .cards-praias .card-desc,
   .cards-locais .card-desc-photo,
-  .cards-locais .card-desc {
+  .cards-locais .card-desc,
+  .cards-supermercados .card-desc-photo,
+  .cards-supermercados .card-desc,
+  .cards-restaurantes .card-desc-photo,
+  .cards-restaurantes .card-desc,
+  .cards-churrasqueiras .card-desc-photo,
+  .cards-churrasqueiras .card-desc,
+  .cards-fastfood .card-desc-photo,
+  .cards-fastfood .card-desc,
+  .cards-eventos .card-desc-photo,
+  .cards-eventos .card-desc {
     font-size: 10.5px;
     line-height: 1.3;
     /* sem line-clamp: melhor um cartão um pouco mais alto do que texto cortado com "…" */
   }
 
   .cards-praias .card-category,
-  .cards-locais .card-category {
+  .cards-locais .card-category,
+  .cards-supermercados .card-category,
+  .cards-restaurantes .card-category,
+  .cards-churrasqueiras .card-category,
+  .cards-fastfood .card-category,
+  .cards-eventos .card-category {
     font-size: 10px;
   }
 
   .cards-praias .card-has-icon,
-  .cards-locais .card-has-icon {
+  .cards-locais .card-has-icon,
+  .cards-supermercados .card-has-icon,
+  .cards-restaurantes .card-has-icon,
+  .cards-churrasqueiras .card-has-icon,
+  .cards-fastfood .card-has-icon,
+  .cards-eventos .card-has-icon {
     padding-bottom: 26px;
   }
 
   .cards-praias .card-corner-icon,
-  .cards-locais .card-corner-icon {
+  .cards-locais .card-corner-icon,
+  .cards-supermercados .card-corner-icon,
+  .cards-restaurantes .card-corner-icon,
+  .cards-churrasqueiras .card-corner-icon,
+  .cards-fastfood .card-corner-icon,
+  .cards-eventos .card-corner-icon {
     width: 20px;
     height: 20px;
     right: 8px;
@@ -466,7 +521,12 @@ header {
   }
 
   .cards-praias .card-corner-icon::before,
-  .cards-locais .card-corner-icon::before {
+  .cards-locais .card-corner-icon::before,
+  .cards-supermercados .card-corner-icon::before,
+  .cards-restaurantes .card-corner-icon::before,
+  .cards-churrasqueiras .card-corner-icon::before,
+  .cards-fastfood .card-corner-icon::before,
+  .cards-eventos .card-corner-icon::before {
     font-size: 13px;
   }
 }

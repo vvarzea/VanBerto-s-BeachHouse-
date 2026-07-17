@@ -288,7 +288,7 @@ const photoByCat = {
   Bares: "images/bares/bar.jpg",
   FastFood: "images/fastfood/fast-food.jpg",
   Farmacias: "images/farmacias/farmacia.jpg",
-  Eventos: "images/eventos/evento.jpg"
+  Eventos: "images/eventos/baleal-offshore-beats.jpg"
 };
 
 function labelCategoriaCurta(cat) {
@@ -524,6 +524,7 @@ const data = {
   Supermercados: [
     {
       nome: "Continente",
+      img: "images/supermercados/continente.jpg",
       descPT: "Maior supermercado de Peniche, com grande variedade de produtos.",
       descEN: "Largest supermarket in Peniche with a wide variety.",
       descES: "El supermercado más grande de Peniche, con gran variedad.",
@@ -533,6 +534,7 @@ const data = {
     },
     {
       nome: "Pingo Doce",
+      img: "images/supermercados/pingo-doce.jpg",
       descPT: "Bons produtos frescos e preços competitivos.",
       descEN: "Good fresh produce and competitive prices.",
       descES: "Buenos productos frescos y precios competitivos.",
@@ -542,6 +544,7 @@ const data = {
     },
     {
       nome: "Lidl",
+      img: "images/supermercados/lidl.jpg",
       descPT: "Opção económica com produtos essenciais e boas promoções semanais.",
       descEN: "Budget-friendly with essentials and good weekly deals.",
       descES: "Opción económica con esenciales y buenas ofertas semanales.",
@@ -551,6 +554,7 @@ const data = {
     },
     {
       nome: "Intermarché",
+      img: "images/supermercados/intermarche.jpg",
       descPT: "Supermercado completo com talho, peixaria e posto de combustível.",
       descEN: "Full supermarket with butcher, fishmonger and petrol station.",
       descES: "Supermercado completo con carnicería, pescadería y gasolinera.",
@@ -560,6 +564,7 @@ const data = {
     },
     {
       nome: "Aldi",
+      img: "images/supermercados/aldi.jpg",
       descPT: "Prático para compras rápidas do dia-a-dia com bons preços.",
       descEN: "Practical for quick everyday shopping at good prices.",
       descES: "Práctico para compras rápidas del día a día a buenos precios.",
@@ -571,6 +576,7 @@ const data = {
   Restaurantes: [
     {
       nome: "Tasca do Joel",
+      img: "images/restaurantes/tasca-do-joel.jpg",
       descPT: "Restaurante clássico de Peniche para peixe fresco e marisco. Ambiente familiar e autêntico.",
       descEN: "Classic Peniche restaurant for fresh fish and seafood. Family and authentic feel.",
       descES: "Restaurante clásico de Peniche para pescado fresco y marisco. Ambiente familiar y auténtico.",
@@ -580,6 +586,7 @@ const data = {
     },
     {
       nome: "Taberna do Ganhão",
+      img: "images/restaurantes/taberna-do-ganhao.jpg",
       descPT: "Petiscos e pratos típicos portugueses num espaço acolhedor e descontraído.",
       descEN: "Traditional Portuguese tapas and dishes in a warm, relaxed space.",
       descES: "Tapas y platos típicos portugueses en un espacio acogedor y relajado.",
@@ -589,6 +596,7 @@ const data = {
     },
     {
       nome: "O Pedro",
+      img: "images/restaurantes/o-pedro.jpg",
       descPT: "Excelente peixe grelhado e comida tradicional portuguesa com preços honestos.",
       descEN: "Excellent grilled fish and local cuisine at honest prices.",
       descES: "Excelente pescado a la brasa y cocina tradicional portuguesa a precios honestos.",
@@ -598,6 +606,7 @@ const data = {
     },
     {
       nome: "D Raiz",
+      img: "images/restaurantes/d-raiz.jpg",
       descPT: "Cozinha moderna com sabores regionais e ingredientes locais.",
       descEN: "Modern cuisine with regional flavours and local ingredients.",
       descES: "Cocina moderna con sabores regionales e ingredientes locales.",
@@ -607,6 +616,7 @@ const data = {
     },
     {
       nome: "Italiano O Outro",
+      img: "images/restaurantes/italiano-o-outro.jpg",
       descPT: "Massas artesanais e pizzas num ambiente descontraído. Ótimo para famílias.",
       descEN: "Handmade pasta and pizzas in a relaxed atmosphere. Great for families.",
       descES: "Pasta artesanal y pizzas en ambiente relajado. Perfecto para familias.",
@@ -616,6 +626,7 @@ const data = {
     },
     {
       nome: "Mundano Baleal",
+      img: "images/restaurantes/mundano-baleal.jpg",
       descPT: "Restaurante jovem com vista para o mar, cocktails e ambiente animado.",
       descEN: "Trendy spot with sea view, cocktails and a lively vibe.",
       descES: "Restaurante moderno con vista al mar, cócteles y ambiente animado.",
@@ -625,6 +636,7 @@ const data = {
     },
     {
       nome: "Maresia",
+      img: "images/restaurantes/maresia.jpg",
       descPT: "Restaurante mesmo na praia do Baleal, com boa comida e ambiente de verão.",
       descEN: "Right on Baleal beach, good food and summer vibes.",
       descES: "Justo en la playa de Baleal, buena comida y ambiente veraniego.",
@@ -633,16 +645,8 @@ const data = {
       mapa: "Maresia Baleal"
     },
     {
-      nome: "Miyabi Sushi",
-      descPT: "Sushi fresco e variado, uma boa alternativa ao peixe grelhado.",
-      descEN: "Fresh and varied sushi, a great alternative to grilled fish.",
-      descES: "Sushi fresco y variado, una buena alternativa al pescado a la brasa.",
-      descFR: "Sushis frais et variés, une bonne alternative au poisson grillé.",
-      tipVB: "Surpreendentemente bom para uma cidade de praia! O sushi de peixe local é muito fresco.",
-      mapa: "Miyabi Sushi Peniche"
-    },
-    {
       nome: "Marisqueira Mirandum",
+      img: "images/restaurantes/marisqueira-mirandum.jpg",
       descPT: "Marisqueira muito procurada pelos visitantes, com marisco fresquíssimo.",
       descEN: "Very popular seafood restaurant with the freshest shellfish.",
       descES: "Marisquería muy popular entre los visitantes, con marisco fresquísimo.",
@@ -652,26 +656,19 @@ const data = {
     },
     {
       nome: "Marisqueira dos Cortiçais",
+      img: "images/restaurantes/marisqueira-dos-corticais.jpg",
       descPT: "Marisco tradicional muito apreciado pelos locais — um sinal de qualidade.",
       descEN: "Traditional seafood, highly appreciated by locals — always a good sign.",
       descES: "Marisco tradicional muy apreciado por los lugareños — siempre buena señal.",
       descFR: "Fruits de mer traditionnels très appréciés des locaux — toujours bon signe.",
       tipVB: "O sítio preferido dos pescadores locais — quando os locais comem lá, é sempre bom sinal!",
       mapa: "Marisqueira dos Cortiçais Peniche"
-    },
-    {
-      nome: "Bateira",
-      descPT: "Restaurante descontraído junto ao mar com bons petiscos e refeições.",
-      descEN: "Relaxed beachside spot for snacks and full meals.",
-      descES: "Lugar relajado junto al mar para tapas y comidas completas.",
-      descFR: "Endroit décontracté en bord de mer pour grignoter ou dîner.",
-      tipVB: "Ótimo para um almoço rápido depois da praia — o prego no pão é muito bom!",
-      mapa: "Restaurante Bateira Peniche"
     }
   ],
   Churrasqueiras: [
     {
       nome: "A Caseirinha",
+      img: "images/churrasqueiras/a-caseirinha.jpg",
       descPT: "Frango de churrasco muito saboroso — um clássico em Peniche.",
       descEN: "Very tasty grilled chicken — a Peniche classic.",
       descES: "Pollo a la brasa muy sabroso — un clásico en Peniche.",
@@ -681,6 +678,7 @@ const data = {
     },
     {
       nome: "Churrasqueira O Nortista",
+      img: "images/churrasqueiras/o-nortista.jpg",
       descPT: "Take-away muito popular entre os residentes, ótimo custo-benefício.",
       descEN: "Popular takeaway among locals, great value for money.",
       descES: "Comida para llevar muy popular entre los residentes, excelente relación calidad-precio.",
@@ -690,6 +688,7 @@ const data = {
     },
     {
       nome: "Churrasqueira Vó Dina",
+      img: "images/churrasqueiras/vo-dina.jpg",
       descPT: "Refeições económicas, bem servidas e com sabor a casa.",
       descEN: "Budget-friendly, generous portions with a home-cooked feel.",
       descES: "Comidas económicas, bien servidas y con sabor casero.",
@@ -701,6 +700,7 @@ const data = {
   FastFood: [
     {
       nome: "Burger King",
+      img: "images/fastfood/burger-king.jpg",
       descPT: "Fast-food internacional perto da zona comercial de Peniche.",
       descEN: "International fast-food near Peniche's commercial area.",
       descES: "Comida rápida internacional cerca de la zona comercial de Peniche.",
@@ -710,6 +710,7 @@ const data = {
     },
     {
       nome: "Telepizza 🍕",
+      img: "images/fastfood/telepizza.jpg",
       descPT: "Pizzas para levar ou pedir entrega em casa — rápido e prático.",
       descEN: "Pizza for takeaway or home delivery — quick and convenient.",
       descES: "Pizzas para llevar o pedir a domicilio — rápido y práctico.",
@@ -719,6 +720,7 @@ const data = {
     },
     {
       nome: "Duna Kebab",
+      img: "images/fastfood/duna-kebab.jpg",
       descPT: "Kebabs e refeições rápidas muito populares entre os surfistas.",
       descEN: "Kebabs and quick meals very popular with surfers.",
       descES: "Kebabs y comidas rápidas muy populares entre los surfistas.",
@@ -728,6 +730,7 @@ const data = {
     },
     {
       nome: "Yo-Yo Kebab e Pizzas 🍕",
+      img: "images/fastfood/yo-yo-kebab-e-pizzas.jpg",
       descPT: "Kebabs, pizzas e hambúrgueres — boa variedade para toda a família.",
       descEN: "Kebabs, pizzas and burgers — great variety for the whole family.",
       descES: "Kebabs, pizzas y hamburguesas — gran variedad para toda la familia.",
@@ -737,6 +740,7 @@ const data = {
     },
     {
       nome: "Boina Verde Snack-Bar",
+      img: "images/fastfood/boina-verde-snack-bar.jpg",
       descPT: "Petiscos e refeições rápidas num ambiente local e descontraído.",
       descEN: "Snacks and quick meals in a local, relaxed setting.",
       descES: "Tapas y comidas rápidas en un ambiente local y relajado.",
@@ -835,7 +839,8 @@ const data = {
       descEN: "Great place to see fresh fish, regional products and the town vibe.",
       descES: "Buen lugar para ver pescado fresco, productos regionales y sentir el ritmo de la ciudad.",
       descFR: "Bon endroit pour voir du poisson frais, des produits régionaux et sentir le rythme de la ville.",
-      mapa: "Mercado Municipal de Peniche"
+      mapa: "Mercado Municipal de Peniche",
+      img: "images/eventos/mercado-municipal-de-peniche.jpg"
     },
     {
       nome: "Cabo Carvoeiro (pôr do sol)",
@@ -851,7 +856,8 @@ const data = {
       descEN: "During event weeks, Supertubos hosts surf competitions. Check posters and social media that week.",
       descES: "Cuando hay pruebas, Supertubos acoge competiciones de surf. Consulta carteles y redes sociales esa semana.",
       descFR: "Lors des semaines d'événements, Supertubos accueille des compétitions de surf. Vérifie les affiches et les réseaux sociaux cette semaine-là.",
-      mapa: "Praia dos Supertubos"
+      mapa: "Praia dos Supertubos",
+      img: "images/eventos/surf-praia-dos-supertubos.jpg"
     }
 ,
     {
@@ -939,7 +945,7 @@ const data = {
       local: "Peniche"
     },
     {
-      nome: "🎉 Festa em honra de N.ª Sr.ª da Boa Viagem (Peniche) — início",
+      nome: "Festa da Boa Viagem",
       descPT: "Festa de Peniche em honra de N.ª Sr.ª da Boa Viagem (datas anunciadas: 10 de julho a 3 de agosto de 2026). Confirma programa.",
       descEN: "Peniche festivities (announced dates: 10 July to 3 Aug 2026). Please confirm programme.",
       descES: "Fiesta de Peniche en honor de Nuestra Señora de la Buena Travesía (fechas anunciadas: 10 de julio a 3 de agosto de 2026). Confirma el programa.",
@@ -948,10 +954,11 @@ const data = {
       dataISO: "2026-07-10",
       horaInicio: "12:00",
       horaFim: "13:00",
-      local: "Peniche"
+      local: "Peniche",
+      img: "images/eventos/festa-nossa-senhora-da-boa-viagem.jpg"
     },
     {
-      nome: "🏛️ Dia do Município / Feriado Municipal de Peniche",
+      nome: "Dia do Município",
       descPT: "Feriado municipal (Dia do Município) — 5 de agosto.",
       descEN: "Municipal holiday (Municipality Day) — 5 August.",
       descES: "Festivo municipal (Día del Municipio) — 5 de agosto.",
@@ -960,7 +967,8 @@ const data = {
       dataISO: "2026-08-05",
       horaInicio: "09:00",
       horaFim: "10:00",
-      local: "Peniche"
+      local: "Peniche",
+      img: "images/eventos/municipio-de-peniche.jpg"
     },
     {
       nome: "🙏 Assunção de Nossa Senhora",
@@ -1035,23 +1043,25 @@ const data = {
       local: "Peniche"
     },
     {
-      nome: "🎶 Baleal Offshore Beats",
+      nome: "Baleal Offshore Beats",
       link: "https://balealoffshorebeats.pt",
       descPT: "Festival no Baleal/Ferrel. Datas variam — consulta a agenda oficial.",
       descEN: "Festival in Baleal/Ferrel. Dates vary — check official agenda.",
       descES: "Festival en Baleal/Ferrel. Las fechas varían — consulta la agenda oficial.",
       descFR: "Festival à Baleal/Ferrel. Les dates varient — consulte l'agenda officiel.",
       mapa: "Baleal Ferrel",
-      local: "Baleal"
+      local: "Baleal",
+      img: "images/eventos/baleal-offshore-beats.jpg"
     },
     {
-      nome: "⛪ Festas de Santo Estêvão (Baleal)",
+      nome: "Festas de Santo Estêvão (Baleal)",
       descPT: "Festas com procissão à volta da ilha. Datas variam — confirma na página oficial.",
       descEN: "Local festivities with procession around the island. Dates vary — please confirm.",
       descES: "Fiestas con procesión alrededor de la isla. Las fechas varían — confirma en la página oficial.",
       descFR: "Fêtes avec procession autour de l'île. Les dates varient — merci de confirmer sur la page officielle.",
       mapa: "Ilha do Baleal",
-      local: "Baleal"
+      local: "Baleal",
+      img: "images/eventos/festa-de-santo-estevao.jpg"
     }
 ],
   Farmacias: [
@@ -1263,6 +1273,11 @@ function gerarCategoriasPrincipais() {
   cardsContainer.classList.add("cards-home");
   cardsContainer.classList.remove("cards-praias");
   cardsContainer.classList.remove("cards-locais");
+  cardsContainer.classList.remove("cards-supermercados");
+  cardsContainer.classList.remove("cards-restaurantes");
+  cardsContainer.classList.remove("cards-churrasqueiras");
+  cardsContainer.classList.remove("cards-fastfood");
+  cardsContainer.classList.remove("cards-eventos");
   Object.keys(data).forEach(cat => {
     const label = labelCategoria(cat);
     const badgeLabel = labelCategoriaCurta(cat);
@@ -1324,6 +1339,11 @@ function gerarCardsDeCategoria(cat) {
   cardsContainer.classList.remove("cards-home");
   cardsContainer.classList.toggle("cards-praias", cat === "Praias");
   cardsContainer.classList.toggle("cards-locais", cat === "Locais");
+  cardsContainer.classList.toggle("cards-supermercados", cat === "Supermercados");
+  cardsContainer.classList.toggle("cards-restaurantes", cat === "Restaurantes");
+  cardsContainer.classList.toggle("cards-churrasqueiras", cat === "Churrasqueiras");
+  cardsContainer.classList.toggle("cards-fastfood", cat === "FastFood");
+  cardsContainer.classList.toggle("cards-eventos", cat === "Eventos");
   const lista = data[cat] || [];
   const labelCat = labelCategoria(cat);
   const icon = iconByCat[cat] || "📍";
@@ -1380,6 +1400,11 @@ function gerarFavoritos() {
   cardsContainer.classList.remove("cards-home");
   cardsContainer.classList.remove("cards-praias");
   cardsContainer.classList.remove("cards-locais");
+  cardsContainer.classList.remove("cards-supermercados");
+  cardsContainer.classList.remove("cards-restaurantes");
+  cardsContainer.classList.remove("cards-churrasqueiras");
+  cardsContainer.classList.remove("cards-fastfood");
+  cardsContainer.classList.remove("cards-eventos");
   const itens = [];
   Object.keys(data).forEach(cat => {
     (data[cat] || []).forEach(item => {
