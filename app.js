@@ -1,6 +1,7 @@
 
 function isFoodBizCategory(cat){
-  return cat === "Restaurantes" || cat === "Bares" || cat === "FastFood" || cat === "Churrasqueiras" || cat === "Farmacias";
+  // Barra de botões rápidos (Ligar / WhatsApp): removida por completo, para todas as categorias.
+  return false;
 }
 
 // --------- LOCALIZAÇÃO DA CASA ---------
@@ -1818,21 +1819,9 @@ function setupQuickActions(item, cat){
   const phone = item.telefone || item.tel || item.phone || "";
   const wa = item.whatsapp || phone;
 
-  // Ligar
-  if(phone){
-    btnCall.hidden = false;
-    btnCall.textContent = getHomeI18n().callBtn;
-    btnCall.onclick = () => {
-      const p = normalizePhone(phone);
-      const digits = p.replace(/[^\d]/g,"");
-      if(digits) window.location.href = "tel:" + digits;
-    };
-  } else {
-    // fallback útil: abre o local no Google Maps para ver contacto
-    btnCall.hidden = false;
-    btnCall.textContent = getHomeI18n().callBtnGoogle;
-    btnCall.onclick = () => window.open(mapsSearchUrl(item), "_blank", "noopener");
-  }
+  // Ligar: removido — esta categoria só mostra o botão de WhatsApp
+  btnCall.hidden = true;
+  btnCall.onclick = null;
 
   // WhatsApp
   const waUrl = waLinkFromPhone(wa);
@@ -1868,7 +1857,41 @@ function mapsSearchUrl(item){
 
 
 // --------- MODAL ---------
+// --------- BLOQUEIO DE SCROLL DE FUNDO (enquanto um modal está aberto) ---------
+// Evita que a página por trás deslize quando se faz scroll dentro de um modal
+// (cartão de detalhes ou modal de QR/favoritos). Usa contador para o caso raro
+// de haver mais do que um modal "aberto" ao mesmo tempo, e a técnica de
+// position:fixed no body (mais fiável no Safari/iOS do que apenas overflow:hidden).
+let __scrollLockCount = 0;
+let __scrollLockY = 0;
+
+function lockBodyScroll() {
+  __scrollLockCount++;
+  if (__scrollLockCount > 1) return; // já estava bloqueado por outro modal
+  __scrollLockY = window.scrollY || window.pageYOffset || 0;
+  document.body.style.position = "fixed";
+  document.body.style.top = (-__scrollLockY) + "px";
+  document.body.style.left = "0";
+  document.body.style.right = "0";
+  document.body.style.width = "100%";
+  document.documentElement.style.overflow = "hidden";
+}
+
+function unlockBodyScroll() {
+  __scrollLockCount = Math.max(0, __scrollLockCount - 1);
+  if (__scrollLockCount > 0) return; // ainda há outro modal aberto
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.left = "";
+  document.body.style.right = "";
+  document.body.style.width = "";
+  document.documentElement.style.overflow = "";
+  window.scrollTo(0, __scrollLockY);
+}
+
 function abrirModal(cat, item) {
+  lockBodyScroll();
+
   // Reset botões rápidos (evita "ficar preso" de modais anteriores)
   if (typeof modalActions !== "undefined" && modalActions) modalActions.hidden = true;
   if (typeof btnCall !== "undefined" && btnCall) { btnCall.hidden = true; btnCall.onclick = null; }
@@ -1947,11 +1970,12 @@ function abrirModal(cat, item) {
     const url =
       "https://www.google.com/maps/search/?api=1&query=" +
       encodeURIComponent(destino);
-    window.location.href = url;
+    window.open(url, "_blank", "noopener");
   };
 }
 
 function fecharModal() {
+  unlockBodyScroll();
   modal.classList.remove("show");
   
   
@@ -1995,8 +2019,11 @@ if (mapOfflineBtn) {
   mapOfflineBtn.addEventListener("click", () => {
     if (!itemAtual) return;
     const destino = itemAtual.mapa || itemAtual.nome;
-    window.location.href =
-      "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destino);
+    window.open(
+      "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destino),
+      "_blank",
+      "noopener"
+    );
   });
 }
 
@@ -2327,7 +2354,7 @@ function abrirTodasNoMapa() {
     "&waypoints=" +
     waypoints;
 
-  window.location.href = url;
+  window.open(url, "_blank", "noopener");
 }
 
 // --------- NAVEGAÇÃO DE CATEGORIAS ---------
@@ -2341,8 +2368,21 @@ function switchCategory(cat, opts = {}) {
   renderAtual();
   try{ toggleEventsCalendar(false); }catch{}
 
-  // Liga a navegação ao histórico do browser, para o botão/gesto "voltar" nativo do telemóvel funcionar
-  if (!opts.fromPopstate && cat !== "tudo") {
+  // Navegação via histórico (gesto/botão físico de voltar do telemóvel): já foi o
+  // próprio browser a mover-se no histórico, por isso não voltamos a tocar nele aqui.
+  if (opts.fromPopstate) return;
+
+  // O botão de voltar da app ("tudo") atualiza sempre o ecrã diretamente e nunca
+  // toca no histórico — garante que fica 100% previsível, sem depender de eventos
+  // assíncronos do browser que podiam desincronizar com vários cartões visitados.
+  if (cat === "tudo") return;
+
+  // Liga a navegação ao histórico do browser, para o botão/gesto "voltar" nativo do
+  // telemóvel também funcionar. Se já estávamos "dentro" de alguma categoria,
+  // substitui essa entrada (em vez de acumular uma nova a cada categoria visitada).
+  if (history.state && history.state.vbCategory) {
+    history.replaceState({ vbCategory: cat }, "", location.href);
+  } else {
     history.pushState({ vbCategory: cat }, "", location.href);
   }
 }
@@ -2353,16 +2393,9 @@ window.addEventListener("popstate", (e) => {
 });
 
 if (backBtn) backBtn.addEventListener("click", () => {
-  // Garante sempre o regresso visual imediato aos cartões principais,
-  // sem depender do evento popstate (que em alguns webviews/PWAs
-  // nem sempre dispara de forma fiável e deixava o botão "sem efeito").
+  // Sempre direto e determinístico: mostra os cartões principais de imediato,
+  // sem depender do histórico do browser (fonte dos bugs anteriores).
   switchCategory("tudo");
-
-  // Mantém o histórico do browser sincronizado, para que o gesto/botão
-  // físico de voltar do telemóvel continue também a funcionar corretamente.
-  if (history.state && history.state.vbCategory) {
-    history.back();
-  }
 });
 if (btnFavs) btnFavs.addEventListener("click", () => switchCategory("favoritos"));
 
@@ -3300,6 +3333,7 @@ function buildShareLink() {
 
 function abrirQrModal() {
   if (!qrModal) return;
+  lockBodyScroll();
   qrModal.classList.add("show");
   qrModal.setAttribute("aria-hidden", "false");
   setTimeout(() => { qrCloseBtn?.focus(); }, 0);
@@ -3334,6 +3368,7 @@ try{ toggleEventsCalendar(false); }catch{}
 
 function fecharQrModal() {
   if (!qrModal) return;
+  unlockBodyScroll();
   qrModal.classList.remove("show");
   qrModal.setAttribute("aria-hidden", "true");
 }
@@ -3818,7 +3853,7 @@ function renderMiniCalendar(){
       openBtn.textContent = "🗺️ " + T.open;
       openBtn.addEventListener("click", () => {
         const destino = ev.mapa || ev.nome;
-        window.location.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destino);
+        window.open("https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destino), "_blank", "noopener");
       });
 
       const addBtn = document.createElement("button");
