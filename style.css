@@ -149,6 +149,26 @@ header {
   margin-bottom: 16px;
 }
 
+.category-heading {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 12px;
+  background: linear-gradient(180deg, rgba(78, 151, 214, 0.88), rgba(41, 79, 117, 0.92));
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(29, 78, 216, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  text-align: center;
+}
+
+.category-heading[hidden] {
+  display: none;
+}
+
 /* SEARCH */
 
 .search-row {
@@ -178,35 +198,37 @@ header {
   color: #64748b;
 }
 
-/* BOTÃO VOLTAR */
+/* BOTÃO VOLTAR (vive dentro da barra de categoria, só o ícone, sem fundo) */
 
 .back-btn {
-  position: fixed;
-  right: 70px;
-  bottom: 88px;
-  height: 44px;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 0 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  background: rgba(15, 23, 42, 0.85);
-  color: var(--text-main);
-  font-size: 13px;
-  font-weight: 600;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #ffffff;
   cursor: pointer;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+  opacity: 0.85;
   transition: 0.15s;
-  display: none;
 }
 
-.back-btn.show {
-  display: inline-flex;
+.back-btn svg {
+  width: 20px;
+  height: 20px;
 }
 
 .back-btn:hover {
-  transform: translateY(-1px);
-  border-color: var(--accent);
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-50%) translateX(-2px);
 }
 
 /* MAP BUTTON */
@@ -372,8 +394,18 @@ header {
     width: 96%;
     gap: 3px;
     font-size: clamp(7.8px, 2.9vw, 10.5px);
-    padding: 5px 5px;
+    padding: 5px 8px;
     letter-spacing: -0.1px;
+    border-radius: 14px;
+  }
+
+  .cards-home .card-photo-badge-text {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.15;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   /* Cartões com foto real (ex: praias) na lista: título numa linha, descrição mais compacta */
@@ -389,18 +421,54 @@ header {
     line-height: 1.35;
   }
 
-  /* Lista de Praias (8 cartões) em smartphone: 2 por linha em vez de 1 */
-  .cards.cards-praias {
+  /* Lista de Praias/Locais/Supermercados/Restaurantes/Churrasqueiras/FastFood/Eventos (cartões com foto) em smartphone: 2 por linha em vez de 1 */
+  .cards.cards-praias,
+  .cards.cards-locais,
+  .cards.cards-supermercados,
+  .cards.cards-restaurantes,
+  .cards.cards-churrasqueiras,
+  .cards.cards-fastfood,
+  .cards.cards-eventos,
+  .cards.cards-farmacias,
+  .cards.cards-bares {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
-  .cards-praias .card {
+  .cards-praias .card,
+  .cards-locais .card,
+  .cards-supermercados .card,
+  .cards-restaurantes .card,
+  .cards-churrasqueiras .card,
+  .cards-fastfood .card,
+  .cards-eventos .card,
+  .cards-farmacias .card,
+  .cards-bares .card {
     padding: 8px 9px 10px;
     min-height: 0;
   }
 
-  .cards-praias .card-title-top {
+  .cards-praias .card-title-top-wrap,
+  .cards-locais .card-title-top-wrap,
+  .cards-supermercados .card-title-top-wrap,
+  .cards-restaurantes .card-title-top-wrap,
+  .cards-churrasqueiras .card-title-top-wrap,
+  .cards-fastfood .card-title-top-wrap,
+  .cards-eventos .card-title-top-wrap,
+  .cards-farmacias .card-title-top-wrap,
+  .cards-bares .card-title-top-wrap {
+    min-height: 31.25px; /* 2 linhas a 12.5px/1.25 */
+  }
+
+  .cards-praias .card-title-top,
+  .cards-locais .card-title-top,
+  .cards-supermercados .card-title-top,
+  .cards-restaurantes .card-title-top,
+  .cards-churrasqueiras .card-title-top,
+  .cards-fastfood .card-title-top,
+  .cards-eventos .card-title-top,
+  .cards-farmacias .card-title-top,
+  .cards-bares .card-title-top {
     font-size: 12.5px;
     white-space: normal;
     overflow: visible;
@@ -410,40 +478,101 @@ header {
     -webkit-box-orient: vertical;
   }
 
-  .cards-praias .card-title {
+  .cards-praias .card-title,
+  .cards-locais .card-title,
+  .cards-supermercados .card-title,
+  .cards-restaurantes .card-title,
+  .cards-churrasqueiras .card-title,
+  .cards-fastfood .card-title,
+  .cards-eventos .card-title,
+  .cards-farmacias .card-title,
+  .cards-bares .card-title {
     font-size: 12.5px;
   }
 
-  .cards-praias .card-ico {
+  .cards-praias .card-ico,
+  .cards-locais .card-ico,
+  .cards-supermercados .card-ico,
+  .cards-restaurantes .card-ico,
+  .cards-churrasqueiras .card-ico,
+  .cards-fastfood .card-ico,
+  .cards-eventos .card-ico,
+  .cards-farmacias .card-ico,
+  .cards-bares .card-ico {
     font-size: 18px;
   }
 
   .cards-praias .card-desc-photo,
-  .cards-praias .card-desc {
+  .cards-praias .card-desc,
+  .cards-locais .card-desc-photo,
+  .cards-locais .card-desc,
+  .cards-supermercados .card-desc-photo,
+  .cards-supermercados .card-desc,
+  .cards-restaurantes .card-desc-photo,
+  .cards-restaurantes .card-desc,
+  .cards-churrasqueiras .card-desc-photo,
+  .cards-churrasqueiras .card-desc,
+  .cards-fastfood .card-desc-photo,
+  .cards-fastfood .card-desc,
+  .cards-eventos .card-desc-photo,
+  .cards-eventos .card-desc,
+  .cards-farmacias .card-desc-photo,
+  .cards-farmacias .card-desc,
+  .cards-bares .card-desc-photo,
+  .cards-bares .card-desc {
     font-size: 10.5px;
     line-height: 1.3;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    /* sem line-clamp: melhor um cartão um pouco mais alto do que texto cortado com "…" */
   }
 
-  .cards-praias .card-category {
+  .cards-praias .card-category,
+  .cards-locais .card-category,
+  .cards-supermercados .card-category,
+  .cards-restaurantes .card-category,
+  .cards-churrasqueiras .card-category,
+  .cards-fastfood .card-category,
+  .cards-eventos .card-category,
+  .cards-farmacias .card-category,
+  .cards-bares .card-category {
     font-size: 10px;
   }
 
-  .cards-praias .card-has-icon {
+  .cards-praias .card-has-icon,
+  .cards-locais .card-has-icon,
+  .cards-supermercados .card-has-icon,
+  .cards-restaurantes .card-has-icon,
+  .cards-churrasqueiras .card-has-icon,
+  .cards-fastfood .card-has-icon,
+  .cards-eventos .card-has-icon,
+  .cards-farmacias .card-has-icon,
+  .cards-bares .card-has-icon {
     padding-bottom: 26px;
   }
 
-  .cards-praias .card-corner-icon {
+  .cards-praias .card-corner-icon,
+  .cards-locais .card-corner-icon,
+  .cards-supermercados .card-corner-icon,
+  .cards-restaurantes .card-corner-icon,
+  .cards-churrasqueiras .card-corner-icon,
+  .cards-fastfood .card-corner-icon,
+  .cards-eventos .card-corner-icon,
+  .cards-farmacias .card-corner-icon,
+  .cards-bares .card-corner-icon {
     width: 20px;
     height: 20px;
     right: 8px;
     bottom: 8px;
   }
 
-  .cards-praias .card-corner-icon::before {
+  .cards-praias .card-corner-icon::before,
+  .cards-locais .card-corner-icon::before,
+  .cards-supermercados .card-corner-icon::before,
+  .cards-restaurantes .card-corner-icon::before,
+  .cards-churrasqueiras .card-corner-icon::before,
+  .cards-fastfood .card-corner-icon::before,
+  .cards-eventos .card-corner-icon::before,
+  .cards-farmacias .card-corner-icon::before,
+  .cards-bares .card-corner-icon::before {
     font-size: 13px;
   }
 }
@@ -612,91 +741,113 @@ header {
 
 /* CONTACTO & FOOTER */
 
-.contact-dock {
+.contact-bottom {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
-  gap: 6px;
-  margin: 26px 16px 16px;
+  gap: 24px;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 26px auto 16px;
 }
 
-.dock-item {
+.contact-bottom-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 34px;
+  flex-wrap: wrap;
+}
+
+.footer-action {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  text-decoration: none;
+  gap: 8px;
   background: none;
   border: none;
-  padding: 0;
-  cursor: pointer;
-  color: var(--text-muted);
   font-family: inherit;
-  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.dock-icon {
-  width: 48px;
-  height: 48px;
+.footer-action-icon {
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.15s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 
-.dock-item:active .dock-icon {
-  transform: scale(0.92);
+.footer-action:hover .footer-action-icon {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
 }
 
-.dock-label {
-  font-size: 12px;
+.footer-action-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-action-icon--home {
+  background: #fbdca0;
+  color: #a15c07;
+}
+
+.footer-action-icon--call {
+  background: #cfe0fb;
+  color: #1d4ed8;
+}
+
+.footer-action-icon--whatsapp {
+  background: #cdeed2;
+  color: #128c4e;
+}
+
+.footer-action-icon--top {
+  background: #ffffff;
+  color: #334155;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.footer-action-label {
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-muted);
-  text-align: center;
 }
 
-.dock-icon--casa {
-  background: rgba(242, 166, 90, 0.18);
-  color: var(--accent);
-}
-
-.dock-icon--ligar {
-  background: rgba(79, 156, 249, 0.18);
-  color: #6fa8f5;
-}
-
-.dock-icon--whatsapp {
-  background: rgba(43, 182, 115, 0.18);
-  color: var(--accent-alt);
-}
-
-.dock-icon--topo {
-  background: var(--bg-elevated-soft);
-  color: var(--text-muted);
-  border: 1px solid var(--border-soft);
-}
-
+/* Rodapé de contacto em smartphone: ícones e legendas ligeiramente mais compactos */
 @media (max-width: 720px) {
   .container {
     padding-bottom: 8px;
   }
 
-  .contact-dock {
-    gap: 4px;
-    margin: 10px 8px 14px;
+  .contact-bottom {
+    justify-content: space-evenly;
+    gap: 0;
+    margin: 14px 0 14px;
   }
 
-  .dock-icon {
-    width: 42px;
-    height: 42px;
+  .contact-bottom-group {
+    display: contents;
   }
 
-  .dock-label {
+  .footer-action-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .footer-action-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-action-label {
     font-size: 11px;
   }
 }
-
 
 footer {
   text-align: center;
@@ -741,6 +892,7 @@ footer {
   transform: translateY(-4px);
   transition: 0.2s;
 }
+
 
 
 @keyframes modalIn {
@@ -946,6 +1098,13 @@ footer {
 }
 
 /* Cartões com foto real do local (título em cima, foto a seguir, depois descrição) */
+.card-title-top-wrap {
+  min-height: 37.5px; /* espaço para 2 linhas de título, para a imagem começar sempre no mesmo sítio */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .card-title-top{
   font-size: 15px;
   font-weight: 700;
