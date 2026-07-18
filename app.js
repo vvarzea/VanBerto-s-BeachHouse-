@@ -291,7 +291,31 @@ const photoByCat = {
   Eventos: "images/eventos/evento.jpg"
 };
 
+// Emoji do emblema de cada cartão principal (mesmo emoji já usado no imgByCat)
+const badgeEmojiByCat = {
+  Praias: "🏖️",
+  Locais: "📌",
+  Supermercados: "🛒",
+  Restaurantes: "🍽️",
+  Churrasqueiras: "🔥",
+  Bares: "🍹",
+  FastFood: "🍔",
+  Farmacias: "💊",
+  Eventos: "📅"
+};
+
+// Versão curta do nome só para o emblema do cartão principal (grelha inicial),
+// para o texto caber sempre numa única linha em ecrãs de smartphone.
+// O nome completo (labelCategoria) continua a ser usado em todo o resto da app.
+const homeBadgeShortLabel = {
+  Locais: { pt: "Locais", en: "Places", es: "Lugares", fr: "Lieux" },
+  Supermercados: { pt: "Mercados", en: "Markets", es: "Mercados", fr: "Marchés" },
+  Churrasqueiras: { pt: "Churrasco", en: "BBQ", es: "Parrilla", fr: "Grillades" }
+};
+
 function labelCategoriaCurta(cat) {
+  const lang = homeBadgeShortLabel[cat] && homeBadgeShortLabel[cat][currentLang] ? currentLang : null;
+  if (lang) return homeBadgeShortLabel[cat][lang];
   return labelCategoria(cat);
 }
 
@@ -448,7 +472,7 @@ const data = {
       mapa: "Ilhas Berlengas"
     },
     {
-      nome: "Museu da Renda de Bilros",
+      nome: "Museu da Renda de Bilros de Peniche",
       img: "images/locais/museu-renda-bilros.jpg",
       horarioPT: "Terça a domingo 10h00–13h00 e 14h00–18h00. Encerra à segunda.",
       horarioEN: "Tue–Sun 10:00–13:00 and 14:00–18:00. Closed Mon.",
@@ -459,7 +483,7 @@ const data = {
       mapa: "Museu da Renda de Bilros Peniche"
     },
     {
-      nome: "Museu Nacional Resistência e Liberdade",
+      nome: "Museu Nacional Resistência e Liberdade (Fortaleza)",
       img: "images/locais/museu-resistencia-liberdade.jpg",
       horarioPT: "Terça a domingo 10h00–18h00 (última entrada 17h15). Encerra à segunda e em 1 jan, Domingo de Páscoa, 1 maio e 25 dez.",
       horarioEN: "Tue–Sun 10:00–18:00 (last entry 17:15). Closed Mon and on Jan 1, Easter Sunday, May 1, Dec 25.",
@@ -471,7 +495,7 @@ const data = {
       mapa: "Fortaleza de Peniche"
     },
     {
-      nome: "Farol do Cabo Carvoeiro",
+      nome: "Farol do Cabo Carvoeiro + Miradouro",
       img: "images/locais/farol-cabo-carvoeiro.jpg",
       descPT: "Vista deslumbrante sobre o Atlântico e as ilhas Berlengas.",
       descEN: "Stunning views over the Atlantic and the Berlengas islands.",
@@ -524,7 +548,6 @@ const data = {
   Supermercados: [
     {
       nome: "Continente",
-      img: "images/supermercados/continente.jpg",
       descPT: "Maior supermercado de Peniche, com grande variedade de produtos.",
       descEN: "Largest supermarket in Peniche with a wide variety.",
       descES: "El supermercado más grande de Peniche, con gran variedad.",
@@ -534,7 +557,6 @@ const data = {
     },
     {
       nome: "Pingo Doce",
-      img: "images/supermercados/pingo-doce.jpg",
       descPT: "Bons produtos frescos e preços competitivos.",
       descEN: "Good fresh produce and competitive prices.",
       descES: "Buenos productos frescos y precios competitivos.",
@@ -544,7 +566,6 @@ const data = {
     },
     {
       nome: "Lidl",
-      img: "images/supermercados/lidl.jpg",
       descPT: "Opção económica com produtos essenciais e boas promoções semanais.",
       descEN: "Budget-friendly with essentials and good weekly deals.",
       descES: "Opción económica con esenciales y buenas ofertas semanales.",
@@ -554,7 +575,6 @@ const data = {
     },
     {
       nome: "Intermarché",
-      img: "images/supermercados/intermarche.jpg",
       descPT: "Supermercado completo com talho, peixaria e posto de combustível.",
       descEN: "Full supermarket with butcher, fishmonger and petrol station.",
       descES: "Supermercado completo con carnicería, pescadería y gasolinera.",
@@ -564,7 +584,6 @@ const data = {
     },
     {
       nome: "Aldi",
-      img: "images/supermercados/aldi.jpg",
       descPT: "Prático para compras rápidas do dia-a-dia com bons preços.",
       descEN: "Practical for quick everyday shopping at good prices.",
       descES: "Práctico para compras rápidas del día a día a buenos precios.",
@@ -573,10 +592,95 @@ const data = {
       mapa: "Aldi Peniche"
     }
   ],
+  Farmacias: [
+    {
+      nome: "Farmácia Central",
+      descPT: "Farmácia no centro de Peniche, na Rua José Estevão.",
+      descEN: "Pharmacy in central Peniche, on Rua José Estevão.",
+      descES: "Farmacia en el centro de Peniche, en la Rua José Estevão.",
+      descFR: "Pharmacie au centre de Peniche, Rua José Estevão.",
+      tipVB: "Fica mesmo no centro da cidade — fácil de combinar com outras compras.",
+      mapa: "Farmácia Central, Rua José Estevão 16, Peniche",
+      telefone: "262782135",
+      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
+      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
+    },
+    {
+      nome: "Farmácia Proença",
+      descPT: "Farmácia na Praça Jacob Rodrigues Pereira, junto à zona da Ajuda.",
+      descEN: "Pharmacy on Praça Jacob Rodrigues Pereira, near Ajuda.",
+      descES: "Farmacia en la Praça Jacob Rodrigues Pereira, cerca de Ajuda.",
+      descFR: "Pharmacie sur la Praça Jacob Rodrigues Pereira, près d'Ajuda.",
+      tipVB: "Costuma ter horário alargado — boa opção se precisares mais tarde.",
+      mapa: "Farmácia Proença, Praça Jacob Rodrigues Pereira 14-15, Peniche",
+      telefone: "262782100",
+      horarioPT: "Aproximadamente 09:00–19:00 (confirma localmente, pode variar).",
+      horarioEN: "Roughly 09:00–19:00 (please confirm locally, may vary)."
+    },
+    {
+      nome: "Farmácia Higiénica",
+      descPT: "Farmácia na Rua António da Conceição Bento, em Peniche.",
+      descEN: "Pharmacy on Rua António da Conceição Bento, in Peniche.",
+      descES: "Farmacia en la Rua António da Conceição Bento, en Peniche.",
+      descFR: "Pharmacie Rua António da Conceição Bento, à Peniche.",
+      tipVB: "Boa opção alternativa se a farmácia central estiver cheia.",
+      mapa: "Farmácia Higiénica, Rua António da Conceição Bento 21-B, Peniche",
+      telefone: "262782415",
+      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
+      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
+    },
+    {
+      nome: "Farmácia Santo Estêvão",
+      descPT: "Farmácia em Ferrel, muito perto do VanBerto's Beach House.",
+      descEN: "Pharmacy in Ferrel, very close to VanBerto's Beach House.",
+      descES: "Farmacia en Ferrel, muy cerca de VanBerto's Beach House.",
+      descFR: "Pharmacie à Ferrel, tout près de VanBerto's Beach House.",
+      tipVB: "A mais perto de casa! Ótima para uma emergência rápida sem ires até Peniche.",
+      mapa: "Farmácia Santo Estêvão, Rua do Brejo 6-B, Ferrel, Peniche",
+      telefone: "262758029",
+      horarioPT: "Aproximadamente 09:00–13:00 e 14:30–19:30 (confirma localmente).",
+      horarioEN: "Roughly 09:00–13:00 and 14:30–19:30 (please confirm locally)."
+    },
+    {
+      nome: "Farmácia Serra",
+      descPT: "Farmácia em Serra d'El-Rei, na Avenida da Liberdade (EN 114).",
+      descEN: "Pharmacy in Serra d'El-Rei, on Avenida da Liberdade (EN 114).",
+      descES: "Farmacia en Serra d'El-Rei, en la Avenida da Liberdade (EN 114).",
+      descFR: "Pharmacie à Serra d'El-Rei, Avenida da Liberdade (EN 114).",
+      tipVB: "Útil se estiveres a passar por Serra d'El-Rei ou vindo de Óbidos.",
+      mapa: "Farmácia Serra, Avenida da Liberdade 78, Serra d'El-Rei",
+      telefone: "262909122",
+      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
+      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
+    },
+    {
+      nome: "Farmácia Santa Luzia",
+      descPT: "Farmácia em Atouguia da Baleia, junto à Praça Geraldes.",
+      descEN: "Pharmacy in Atouguia da Baleia, near Praça Geraldes.",
+      descES: "Farmacia en Atouguia da Baleia, junto a la Praça Geraldes.",
+      descFR: "Pharmacie à Atouguia da Baleia, près de la Praça Geraldes.",
+      tipVB: "Boa opção se estiveres do lado de Atouguia da Baleia.",
+      mapa: "Farmácia Santa Luzia, Praça Geraldes 1, Atouguia da Baleia",
+      telefone: "262769265",
+      horarioPT: "Aproximadamente 09:00–13:00 e 15:00–20:00 (confirma localmente).",
+      horarioEN: "Roughly 09:00–13:00 and 15:00–20:00 (please confirm locally)."
+    },
+    {
+      nome: "Farmácia Confiança",
+      descPT: "Farmácia na Rua José Augusto Vaz, do lado de Atouguia da Baleia.",
+      descEN: "Pharmacy on Rua José Augusto Vaz, on the Atouguia da Baleia side.",
+      descES: "Farmacia en la Rua José Augusto Vaz, del lado de Atouguia da Baleia.",
+      descFR: "Pharmacie Rua José Augusto Vaz, côté Atouguia da Baleia.",
+      tipVB: "Mais uma opção se as farmácias do centro estiverem fechadas.",
+      mapa: "Farmácia Confiança, Rua José Augusto Vaz 5, Atouguia da Baleia",
+      telefone: "262759171",
+      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
+      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
+    }
+  ],
   Restaurantes: [
     {
       nome: "Tasca do Joel",
-      img: "images/restaurantes/tasca-do-joel.jpg",
       descPT: "Restaurante clássico de Peniche para peixe fresco e marisco. Ambiente familiar e autêntico.",
       descEN: "Classic Peniche restaurant for fresh fish and seafood. Family and authentic feel.",
       descES: "Restaurante clásico de Peniche para pescado fresco y marisco. Ambiente familiar y auténtico.",
@@ -586,7 +690,6 @@ const data = {
     },
     {
       nome: "Taberna do Ganhão",
-      img: "images/restaurantes/taberna-do-ganhao.jpg",
       descPT: "Petiscos e pratos típicos portugueses num espaço acolhedor e descontraído.",
       descEN: "Traditional Portuguese tapas and dishes in a warm, relaxed space.",
       descES: "Tapas y platos típicos portugueses en un espacio acogedor y relajado.",
@@ -596,7 +699,6 @@ const data = {
     },
     {
       nome: "O Pedro",
-      img: "images/restaurantes/o-pedro.jpg",
       descPT: "Excelente peixe grelhado e comida tradicional portuguesa com preços honestos.",
       descEN: "Excellent grilled fish and local cuisine at honest prices.",
       descES: "Excelente pescado a la brasa y cocina tradicional portuguesa a precios honestos.",
@@ -606,7 +708,6 @@ const data = {
     },
     {
       nome: "D Raiz",
-      img: "images/restaurantes/d-raiz.jpg",
       descPT: "Cozinha moderna com sabores regionais e ingredientes locais.",
       descEN: "Modern cuisine with regional flavours and local ingredients.",
       descES: "Cocina moderna con sabores regionales e ingredientes locales.",
@@ -616,7 +717,6 @@ const data = {
     },
     {
       nome: "Italiano O Outro",
-      img: "images/restaurantes/italiano-o-outro.jpg",
       descPT: "Massas artesanais e pizzas num ambiente descontraído. Ótimo para famílias.",
       descEN: "Handmade pasta and pizzas in a relaxed atmosphere. Great for families.",
       descES: "Pasta artesanal y pizzas en ambiente relajado. Perfecto para familias.",
@@ -626,7 +726,6 @@ const data = {
     },
     {
       nome: "Mundano Baleal",
-      img: "images/restaurantes/mundano-baleal.jpg",
       descPT: "Restaurante jovem com vista para o mar, cocktails e ambiente animado.",
       descEN: "Trendy spot with sea view, cocktails and a lively vibe.",
       descES: "Restaurante moderno con vista al mar, cócteles y ambiente animado.",
@@ -636,7 +735,6 @@ const data = {
     },
     {
       nome: "Maresia",
-      img: "images/restaurantes/maresia.jpg",
       descPT: "Restaurante mesmo na praia do Baleal, com boa comida e ambiente de verão.",
       descEN: "Right on Baleal beach, good food and summer vibes.",
       descES: "Justo en la playa de Baleal, buena comida y ambiente veraniego.",
@@ -645,8 +743,16 @@ const data = {
       mapa: "Maresia Baleal"
     },
     {
+      nome: "Miyabi Sushi",
+      descPT: "Sushi fresco e variado, uma boa alternativa ao peixe grelhado.",
+      descEN: "Fresh and varied sushi, a great alternative to grilled fish.",
+      descES: "Sushi fresco y variado, una buena alternativa al pescado a la brasa.",
+      descFR: "Sushis frais et variés, une bonne alternative au poisson grillé.",
+      tipVB: "Surpreendentemente bom para uma cidade de praia! O sushi de peixe local é muito fresco.",
+      mapa: "Miyabi Sushi Peniche"
+    },
+    {
       nome: "Marisqueira Mirandum",
-      img: "images/restaurantes/marisqueira-mirandum.jpg",
       descPT: "Marisqueira muito procurada pelos visitantes, com marisco fresquíssimo.",
       descEN: "Very popular seafood restaurant with the freshest shellfish.",
       descES: "Marisquería muy popular entre los visitantes, con marisco fresquísimo.",
@@ -656,19 +762,26 @@ const data = {
     },
     {
       nome: "Marisqueira dos Cortiçais",
-      img: "images/restaurantes/marisqueira-dos-corticais.jpg",
       descPT: "Marisco tradicional muito apreciado pelos locais — um sinal de qualidade.",
       descEN: "Traditional seafood, highly appreciated by locals — always a good sign.",
       descES: "Marisco tradicional muy apreciado por los lugareños — siempre buena señal.",
       descFR: "Fruits de mer traditionnels très appréciés des locaux — toujours bon signe.",
       tipVB: "O sítio preferido dos pescadores locais — quando os locais comem lá, é sempre bom sinal!",
       mapa: "Marisqueira dos Cortiçais Peniche"
+    },
+    {
+      nome: "Bateira",
+      descPT: "Restaurante descontraído junto ao mar com bons petiscos e refeições.",
+      descEN: "Relaxed beachside spot for snacks and full meals.",
+      descES: "Lugar relajado junto al mar para tapas y comidas completas.",
+      descFR: "Endroit décontracté en bord de mer pour grignoter ou dîner.",
+      tipVB: "Ótimo para um almoço rápido depois da praia — o prego no pão é muito bom!",
+      mapa: "Restaurante Bateira Peniche"
     }
   ],
   Churrasqueiras: [
     {
       nome: "A Caseirinha",
-      img: "images/churrasqueiras/a-caseirinha.jpg",
       descPT: "Frango de churrasco muito saboroso — um clássico em Peniche.",
       descEN: "Very tasty grilled chicken — a Peniche classic.",
       descES: "Pollo a la brasa muy sabroso — un clásico en Peniche.",
@@ -678,7 +791,6 @@ const data = {
     },
     {
       nome: "Churrasqueira O Nortista",
-      img: "images/churrasqueiras/o-nortista.jpg",
       descPT: "Take-away muito popular entre os residentes, ótimo custo-benefício.",
       descEN: "Popular takeaway among locals, great value for money.",
       descES: "Comida para llevar muy popular entre los residentes, excelente relación calidad-precio.",
@@ -688,7 +800,6 @@ const data = {
     },
     {
       nome: "Churrasqueira Vó Dina",
-      img: "images/churrasqueiras/vo-dina.jpg",
       descPT: "Refeições económicas, bem servidas e com sabor a casa.",
       descEN: "Budget-friendly, generous portions with a home-cooked feel.",
       descES: "Comidas económicas, bien servidas y con sabor casero.",
@@ -696,59 +807,6 @@ const data = {
       tipVB: "Ótimo para um jantar económico sem abdicar da qualidade. A caldeirada é especial!",
       mapa: "Churrasqueira Vó Dina Peniche"
     }
-  ],
-  FastFood: [
-    {
-      nome: "Burger King",
-      img: "images/fastfood/burger-king.jpg",
-      descPT: "Fast-food internacional perto da zona comercial de Peniche.",
-      descEN: "International fast-food near Peniche's commercial area.",
-      descES: "Comida rápida internacional cerca de la zona comercial de Peniche.",
-      descFR: "Restauration rapide internationale près de la zone commerciale de Peniche.",
-      tipVB: "Quando as crianças insistem! Fica no centro comercial a 5 minutos de carro.",
-      mapa: "Burger King Peniche"
-    },
-    {
-      nome: "Telepizza 🍕",
-      img: "images/fastfood/telepizza.jpg",
-      descPT: "Pizzas para levar ou pedir entrega em casa — rápido e prático.",
-      descEN: "Pizza for takeaway or home delivery — quick and convenient.",
-      descES: "Pizzas para llevar o pedir a domicilio — rápido y práctico.",
-      descFR: "Pizzas à emporter ou en livraison — rapide et pratique.",
-      tipVB: "Boa opção para quando estão todos cansados e querem uma noite de filme com pizza!",
-      mapa: "Telepizza Peniche"
-    },
-    {
-      nome: "Duna Kebab",
-      img: "images/fastfood/duna-kebab.jpg",
-      descPT: "Kebabs e refeições rápidas muito populares entre os surfistas.",
-      descEN: "Kebabs and quick meals very popular with surfers.",
-      descES: "Kebabs y comidas rápidas muy populares entre los surfistas.",
-      descFR: "Kebabs et repas rapides très populaires parmi les surfeurs.",
-      tipVB: "Depois de um dia de surf, um kebab grande resolve tudo! Atende tarde — ótimo para saídas noturnas.",
-      mapa: "Duna Kebab Peniche"
-    },
-    {
-      nome: "Yo-Yo Kebab e Pizzas 🍕",
-      img: "images/fastfood/yo-yo-kebab-e-pizzas.jpg",
-      descPT: "Kebabs, pizzas e hambúrgueres — boa variedade para toda a família.",
-      descEN: "Kebabs, pizzas and burgers — great variety for the whole family.",
-      descES: "Kebabs, pizzas y hamburguesas — gran variedad para toda la familia.",
-      descFR: "Kebabs, pizzas et burgers — grande variété pour toute la famille.",
-      tipVB: "Prático e rápido quando o tempo escasseia. As pizzas são surpreendentemente boas!",
-      mapa: "Yo Yo Kebab Peniche"
-    },
-    {
-      nome: "Boina Verde Snack-Bar",
-      img: "images/fastfood/boina-verde-snack-bar.jpg",
-      descPT: "Petiscos e refeições rápidas num ambiente local e descontraído.",
-      descEN: "Snacks and quick meals in a local, relaxed setting.",
-      descES: "Tapas y comidas rápidas en un ambiente local y relajado.",
-      descFR: "Snacks et repas rapides dans un cadre local et décontracté.",
-      tipVB: "Um sítio simpático para um almoço rápido e sem pretensões. Os bifanas são muito bons!",
-      mapa: "Boina Verde Peniche"
-    }
-
   ],
   Bares: [
     {
@@ -758,8 +816,7 @@ const data = {
       descES: "Bar de playa con ambiente tropical y relajado en Baleal.",
       descFR: "Bar de plage au style tropical et décontracté à Baleal.",
       tipVB: "O nosso bar de praia favorito aqui no Baleal! Os caipirinhas são perfeitos ao fim do dia.",
-      mapa: "Danau Beach Bar Baleal",
-      img: "images/bares/danau-beach-bar.jpg"
+      mapa: "Danau Beach Bar Baleal"
     },
     {
       nome: "Bar do Quebrado",
@@ -768,8 +825,7 @@ const data = {
       descES: "Bar junto a la playa, ideal para el final de la tarde y ver el atardecer.",
       descFR: "Bar de plage sympa, idéal pour la fin d'après-midi et le coucher du soleil.",
       tipVB: "Vista fantástica para o pôr do sol — um copo na mão e o sol a descer. Perfeito!",
-      mapa: "Bar do Quebrado Peniche",
-      img: "images/bares/bar-do-quebrado.jpg"
+      mapa: "Bar do Quebrado Peniche"
     },
     {
       nome: "Bar do Bruno",
@@ -778,8 +834,7 @@ const data = {
       descES: "Bar sencillo y animado, muy popular entre surfistas y lugareños.",
       descFR: "Bar simple et animé, très populaire parmi les surfeurs et les habitants.",
       tipVB: "Se quiseres conhecer a vibe local de Peniche, é aqui. Sempre com boa música!",
-      mapa: "Bar do Bruno Peniche",
-      img: "images/bares/bar-do-bruno.jpg"
+      mapa: "Bar do Bruno Peniche"
     },
     {
       nome: "Java House",
@@ -788,8 +843,7 @@ const data = {
       descES: "Café y bar con ambiente joven, buena música y cócteles creativos.",
       descFR: "Café et bar avec une ambiance jeune, bonne musique et cocktails créatifs.",
       tipVB: "Ótimo para um brunch relaxado ou para começar a noite. O café é muito bom!",
-      mapa: "Java House Peniche",
-      img: "images/bares/java-house.jpg"
+      mapa: "Java House Peniche"
     },
     {
       nome: "Gamboa Bar",
@@ -798,18 +852,16 @@ const data = {
       descES: "El lugar perfecto para ver el atardecer en la playa de Gamboa con una bebida.",
       descFR: "L'endroit parfait pour regarder le coucher de soleil à Gamboa avec un verre.",
       tipVB: "Um dos melhores pôres do sol de Peniche — chega um pouco antes para garantir lugar.",
-      mapa: "Gamboa Bar Peniche",
-      img: "images/bares/gamboa-bar.jpg"
+      mapa: "Gamboa Bar Peniche"
     },
     {
-      nome: "Tribo da Praia",
+      nome: "Tribo da Praia – Bar da Praia",
       descPT: "Bar alternativo e descontraído no Baleal, com música ao vivo e ambiente surf.",
       descEN: "Alternative and relaxed bar in Baleal, with live music and surf vibes.",
       descES: "Bar alternativo y relajado en Baleal, con música en vivo y ambiente surf.",
       descFR: "Bar alternatif et décontracté à Baleal, avec musique live et ambiance surf.",
       tipVB: "Às sextas-feiras têm música ao vivo — muito boa vibração!",
-      mapa: "Tribo da Praia Baleal",
-      img: "images/bares/tribo-da-praia.jpg"
+      mapa: "Tribo da Praia Baleal"
     },
     {
       nome: "The Base",
@@ -818,8 +870,7 @@ const data = {
       descES: "Bar animado con música y mucha energía surfera en Baleal.",
       descFR: "Bar animé avec musique et plein d'énergie surf à Baleal.",
       tipVB: "Bom para noites mais animadas — fica mesmo na zona do Baleal, muito perto de casa!",
-      mapa: "The Base Baleal",
-      img: "images/bares/the-base.jpg"
+      mapa: "The Base Baleal"
     },
     {
       nome: "Supertubos Beach Bar",
@@ -828,8 +879,7 @@ const data = {
       descES: "Bar justo frente a las olas de Supertubos, ideal para ver surf.",
       descFR: "Bar directement devant les vagues de Supertubos, idéal pour regarder le surf.",
       tipVB: "Ver surf de copo na mão é uma experiência única — especialmente no inverno com ondas grandes!",
-      mapa: "Supertubos Beach Bar",
-      img: "images/bares/supertubos-beach-bar.jpg"
+      mapa: "Supertubos Beach Bar"
     },
     {
       nome: "Bananas Beach Bar",
@@ -838,9 +888,56 @@ const data = {
       descES: "Bar colorido y divertido, directamente en la playa de Baleal.",
       descFR: "Bar coloré et amusant, directement sur la plage de Baleal.",
       tipVB: "Ótimo para um almoço descontraído de pés na areia — os batidos são deliciosos!",
-      mapa: "Bananas Beach Bar Baleal",
-      img: "images/bares/bananas-beach-bar.jpg"
+      mapa: "Bananas Beach Bar Baleal"
     }
+  ],
+  FastFood: [
+    {
+      nome: "Burger King",
+      descPT: "Fast-food internacional perto da zona comercial de Peniche.",
+      descEN: "International fast-food near Peniche's commercial area.",
+      descES: "Comida rápida internacional cerca de la zona comercial de Peniche.",
+      descFR: "Restauration rapide internationale près de la zone commerciale de Peniche.",
+      tipVB: "Quando as crianças insistem! Fica no centro comercial a 5 minutos de carro.",
+      mapa: "Burger King Peniche"
+    },
+    {
+      nome: "Telepizza 🍕",
+      descPT: "Pizzas para levar ou pedir entrega em casa — rápido e prático.",
+      descEN: "Pizza for takeaway or home delivery — quick and convenient.",
+      descES: "Pizzas para llevar o pedir a domicilio — rápido y práctico.",
+      descFR: "Pizzas à emporter ou en livraison — rapide et pratique.",
+      tipVB: "Boa opção para quando estão todos cansados e querem uma noite de filme com pizza!",
+      mapa: "Telepizza Peniche"
+    },
+    {
+      nome: "Duna Kebab",
+      descPT: "Kebabs e refeições rápidas muito populares entre os surfistas.",
+      descEN: "Kebabs and quick meals very popular with surfers.",
+      descES: "Kebabs y comidas rápidas muy populares entre los surfistas.",
+      descFR: "Kebabs et repas rapides très populaires parmi les surfeurs.",
+      tipVB: "Depois de um dia de surf, um kebab grande resolve tudo! Atende tarde — ótimo para saídas noturnas.",
+      mapa: "Duna Kebab Peniche"
+    },
+    {
+      nome: "Yo-Yo Kebab e Pizzas 🍕",
+      descPT: "Kebabs, pizzas e hambúrgueres — boa variedade para toda a família.",
+      descEN: "Kebabs, pizzas and burgers — great variety for the whole family.",
+      descES: "Kebabs, pizzas y hamburguesas — gran variedad para toda la familia.",
+      descFR: "Kebabs, pizzas et burgers — grande variété pour toute la famille.",
+      tipVB: "Prático e rápido quando o tempo escasseia. As pizzas são surpreendentemente boas!",
+      mapa: "Yo Yo Kebab Peniche"
+    },
+    {
+      nome: "Boina Verde Snack-Bar",
+      descPT: "Petiscos e refeições rápidas num ambiente local e descontraído.",
+      descEN: "Snacks and quick meals in a local, relaxed setting.",
+      descES: "Tapas y comidas rápidas en un ambiente local y relajado.",
+      descFR: "Snacks et repas rapides dans un cadre local et décontracté.",
+      tipVB: "Um sítio simpático para um almoço rápido e sem pretensões. Os bifanas são muito bons!",
+      mapa: "Boina Verde Peniche"
+    }
+
   ],
   Eventos: [{
       nome: "Mercado Municipal de Peniche",
@@ -848,8 +945,7 @@ const data = {
       descEN: "Great place to see fresh fish, regional products and the town vibe.",
       descES: "Buen lugar para ver pescado fresco, productos regionales y sentir el ritmo de la ciudad.",
       descFR: "Bon endroit pour voir du poisson frais, des produits régionaux et sentir le rythme de la ville.",
-      mapa: "Mercado Municipal de Peniche",
-      img: "images/eventos/mercado-municipal-de-peniche.jpg"
+      mapa: "Mercado Municipal de Peniche"
     },
     {
       nome: "Cabo Carvoeiro (pôr do sol)",
@@ -865,8 +961,7 @@ const data = {
       descEN: "During event weeks, Supertubos hosts surf competitions. Check posters and social media that week.",
       descES: "Cuando hay pruebas, Supertubos acoge competiciones de surf. Consulta carteles y redes sociales esa semana.",
       descFR: "Lors des semaines d'événements, Supertubos accueille des compétitions de surf. Vérifie les affiches et les réseaux sociaux cette semaine-là.",
-      mapa: "Praia dos Supertubos",
-      img: "images/eventos/surf-praia-dos-supertubos.jpg"
+      mapa: "Praia dos Supertubos"
     }
 ,
     {
@@ -954,7 +1049,7 @@ const data = {
       local: "Peniche"
     },
     {
-      nome: "Festa da Boa Viagem",
+      nome: "🎉 Festa em honra de N.ª Sr.ª da Boa Viagem (Peniche) — início",
       descPT: "Festa de Peniche em honra de N.ª Sr.ª da Boa Viagem (datas anunciadas: 10 de julho a 3 de agosto de 2026). Confirma programa.",
       descEN: "Peniche festivities (announced dates: 10 July to 3 Aug 2026). Please confirm programme.",
       descES: "Fiesta de Peniche en honor de Nuestra Señora de la Buena Travesía (fechas anunciadas: 10 de julio a 3 de agosto de 2026). Confirma el programa.",
@@ -963,11 +1058,10 @@ const data = {
       dataISO: "2026-07-10",
       horaInicio: "12:00",
       horaFim: "13:00",
-      local: "Peniche",
-      img: "images/eventos/festa-nossa-senhora-da-boa-viagem.jpg"
+      local: "Peniche"
     },
     {
-      nome: "Dia do Município",
+      nome: "🏛️ Dia do Município / Feriado Municipal de Peniche",
       descPT: "Feriado municipal (Dia do Município) — 5 de agosto.",
       descEN: "Municipal holiday (Municipality Day) — 5 August.",
       descES: "Festivo municipal (Día del Municipio) — 5 de agosto.",
@@ -976,8 +1070,7 @@ const data = {
       dataISO: "2026-08-05",
       horaInicio: "09:00",
       horaFim: "10:00",
-      local: "Peniche",
-      img: "images/eventos/municipio-de-peniche.jpg"
+      local: "Peniche"
     },
     {
       nome: "🙏 Assunção de Nossa Senhora",
@@ -1052,120 +1145,25 @@ const data = {
       local: "Peniche"
     },
     {
-      nome: "Baleal Offshore Beats",
+      nome: "🎶 Baleal Offshore Beats",
       link: "https://balealoffshorebeats.pt",
       descPT: "Festival no Baleal/Ferrel. Datas variam — consulta a agenda oficial.",
       descEN: "Festival in Baleal/Ferrel. Dates vary — check official agenda.",
       descES: "Festival en Baleal/Ferrel. Las fechas varían — consulta la agenda oficial.",
       descFR: "Festival à Baleal/Ferrel. Les dates varient — consulte l'agenda officiel.",
       mapa: "Baleal Ferrel",
-      local: "Baleal",
-      img: "images/eventos/baleal-offshore-beats.jpg"
+      local: "Baleal"
     },
     {
-      nome: "Festas de Santo Estêvão (Baleal)",
+      nome: "⛪ Festas de Santo Estêvão (Baleal)",
       descPT: "Festas com procissão à volta da ilha. Datas variam — confirma na página oficial.",
       descEN: "Local festivities with procession around the island. Dates vary — please confirm.",
       descES: "Fiestas con procesión alrededor de la isla. Las fechas varían — confirma en la página oficial.",
       descFR: "Fêtes avec procession autour de l'île. Les dates varient — merci de confirmer sur la page officielle.",
       mapa: "Ilha do Baleal",
-      local: "Baleal",
-      img: "images/eventos/festa-de-santo-estevao.jpg"
+      local: "Baleal"
     }
-],
-  Farmacias: [
-    {
-      nome: "Farmácia Central",
-      descPT: "Farmácia no centro de Peniche, na Rua José Estevão.",
-      descEN: "Pharmacy in central Peniche, on Rua José Estevão.",
-      descES: "Farmacia en el centro de Peniche, en la Rua José Estevão.",
-      descFR: "Pharmacie au centre de Peniche, Rua José Estevão.",
-      tipVB: "Fica mesmo no centro da cidade — fácil de combinar com outras compras.",
-      mapa: "Farmácia Central, Rua José Estevão 16, Peniche",
-      telefone: "262782135",
-      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
-      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season).",
-      img: "images/farmacias/farmacia-central.jpg"
-    },
-    {
-      nome: "Farmácia Proença",
-      descPT: "Farmácia na Praça Jacob Rodrigues Pereira, junto à zona da Ajuda.",
-      descEN: "Pharmacy on Praça Jacob Rodrigues Pereira, near Ajuda.",
-      descES: "Farmacia en la Praça Jacob Rodrigues Pereira, cerca de Ajuda.",
-      descFR: "Pharmacie sur la Praça Jacob Rodrigues Pereira, près d'Ajuda.",
-      tipVB: "Costuma ter horário alargado — boa opção se precisares mais tarde.",
-      mapa: "Farmácia Proença, Praça Jacob Rodrigues Pereira 14-15, Peniche",
-      telefone: "262782100",
-      horarioPT: "Aproximadamente 09:00–19:00 (confirma localmente, pode variar).",
-      horarioEN: "Roughly 09:00–19:00 (please confirm locally, may vary).",
-      img: "images/farmacias/farmacia-proenca.jpg"
-    },
-    {
-      nome: "Farmácia Higiénica",
-      descPT: "Farmácia na Rua António da Conceição Bento, em Peniche.",
-      descEN: "Pharmacy on Rua António da Conceição Bento, in Peniche.",
-      descES: "Farmacia en la Rua António da Conceição Bento, en Peniche.",
-      descFR: "Pharmacie Rua António da Conceição Bento, à Peniche.",
-      tipVB: "Boa opção alternativa se a farmácia central estiver cheia.",
-      mapa: "Farmácia Higiénica, Rua António da Conceição Bento 21-B, Peniche",
-      telefone: "262782415",
-      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
-      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season).",
-      img: "images/farmacias/farmacia-higienica.jpg"
-    },
-    {
-      nome: "Farmácia Santo Estêvão",
-      descPT: "Farmácia em Ferrel, muito perto do VanBerto's Beach House.",
-      descEN: "Pharmacy in Ferrel, very close to VanBerto's Beach House.",
-      descES: "Farmacia en Ferrel, muy cerca de VanBerto's Beach House.",
-      descFR: "Pharmacie à Ferrel, tout près de VanBerto's Beach House.",
-      tipVB: "A mais perto de casa! Ótima para uma emergência rápida sem ires até Peniche.",
-      mapa: "Farmácia Santo Estêvão, Rua do Brejo 6-B, Ferrel, Peniche",
-      telefone: "262758029",
-      horarioPT: "Aproximadamente 09:00–13:00 e 14:30–19:30 (confirma localmente).",
-      horarioEN: "Roughly 09:00–13:00 and 14:30–19:30 (please confirm locally).",
-      img: "images/farmacias/farmacia-santo-estevao.jpg"
-    },
-    {
-      nome: "Farmácia Serra",
-      descPT: "Farmácia em Serra d'El-Rei, na Avenida da Liberdade (EN 114).",
-      descEN: "Pharmacy in Serra d'El-Rei, on Avenida da Liberdade (EN 114).",
-      descES: "Farmacia en Serra d'El-Rei, en la Avenida da Liberdade (EN 114).",
-      descFR: "Pharmacie à Serra d'El-Rei, Avenida da Liberdade (EN 114).",
-      tipVB: "Útil se estiveres a passar por Serra d'El-Rei ou vindo de Óbidos.",
-      mapa: "Farmácia Serra, Avenida da Liberdade 78, Serra d'El-Rei",
-      telefone: "262909122",
-      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
-      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season).",
-      img: "images/farmacias/farmacia-serra.jpg"
-    },
-    {
-      nome: "Farmácia Santa Luzia",
-      descPT: "Farmácia em Atouguia da Baleia, junto à Praça Geraldes.",
-      descEN: "Pharmacy in Atouguia da Baleia, near Praça Geraldes.",
-      descES: "Farmacia en Atouguia da Baleia, junto a la Praça Geraldes.",
-      descFR: "Pharmacie à Atouguia da Baleia, près de la Praça Geraldes.",
-      tipVB: "Boa opção se estiveres do lado de Atouguia da Baleia.",
-      mapa: "Farmácia Santa Luzia, Praça Geraldes 1, Atouguia da Baleia",
-      telefone: "262769265",
-      horarioPT: "Aproximadamente 09:00–13:00 e 15:00–20:00 (confirma localmente).",
-      horarioEN: "Roughly 09:00–13:00 and 15:00–20:00 (please confirm locally).",
-      img: "images/farmacias/farmacia-santa-luzia.jpg"
-    },
-    {
-      nome: "Farmácia Confiança",
-      descPT: "Farmácia na Rua José Augusto Vaz, do lado de Atouguia da Baleia.",
-      descEN: "Pharmacy on Rua José Augusto Vaz, on the Atouguia da Baleia side.",
-      descES: "Farmacia en la Rua José Augusto Vaz, del lado de Atouguia da Baleia.",
-      descFR: "Pharmacie Rua José Augusto Vaz, côté Atouguia da Baleia.",
-      tipVB: "Mais uma opção se as farmácias do centro estiverem fechadas.",
-      mapa: "Farmácia Confiança, Rua José Augusto Vaz 5, Atouguia da Baleia",
-      telefone: "262759171",
-      horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
-      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season).",
-      img: "images/farmacias/farmacia-confianca.jpg"
-    }
-  ],
+]
 };
 
 // --------- UTILITÁRIAS ---------
@@ -1178,7 +1176,7 @@ function labelCategoria(cat) {
       Restaurantes: "Restaurantes",
       Churrasqueiras: "Churrasqueiras",
       Bares: "Bares",
-      FastFood: "Fast Food",
+      FastFood: "Fast-Food",
       Farmacias: "Farmácias",
       Eventos: "Eventos"
     },
@@ -1288,17 +1286,10 @@ function gerarCategoriasPrincipais() {
   cardsContainer.innerHTML = "";
   cardsContainer.classList.add("cards-home");
   cardsContainer.classList.remove("cards-praias");
-  cardsContainer.classList.remove("cards-locais");
-  cardsContainer.classList.remove("cards-supermercados");
-  cardsContainer.classList.remove("cards-restaurantes");
-  cardsContainer.classList.remove("cards-churrasqueiras");
-  cardsContainer.classList.remove("cards-fastfood");
-  cardsContainer.classList.remove("cards-eventos");
-  cardsContainer.classList.remove("cards-farmacias");
-  cardsContainer.classList.remove("cards-bares");
   Object.keys(data).forEach(cat => {
     const label = labelCategoria(cat);
     const badgeLabel = labelCategoriaCurta(cat);
+    const emoji = badgeEmojiByCat[cat] || "📍";
     const photo = photoByCat[cat] || imgByCat[cat];
 
     const card = document.createElement("article");
@@ -1309,6 +1300,7 @@ function gerarCategoriasPrincipais() {
       <div class="card-photo-wrap">
         <img class="card-img-photo" src="${photo}" alt="${label}" loading="lazy" />
         <span class="card-photo-badge">
+          <span class="card-photo-badge-emoji" aria-hidden="true">${emoji}</span>
           <span class="card-photo-badge-text">${badgeLabel}</span>
         </span>
       </div>
@@ -1356,14 +1348,6 @@ function gerarCardsDeCategoria(cat) {
   cardsContainer.innerHTML = "";
   cardsContainer.classList.remove("cards-home");
   cardsContainer.classList.toggle("cards-praias", cat === "Praias");
-  cardsContainer.classList.toggle("cards-locais", cat === "Locais");
-  cardsContainer.classList.toggle("cards-supermercados", cat === "Supermercados");
-  cardsContainer.classList.toggle("cards-restaurantes", cat === "Restaurantes");
-  cardsContainer.classList.toggle("cards-churrasqueiras", cat === "Churrasqueiras");
-  cardsContainer.classList.toggle("cards-fastfood", cat === "FastFood");
-  cardsContainer.classList.toggle("cards-eventos", cat === "Eventos");
-  cardsContainer.classList.toggle("cards-farmacias", cat === "Farmacias");
-  cardsContainer.classList.toggle("cards-bares", cat === "Bares");
   const lista = data[cat] || [];
   const labelCat = labelCategoria(cat);
   const icon = iconByCat[cat] || "📍";
@@ -1383,7 +1367,7 @@ function gerarCardsDeCategoria(cat) {
 
       if (temFotoReal) {
         card.innerHTML = `
-          <div class="card-title-top-wrap"><div class="card-title-top">${item.nome}</div></div>
+          <div class="card-title-top">${item.nome}</div>
           <img class="card-img-real" src="${img}" alt="${item.nome}" loading="lazy" />
           <div class="card-desc card-desc-photo card-has-icon">${descText}</div>
           <span class="card-corner-icon" aria-hidden="true"></span>
@@ -1419,14 +1403,6 @@ function gerarFavoritos() {
   cardsContainer.innerHTML = "";
   cardsContainer.classList.remove("cards-home");
   cardsContainer.classList.remove("cards-praias");
-  cardsContainer.classList.remove("cards-locais");
-  cardsContainer.classList.remove("cards-supermercados");
-  cardsContainer.classList.remove("cards-restaurantes");
-  cardsContainer.classList.remove("cards-churrasqueiras");
-  cardsContainer.classList.remove("cards-fastfood");
-  cardsContainer.classList.remove("cards-eventos");
-  cardsContainer.classList.remove("cards-farmacias");
-  cardsContainer.classList.remove("cards-bares");
   const itens = [];
   Object.keys(data).forEach(cat => {
     (data[cat] || []).forEach(item => {
@@ -1464,7 +1440,7 @@ function gerarFavoritos() {
 
       if (temFotoReal) {
         card.innerHTML = `
-          <div class="card-title-top-wrap"><div class="card-title-top">${item.nome}</div></div>
+          <div class="card-title-top">${item.nome}</div>
           <img class="card-img-real" src="${img}" alt="${item.nome}" loading="lazy" />
           <div class="card-desc card-desc-photo">${descText}</div>
           <div class="card-footer">
@@ -2007,8 +1983,9 @@ function atualizarTextosEstaticos() {
       btnShareFavs: "🔗 Partilhar favoritos (QR)",
       back: "← Voltar",
       searchPh: "🔍 Procurar por praia, restaurante, pizza, sushi...",
-      contact: "📱 " + HOUSE_PHONE_DISPLAY,
-      directions: "📍 Como chegar à casa",
+      contact: "Ligar",
+      directions: "Casa",
+      scrollTop: "Topo",
       footer1: "📍 VanBerto's Beach House · Baleal · Peniche",
       footer2: "🌊 Guia rápido para aproveitares o melhor da tua estadia",
       tabInfo: "ℹ️ Info",
@@ -2046,8 +2023,9 @@ function atualizarTextosEstaticos() {
       btnShareFavs: "🔗 Share favourites (QR)",
       back: "← Back",
       searchPh: "🔍 Search for beach, restaurant, pizza, sushi...",
-      contact: "📱 " + HOUSE_PHONE_DISPLAY,
-      directions: "📍 Get directions to the house",
+      contact: "Call",
+      directions: "Home",
+      scrollTop: "Top",
       footer1: "📍 VanBerto's Beach House · Baleal · Peniche",
       footer2: "🌊 Quick guide to enjoy the best of your stay",
       tabInfo: "ℹ️ Info",
@@ -2085,8 +2063,9 @@ function atualizarTextosEstaticos() {
       btnShareFavs: "🔗 Compartir favoritos (QR)",
       back: "← Volver",
       searchPh: "🔍 Buscar playa, restaurante, pizza, sushi...",
-      contact: "📱 " + HOUSE_PHONE_DISPLAY,
-      directions: "📍 Cómo llegar a la casa",
+      contact: "Llamar",
+      directions: "Casa",
+      scrollTop: "Arriba",
       footer1: "📍 VanBerto's Beach House · Baleal · Peniche",
       footer2: "🌊 Guía rápida para disfrutar tu estancia",
       tabInfo: "ℹ️ Info",
@@ -2124,8 +2103,9 @@ function atualizarTextosEstaticos() {
       btnShareFavs: "🔗 Partager les favoris (QR)",
       back: "← Retour",
       searchPh: "🔍 Chercher plage, restaurant, pizza, sushi...",
-      contact: "📱 " + HOUSE_PHONE_DISPLAY,
-      directions: "📍 Comment venir à la maison",
+      contact: "Appeler",
+      directions: "Maison",
+      scrollTop: "Haut",
       footer1: "📍 VanBerto's Beach House · Baleal · Peniche",
       footer2: "🌊 Guide rapide pour profiter de ton séjour",
       tabInfo: "ℹ️ Info",
@@ -2168,8 +2148,12 @@ function atualizarTextosEstaticos() {
   if (backBtn) backBtn.textContent = t.back;
 
   if (searchInput) searchInput.placeholder = t.searchPh;
-  contactBtn.textContent = t.contact;
-  if (directionsBtn) directionsBtn.textContent = t.directions;
+  const dockLabelLigar = document.getElementById("dock-label-ligar");
+  if (dockLabelLigar) dockLabelLigar.textContent = t.contact;
+  const dockLabelCasa = document.getElementById("dock-label-casa");
+  if (dockLabelCasa) dockLabelCasa.textContent = t.directions;
+  const dockLabelTopo = document.getElementById("dock-label-topo");
+  if (dockLabelTopo) dockLabelTopo.textContent = t.scrollTop;
   if (footer1) footer1.textContent = t.footer1;
   if (footer2) footer2.textContent = t.footer2;
 
@@ -3153,18 +3137,10 @@ try{ toggleEventsCalendar(false); }catch{}
 
 
 // --------- VOLTAR AO TOPO ---------
-function updateScrollTopVisibility() {
-  if (!scrollTopBtn) return;
-  const show = window.scrollY > 450;
-  scrollTopBtn.classList.toggle("show", show);
-}
-
 if (scrollTopBtn) {
   scrollTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
-  window.addEventListener("scroll", updateScrollTopVisibility, { passive: true });
-  updateScrollTopVisibility();
 }
 
 document.addEventListener("keydown", e => {
