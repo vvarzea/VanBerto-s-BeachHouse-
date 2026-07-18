@@ -406,7 +406,9 @@ header {
   .cards.cards-restaurantes,
   .cards.cards-churrasqueiras,
   .cards.cards-fastfood,
-  .cards.cards-eventos {
+  .cards.cards-eventos,
+  .cards.cards-farmacias,
+  .cards.cards-bares {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
@@ -417,7 +419,9 @@ header {
   .cards-restaurantes .card,
   .cards-churrasqueiras .card,
   .cards-fastfood .card,
-  .cards-eventos .card {
+  .cards-eventos .card,
+  .cards-farmacias .card,
+  .cards-bares .card {
     padding: 8px 9px 10px;
     min-height: 0;
   }
@@ -428,7 +432,9 @@ header {
   .cards-restaurantes .card-title-top-wrap,
   .cards-churrasqueiras .card-title-top-wrap,
   .cards-fastfood .card-title-top-wrap,
-  .cards-eventos .card-title-top-wrap {
+  .cards-eventos .card-title-top-wrap,
+  .cards-farmacias .card-title-top-wrap,
+  .cards-bares .card-title-top-wrap {
     min-height: 31.25px; /* 2 linhas a 12.5px/1.25 */
   }
 
@@ -438,7 +444,9 @@ header {
   .cards-restaurantes .card-title-top,
   .cards-churrasqueiras .card-title-top,
   .cards-fastfood .card-title-top,
-  .cards-eventos .card-title-top {
+  .cards-eventos .card-title-top,
+  .cards-farmacias .card-title-top,
+  .cards-bares .card-title-top {
     font-size: 12.5px;
     white-space: normal;
     overflow: visible;
@@ -454,7 +462,9 @@ header {
   .cards-restaurantes .card-title,
   .cards-churrasqueiras .card-title,
   .cards-fastfood .card-title,
-  .cards-eventos .card-title {
+  .cards-eventos .card-title,
+  .cards-farmacias .card-title,
+  .cards-bares .card-title {
     font-size: 12.5px;
   }
 
@@ -464,7 +474,9 @@ header {
   .cards-restaurantes .card-ico,
   .cards-churrasqueiras .card-ico,
   .cards-fastfood .card-ico,
-  .cards-eventos .card-ico {
+  .cards-eventos .card-ico,
+  .cards-farmacias .card-ico,
+  .cards-bares .card-ico {
     font-size: 18px;
   }
 
@@ -481,7 +493,11 @@ header {
   .cards-fastfood .card-desc-photo,
   .cards-fastfood .card-desc,
   .cards-eventos .card-desc-photo,
-  .cards-eventos .card-desc {
+  .cards-eventos .card-desc,
+  .cards-farmacias .card-desc-photo,
+  .cards-farmacias .card-desc,
+  .cards-bares .card-desc-photo,
+  .cards-bares .card-desc {
     font-size: 10.5px;
     line-height: 1.3;
     /* sem line-clamp: melhor um cartão um pouco mais alto do que texto cortado com "…" */
@@ -493,7 +509,9 @@ header {
   .cards-restaurantes .card-category,
   .cards-churrasqueiras .card-category,
   .cards-fastfood .card-category,
-  .cards-eventos .card-category {
+  .cards-eventos .card-category,
+  .cards-farmacias .card-category,
+  .cards-bares .card-category {
     font-size: 10px;
   }
 
@@ -503,7 +521,9 @@ header {
   .cards-restaurantes .card-has-icon,
   .cards-churrasqueiras .card-has-icon,
   .cards-fastfood .card-has-icon,
-  .cards-eventos .card-has-icon {
+  .cards-eventos .card-has-icon,
+  .cards-farmacias .card-has-icon,
+  .cards-bares .card-has-icon {
     padding-bottom: 26px;
   }
 
@@ -513,7 +533,9 @@ header {
   .cards-restaurantes .card-corner-icon,
   .cards-churrasqueiras .card-corner-icon,
   .cards-fastfood .card-corner-icon,
-  .cards-eventos .card-corner-icon {
+  .cards-eventos .card-corner-icon,
+  .cards-farmacias .card-corner-icon,
+  .cards-bares .card-corner-icon {
     width: 20px;
     height: 20px;
     right: 8px;
@@ -526,7 +548,9 @@ header {
   .cards-restaurantes .card-corner-icon::before,
   .cards-churrasqueiras .card-corner-icon::before,
   .cards-fastfood .card-corner-icon::before,
-  .cards-eventos .card-corner-icon::before {
+  .cards-eventos .card-corner-icon::before,
+  .cards-farmacias .card-corner-icon::before,
+  .cards-bares .card-corner-icon::before {
     font-size: 13px;
   }
 }

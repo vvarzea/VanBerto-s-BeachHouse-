@@ -288,7 +288,7 @@ const photoByCat = {
   Bares: "images/bares/bar.jpg",
   FastFood: "images/fastfood/fast-food.jpg",
   Farmacias: "images/farmacias/farmacia.jpg",
-  Eventos: "images/eventos/baleal-offshore-beats.jpg"
+  Eventos: "images/eventos/evento.jpg"
 };
 
 function labelCategoriaCurta(cat) {
@@ -758,7 +758,8 @@ const data = {
       descES: "Bar de playa con ambiente tropical y relajado en Baleal.",
       descFR: "Bar de plage au style tropical et décontracté à Baleal.",
       tipVB: "O nosso bar de praia favorito aqui no Baleal! Os caipirinhas são perfeitos ao fim do dia.",
-      mapa: "Danau Beach Bar Baleal"
+      mapa: "Danau Beach Bar Baleal",
+      img: "images/bares/danau-beach-bar.jpg"
     },
     {
       nome: "Bar do Quebrado",
@@ -767,7 +768,8 @@ const data = {
       descES: "Bar junto a la playa, ideal para el final de la tarde y ver el atardecer.",
       descFR: "Bar de plage sympa, idéal pour la fin d'après-midi et le coucher du soleil.",
       tipVB: "Vista fantástica para o pôr do sol — um copo na mão e o sol a descer. Perfeito!",
-      mapa: "Bar do Quebrado Peniche"
+      mapa: "Bar do Quebrado Peniche",
+      img: "images/bares/bar-do-quebrado.jpg"
     },
     {
       nome: "Bar do Bruno",
@@ -776,7 +778,8 @@ const data = {
       descES: "Bar sencillo y animado, muy popular entre surfistas y lugareños.",
       descFR: "Bar simple et animé, très populaire parmi les surfeurs et les habitants.",
       tipVB: "Se quiseres conhecer a vibe local de Peniche, é aqui. Sempre com boa música!",
-      mapa: "Bar do Bruno Peniche"
+      mapa: "Bar do Bruno Peniche",
+      img: "images/bares/bar-do-bruno.jpg"
     },
     {
       nome: "Java House",
@@ -785,7 +788,8 @@ const data = {
       descES: "Café y bar con ambiente joven, buena música y cócteles creativos.",
       descFR: "Café et bar avec une ambiance jeune, bonne musique et cocktails créatifs.",
       tipVB: "Ótimo para um brunch relaxado ou para começar a noite. O café é muito bom!",
-      mapa: "Java House Peniche"
+      mapa: "Java House Peniche",
+      img: "images/bares/java-house.jpg"
     },
     {
       nome: "Gamboa Bar",
@@ -794,16 +798,18 @@ const data = {
       descES: "El lugar perfecto para ver el atardecer en la playa de Gamboa con una bebida.",
       descFR: "L'endroit parfait pour regarder le coucher de soleil à Gamboa avec un verre.",
       tipVB: "Um dos melhores pôres do sol de Peniche — chega um pouco antes para garantir lugar.",
-      mapa: "Gamboa Bar Peniche"
+      mapa: "Gamboa Bar Peniche",
+      img: "images/bares/gamboa-bar.jpg"
     },
     {
-      nome: "Tribo da Praia – Bar da Praia",
+      nome: "Tribo da Praia",
       descPT: "Bar alternativo e descontraído no Baleal, com música ao vivo e ambiente surf.",
       descEN: "Alternative and relaxed bar in Baleal, with live music and surf vibes.",
       descES: "Bar alternativo y relajado en Baleal, con música en vivo y ambiente surf.",
       descFR: "Bar alternatif et décontracté à Baleal, avec musique live et ambiance surf.",
       tipVB: "Às sextas-feiras têm música ao vivo — muito boa vibração!",
-      mapa: "Tribo da Praia Baleal"
+      mapa: "Tribo da Praia Baleal",
+      img: "images/bares/tribo-da-praia.jpg"
     },
     {
       nome: "The Base",
@@ -812,7 +818,8 @@ const data = {
       descES: "Bar animado con música y mucha energía surfera en Baleal.",
       descFR: "Bar animé avec musique et plein d'énergie surf à Baleal.",
       tipVB: "Bom para noites mais animadas — fica mesmo na zona do Baleal, muito perto de casa!",
-      mapa: "The Base Baleal"
+      mapa: "The Base Baleal",
+      img: "images/bares/the-base.jpg"
     },
     {
       nome: "Supertubos Beach Bar",
@@ -821,7 +828,8 @@ const data = {
       descES: "Bar justo frente a las olas de Supertubos, ideal para ver surf.",
       descFR: "Bar directement devant les vagues de Supertubos, idéal pour regarder le surf.",
       tipVB: "Ver surf de copo na mão é uma experiência única — especialmente no inverno com ondas grandes!",
-      mapa: "Supertubos Beach Bar"
+      mapa: "Supertubos Beach Bar",
+      img: "images/bares/supertubos-beach-bar.jpg"
     },
     {
       nome: "Bananas Beach Bar",
@@ -830,7 +838,8 @@ const data = {
       descES: "Bar colorido y divertido, directamente en la playa de Baleal.",
       descFR: "Bar coloré et amusant, directement sur la plage de Baleal.",
       tipVB: "Ótimo para um almoço descontraído de pés na areia — os batidos são deliciosos!",
-      mapa: "Bananas Beach Bar Baleal"
+      mapa: "Bananas Beach Bar Baleal",
+      img: "images/bares/bananas-beach-bar.jpg"
     }
   ],
   Eventos: [{
@@ -1075,7 +1084,8 @@ const data = {
       mapa: "Farmácia Central, Rua José Estevão 16, Peniche",
       telefone: "262782135",
       horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
-      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
+      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season).",
+      img: "images/farmacias/farmacia-central.jpg"
     },
     {
       nome: "Farmácia Proença",
@@ -1087,7 +1097,8 @@ const data = {
       mapa: "Farmácia Proença, Praça Jacob Rodrigues Pereira 14-15, Peniche",
       telefone: "262782100",
       horarioPT: "Aproximadamente 09:00–19:00 (confirma localmente, pode variar).",
-      horarioEN: "Roughly 09:00–19:00 (please confirm locally, may vary)."
+      horarioEN: "Roughly 09:00–19:00 (please confirm locally, may vary).",
+      img: "images/farmacias/farmacia-proenca.jpg"
     },
     {
       nome: "Farmácia Higiénica",
@@ -1099,7 +1110,8 @@ const data = {
       mapa: "Farmácia Higiénica, Rua António da Conceição Bento 21-B, Peniche",
       telefone: "262782415",
       horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
-      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
+      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season).",
+      img: "images/farmacias/farmacia-higienica.jpg"
     },
     {
       nome: "Farmácia Santo Estêvão",
@@ -1111,7 +1123,8 @@ const data = {
       mapa: "Farmácia Santo Estêvão, Rua do Brejo 6-B, Ferrel, Peniche",
       telefone: "262758029",
       horarioPT: "Aproximadamente 09:00–13:00 e 14:30–19:30 (confirma localmente).",
-      horarioEN: "Roughly 09:00–13:00 and 14:30–19:30 (please confirm locally)."
+      horarioEN: "Roughly 09:00–13:00 and 14:30–19:30 (please confirm locally).",
+      img: "images/farmacias/farmacia-santo-estevao.jpg"
     },
     {
       nome: "Farmácia Serra",
@@ -1123,7 +1136,8 @@ const data = {
       mapa: "Farmácia Serra, Avenida da Liberdade 78, Serra d'El-Rei",
       telefone: "262909122",
       horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
-      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
+      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season).",
+      img: "images/farmacias/farmacia-serra.jpg"
     },
     {
       nome: "Farmácia Santa Luzia",
@@ -1135,7 +1149,8 @@ const data = {
       mapa: "Farmácia Santa Luzia, Praça Geraldes 1, Atouguia da Baleia",
       telefone: "262769265",
       horarioPT: "Aproximadamente 09:00–13:00 e 15:00–20:00 (confirma localmente).",
-      horarioEN: "Roughly 09:00–13:00 and 15:00–20:00 (please confirm locally)."
+      horarioEN: "Roughly 09:00–13:00 and 15:00–20:00 (please confirm locally).",
+      img: "images/farmacias/farmacia-santa-luzia.jpg"
     },
     {
       nome: "Farmácia Confiança",
@@ -1147,7 +1162,8 @@ const data = {
       mapa: "Farmácia Confiança, Rua José Augusto Vaz 5, Atouguia da Baleia",
       telefone: "262759171",
       horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
-      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season)."
+      horarioEN: "Confirm hours by phone or on Google Maps (may vary by season).",
+      img: "images/farmacias/farmacia-confianca.jpg"
     }
   ],
 };
@@ -1278,6 +1294,8 @@ function gerarCategoriasPrincipais() {
   cardsContainer.classList.remove("cards-churrasqueiras");
   cardsContainer.classList.remove("cards-fastfood");
   cardsContainer.classList.remove("cards-eventos");
+  cardsContainer.classList.remove("cards-farmacias");
+  cardsContainer.classList.remove("cards-bares");
   Object.keys(data).forEach(cat => {
     const label = labelCategoria(cat);
     const badgeLabel = labelCategoriaCurta(cat);
@@ -1344,6 +1362,8 @@ function gerarCardsDeCategoria(cat) {
   cardsContainer.classList.toggle("cards-churrasqueiras", cat === "Churrasqueiras");
   cardsContainer.classList.toggle("cards-fastfood", cat === "FastFood");
   cardsContainer.classList.toggle("cards-eventos", cat === "Eventos");
+  cardsContainer.classList.toggle("cards-farmacias", cat === "Farmacias");
+  cardsContainer.classList.toggle("cards-bares", cat === "Bares");
   const lista = data[cat] || [];
   const labelCat = labelCategoria(cat);
   const icon = iconByCat[cat] || "📍";
@@ -1405,6 +1425,8 @@ function gerarFavoritos() {
   cardsContainer.classList.remove("cards-churrasqueiras");
   cardsContainer.classList.remove("cards-fastfood");
   cardsContainer.classList.remove("cards-eventos");
+  cardsContainer.classList.remove("cards-farmacias");
+  cardsContainer.classList.remove("cards-bares");
   const itens = [];
   Object.keys(data).forEach(cat => {
     (data[cat] || []).forEach(item => {
