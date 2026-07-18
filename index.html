@@ -16,6 +16,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Baloo+2:wght@600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Pré-carrega já as fotos dos 9 cartões principais (a primeira coisa que se vê),
+       para começarem a descarregar em paralelo com o CSS/JS, sem esperar que o
+       JavaScript termine de correr. As fotos dos cartões secundários (dentro de
+       cada categoria) não são pré-carregadas: só carregam quando o utilizador
+       entra nessa categoria. -->
+  <link rel="preload" as="image" href="images/praias/praia-baleal.jpg" />
+  <link rel="preload" as="image" href="images/locais/locais-de-interesse.jpg" />
+  <link rel="preload" as="image" href="images/supermercados/supermercado.jpg" />
+  <link rel="preload" as="image" href="images/restaurantes/restaurante.jpg" />
+  <link rel="preload" as="image" href="images/churrasqueiras/churrasqueira.jpg" />
+  <link rel="preload" as="image" href="images/bares/bar.jpg" />
+  <link rel="preload" as="image" href="images/fastfood/fast-food.jpg" />
+  <link rel="preload" as="image" href="images/farmacias/farmacia.jpg" />
+  <link rel="preload" as="image" href="images/eventos/evento.jpg" />
 </head>
 <body>
   <!-- 📲 Banner de instalação para iOS/Safari (sem beforeinstallprompt) -->
@@ -183,12 +198,6 @@
           <div class="home-meteo-card-title" id="i18n-parking-title">🅿️ Estacionamento</div>
           <div class="home-meteo-main" id="i18n-parking-main">Grátis, mesmo à porta</div>
           <div class="home-meteo-sub" id="i18n-parking-sub">O parque junto ao prédio é gratuito e sem restrições — podes deixar lá o carro durante toda a estadia.</div>
-        </div>
-
-        <div class="home-meteo-card home-house-card">
-          <div class="home-meteo-card-title" id="i18n-transport-title">🚕 Transportes, táxi &amp; Uber</div>
-          <div class="home-meteo-main" id="i18n-transport-main">Uber e Bolt funcionam, mas com menos carros</div>
-          <div class="home-meteo-sub" id="i18n-transport-sub">Peniche não tem uma rede de transportes públicos muito forte, por isso ter carro é o mais prático. Uber e Bolt existem na zona, mas com menos motoristas do que em Lisboa — a espera pode ser maior. Preferes táxi? Liga para <a href="tel:262782687">262 782 687</a> ou <a href="tel:917296771">917 296 771</a>.</div>
         </div>
 
         <a href="https://www.google.com/maps/search/?api=1&query=Multibanco%2C%20R.%20Dr.%20Ernesto%20Moreira%20J%2C%202520-621%20Peniche" target="_blank" rel="noopener noreferrer" class="home-meteo-card home-meteo-card-wide home-house-card home-link-card">

@@ -1315,7 +1315,7 @@ function gerarCategoriasPrincipais() {
 
     card.innerHTML = `
       <div class="card-photo-wrap">
-        <img class="card-img-photo" src="${photo}" alt="${label}" loading="lazy" />
+        <img class="card-img-photo" src="${photo}" alt="${label}" loading="eager" fetchpriority="high" />
         <span class="card-photo-badge">
           <span class="card-photo-badge-text">${badgeLabel}</span>
         </span>
@@ -2353,10 +2353,15 @@ window.addEventListener("popstate", (e) => {
 });
 
 if (backBtn) backBtn.addEventListener("click", () => {
+  // Garante sempre o regresso visual imediato aos cartões principais,
+  // sem depender do evento popstate (que em alguns webviews/PWAs
+  // nem sempre dispara de forma fiável e deixava o botão "sem efeito").
+  switchCategory("tudo");
+
+  // Mantém o histórico do browser sincronizado, para que o gesto/botão
+  // físico de voltar do telemóvel continue também a funcionar corretamente.
   if (history.state && history.state.vbCategory) {
     history.back();
-  } else {
-    switchCategory("tudo");
   }
 });
 if (btnFavs) btnFavs.addEventListener("click", () => switchCategory("favoritos"));
@@ -2556,15 +2561,49 @@ try{ toggleEventsCalendar(false); }catch{}
   const state = loadCollapsedState();
   const heads = document.querySelectorAll(".home-meteo-head[data-toggle-section]");
 
+  // Guarda referência a todas as secções para conseguirmos geri-las como "acordeão"
+  const sections = [];
+  let jaExpandida = false;
+
   heads.forEach(head => {
     const id = head.getAttribute("data-toggle-section");
     const section = document.getElementById(id);
     const toggleBtn = head.querySelector(".home-meteo-toggle");
     if (!section) return;
 
+    sections.push({ id, section, toggleBtn });
+
     // Aplica estado guardado (por omissão: fechado)
-    const collapsed = state[id] === undefined ? true : !!state[id];
+    let collapsed = state[id] === undefined ? true : !!state[id];
+
+    // Garante no máximo 1 secção aberta ao carregar a página (migra estados antigos
+    // em que várias secções podiam ficar abertas em simultâneo)
+    if (!collapsed) {
+      if (jaExpandida) collapsed = true;
+      else jaExpandida = true;
+    }
+
     applyState(section, toggleBtn, collapsed);
+    state[id] = collapsed;
+  });
+  saveCollapsedState(state);
+
+  function fecharTodas(exceto){
+    let mudou = false;
+    sections.forEach(({ id, section, toggleBtn }) => {
+      if (id === exceto) return;
+      if (!section.classList.contains("is-collapsed")) {
+        applyState(section, toggleBtn, true);
+        state[id] = true;
+        mudou = true;
+      }
+    });
+    return mudou;
+  }
+
+  sections.forEach(({ id, section, toggleBtn }) => {
+    const head = document.querySelector(`.home-meteo-head[data-toggle-section="${id}"]`);
+    if (!head) return;
 
     head.addEventListener("click", (ev) => {
       // Evita fechar se o clique foi num link/botão interno com a sua própria ação (ex: copiar WiFi)
@@ -2572,10 +2611,20 @@ try{ toggleEventsCalendar(false); }catch{}
 
       const isCollapsed = section.classList.contains("is-collapsed");
       const next = !isCollapsed;
+
+      // Comportamento tipo "acordeão": ao abrir uma secção, fecha automaticamente as outras
+      if (!next) fecharTodas(id);
+
       applyState(section, toggleBtn, next);
       state[id] = next;
       saveCollapsedState(state);
     });
+  });
+
+  // Clicar em qualquer botão/link fora das secções retráteis também minimiza a que estiver aberta
+  document.addEventListener("click", (ev) => {
+    if (ev.target.closest(".home-meteo")) return; // clique dentro de uma secção retrátil: ignora
+    if (fecharTodas(null)) saveCollapsedState(state);
   });
 })();
 
@@ -2745,9 +2794,6 @@ const HOME_I18N = {
     parkingTitle: "🅿️ Estacionamento",
     parkingMain: "Grátis, mesmo à porta",
     parkingSub: "O parque junto ao prédio é gratuito e sem restrições — podes deixar lá o carro durante toda a estadia.",
-    transportTitle: "🚕 Transportes, táxi & Uber",
-    transportMain: "Uber e Bolt funcionam, mas com menos carros",
-    transportSub: "Peniche não tem uma rede de transportes públicos muito forte, por isso ter carro é o mais prático. Uber e Bolt existem na zona, mas com menos motoristas do que em Lisboa — a espera pode ser maior. Preferes táxi? Liga para <a href=\"tel:262782687\">262 782 687</a> ou <a href=\"tel:917296771\">917 296 771</a>.",
     atmTitle: "🏧 Onde levantar dinheiro",
     atmMain: "Multibanco no Pingo Doce",
     atmSub: "O mais perto de casa fica no Pingo Doce de Peniche, a 5 minutos de distância. Há mais opções no centro de Peniche. Quase todos os estabelecimentos aceitam cartão, por isso raramente precisas de dinheiro vivo.",
@@ -2847,9 +2893,6 @@ const HOME_I18N = {
     parkingTitle: "🅿️ Parking",
     parkingMain: "Free, right at the door",
     parkingSub: "The car park next to the building is free and unrestricted — you can leave your car there for your whole stay.",
-    transportTitle: "🚕 Transport, taxi & Uber",
-    transportMain: "Uber and Bolt work, but with fewer cars",
-    transportSub: "Peniche doesn't have a very strong public transport network, so having a car is the most practical option. Uber and Bolt operate in the area, but with fewer drivers than in Lisbon — waiting times can be longer. Prefer a taxi? Call <a href=\"tel:262782687\">262 782 687</a> or <a href=\"tel:917296771\">917 296 771</a>.",
     atmTitle: "🏧 Where to withdraw cash",
     atmMain: "ATM at Pingo Doce",
     atmSub: "The closest one to the house is at Pingo Doce in Peniche, 5 minutes away. There are more options in central Peniche. Almost every place accepts card, so you rarely need cash.",
@@ -2949,9 +2992,6 @@ const HOME_I18N = {
     parkingTitle: "🅿️ Aparcamiento",
     parkingMain: "Gratis, justo en la puerta",
     parkingSub: "El aparcamiento junto al edificio es gratuito y sin restricciones — puedes dejar el coche allí durante toda tu estancia.",
-    transportTitle: "🚕 Transporte, taxi & Uber",
-    transportMain: "Uber y Bolt funcionan, pero con menos coches",
-    transportSub: "Peniche no tiene una red de transporte público muy fuerte, así que tener coche es lo más práctico. Uber y Bolt existen en la zona, pero con menos conductores que en Lisboa — la espera puede ser mayor. ¿Prefieres taxi? Llama al <a href=\"tel:262782687\">262 782 687</a> o al <a href=\"tel:917296771\">917 296 771</a>.",
     atmTitle: "🏧 Dónde sacar dinero",
     atmMain: "Cajero en el Pingo Doce",
     atmSub: "El más cercano a la casa está en el Pingo Doce de Peniche, a 5 minutos. Hay más opciones en el centro de Peniche. Casi todos los establecimientos aceptan tarjeta, así que raramente necesitas dinero en efectivo.",
@@ -3051,9 +3091,6 @@ const HOME_I18N = {
     parkingTitle: "🅿️ Stationnement",
     parkingMain: "Gratuit, juste devant la porte",
     parkingSub: "Le parking près du bâtiment est gratuit et sans restriction — tu peux y laisser la voiture pendant tout ton séjour.",
-    transportTitle: "🚕 Transports, taxi & Uber",
-    transportMain: "Uber et Bolt fonctionnent, mais avec moins de voitures",
-    transportSub: "Peniche n'a pas un réseau de transports publics très développé, donc avoir une voiture est le plus pratique. Uber et Bolt existent dans la région, mais avec moins de chauffeurs qu'à Lisbonne — l'attente peut être plus longue. Tu préfères un taxi ? Appelle le <a href=\"tel:262782687\">262 782 687</a> ou le <a href=\"tel:917296771\">917 296 771</a>.",
     atmTitle: "🏧 Où retirer de l'argent",
     atmMain: "Distributeur au Pingo Doce",
     atmSub: "Le plus proche de la maison se trouve au Pingo Doce de Peniche, à 5 minutes. Il y a plus d'options dans le centre de Peniche. Presque tous les établissements acceptent la carte, donc tu as rarement besoin d'argent liquide.",
@@ -3168,9 +3205,6 @@ function applyHomeSectionsI18n(){
   setText("i18n-parking-title", T.parkingTitle);
   setText("i18n-parking-main", T.parkingMain);
   setText("i18n-parking-sub", T.parkingSub);
-  setText("i18n-transport-title", T.transportTitle);
-  setText("i18n-transport-main", T.transportMain);
-  setHtml("i18n-transport-sub", T.transportSub);
   setText("i18n-atm-title", T.atmTitle);
   setText("i18n-atm-main", T.atmMain);
   setText("i18n-atm-sub", T.atmSub);
