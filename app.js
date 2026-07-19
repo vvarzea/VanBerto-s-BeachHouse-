@@ -862,10 +862,10 @@ const data = {
     },
     {
       nome: "Praia dos Supertubos (surf em época)",
-      descPT: "Quando há provas, Supertubos recebe competições de surf. Confirma cartazes e redes sociais na semana.",
-      descEN: "During event weeks, Supertubos hosts surf competitions. Check posters and social media that week.",
-      descES: "Cuando hay pruebas, Supertubos acoge competiciones de surf. Consulta carteles y redes sociales esa semana.",
-      descFR: "Lors des semaines d'événements, Supertubos accueille des compétitions de surf. Vérifie les affiches et les réseaux sociaux cette semaine-là.",
+      descPT: "Quando há provas, Supertubos recebe competições de surf.",
+      descEN: "During event weeks, Supertubos hosts surf competitions.",
+      descES: "Cuando hay pruebas, Supertubos acoge competiciones de surf.",
+      descFR: "Lors des semaines d'événements, Supertubos accueille des compétitions de surf.",
       mapa: "Praia dos Supertubos",
       img: "images/eventos/surf-praia-dos-supertubos.jpg"
     }
@@ -1057,20 +1057,20 @@ const data = {
     {
       nome: "Baleal Offshore Beats",
       link: "https://balealoffshorebeats.pt",
-      descPT: "Festival no Baleal/Ferrel. Datas variam — consulta a agenda oficial.",
-      descEN: "Festival in Baleal/Ferrel. Dates vary — check official agenda.",
-      descES: "Festival en Baleal/Ferrel. Las fechas varían — consulta la agenda oficial.",
-      descFR: "Festival à Baleal/Ferrel. Les dates varient — consulte l'agenda officiel.",
+      descPT: "Festival no Baleal/Ferrel. Datas variam.",
+      descEN: "Festival in Baleal/Ferrel. Dates vary.",
+      descES: "Festival en Baleal/Ferrel. Las fechas varían.",
+      descFR: "Festival à Baleal/Ferrel. Les dates varient.",
       mapa: "Baleal Ferrel",
       local: "Baleal",
       img: "images/eventos/baleal-offshore-beats.jpg"
     },
     {
       nome: "Festas de Santo Estêvão (Baleal)",
-      descPT: "Festas com procissão à volta da ilha. Datas variam — confirma na página oficial.",
-      descEN: "Local festivities with procession around the island. Dates vary — please confirm.",
-      descES: "Fiestas con procesión alrededor de la isla. Las fechas varían — confirma en la página oficial.",
-      descFR: "Fêtes avec procession autour de l'île. Les dates varient — merci de confirmer sur la page officielle.",
+      descPT: "Festas com procissão à volta da ilha. Datas variam.",
+      descEN: "Local festivities with procession around the island. Dates vary.",
+      descES: "Fiestas con procesión alrededor de la isla. Las fechas varían.",
+      descFR: "Fêtes avec procession autour de l'île. Les dates varient.",
       mapa: "Ilha do Baleal",
       local: "Baleal",
       img: "images/eventos/festa-de-santo-estevao.jpg"
