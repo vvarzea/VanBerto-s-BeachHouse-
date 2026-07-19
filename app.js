@@ -333,7 +333,10 @@ const data = {
       descEN: "Long beach in the bay between Peniche and Baleal, with views of Baleal village in the distance.",
       descES: "Playa extensa en la bahía entre Peniche y Baleal, con vistas al pueblo de Baleal al fondo.",
       descFR: "Longue plage dans la baie entre Peniche et Baleal, avec vue sur le village de Baleal au loin.",
-      tipVB: "Ótima para um passeio a pé ao fim da tarde — a luz sobre a baía com o Baleal ao fundo é linda.",
+      tipVBPT: "Ótima para um passeio a pé ao fim da tarde — a luz sobre a baía com o Baleal ao fundo é linda.",
+      tipVBEN: "Great for an evening walk — the light over the bay with Baleal in the background is beautiful.",
+      tipVBES: "Genial para un paseo a pie al final de la tarde — la luz sobre la bahía con Baleal al fondo es preciosa.",
+      tipVBFR: "Idéal pour une promenade en fin d'après-midi — la lumière sur la baie avec Baleal en arrière-plan est magnifique.",
       mapa: "Praia da Baía Peniche"
     },
     {
@@ -343,7 +346,10 @@ const data = {
       descEN: "Long dune-backed beach, midway through the bay between Peniche and Baleal. Blue Flag, with good facilities.",
       descES: "Playa extensa de dunas, a medio camino de la bahía entre Peniche y Baleal. Bandera Azul, con buenas infraestructuras de apoyo.",
       descFR: "Longue plage de dunes, à mi-chemin dans la baie entre Peniche et Baleal. Pavillon Bleu, avec de bonnes infrastructures d'accueil.",
-      tipVB: "Boa opção para surf mais tranquilo e para quem gosta de pesca desportiva — tem também bar e restaurante na praia.",
+      tipVBPT: "Boa opção para surf mais tranquilo e para quem gosta de pesca desportiva — tem também bar e restaurante na praia.",
+      tipVBEN: "A good option for calmer surf and for anyone who enjoys sport fishing — it also has a bar and restaurant on the beach.",
+      tipVBES: "Buena opción para surf más tranquilo y para quienes disfrutan de la pesca deportiva — también tiene bar y restaurante en la playa.",
+      tipVBFR: "Bonne option pour un surf plus tranquille et pour les amateurs de pêche sportive — il y a aussi un bar et un restaurant sur la plage.",
       mapa: "Praia da Cova da Alfarroba Peniche"
     },
     {
@@ -353,7 +359,10 @@ const data = {
       descEN: "Iconic beach in Peniche, great for surfing and families. Our beach — right on the doorstep!",
       descES: "Playa icónica de Peniche, perfecta para surf y familias. ¡Está justo aquí al lado!",
       descFR: "Plage iconique de Peniche, excellente pour le surf et les familles. Notre plage — juste à côté !",
-      tipVB: "O lado Norte é melhor para surf, o Sul é mais calmo e ideal para famílias com crianças.",
+      tipVBPT: "O lado Norte é melhor para surf, o Sul é mais calmo e ideal para famílias com crianças.",
+      tipVBEN: "The north side is better for surfing, the south side is calmer and ideal for families with children.",
+      tipVBES: "El lado norte es mejor para surf, el sur es más tranquilo e ideal para familias con niños.",
+      tipVBFR: "Le côté nord est meilleur pour le surf, le côté sud est plus calme et idéal pour les familles avec enfants.",
       mapa: "Praia do Baleal Peniche"
     },
     {
@@ -363,7 +372,10 @@ const data = {
       descEN: "Small sheltered bay, very picturesque and great for snorkelling.",
       descES: "Pequeña bahía resguardada, muy fotogénica e ideal para snorkel.",
       descFR: "Petite baie abritée, très photogénique et idéale pour le snorkeling.",
-      tipVB: "Uma das praias mais bonitas da zona — leva a câmara porque as fotos ficam incríveis!",
+      tipVBPT: "Uma das praias mais bonitas da zona — leva a câmara porque as fotos ficam incríveis!",
+      tipVBEN: "One of the most beautiful beaches in the area — bring your camera, the photos come out amazing!",
+      tipVBES: "Una de las playas más bonitas de la zona — ¡lleva la cámara porque las fotos quedan increíbles!",
+      tipVBFR: "Une des plus belles plages de la région — prends ton appareil photo, les photos sont incroyables !",
       mapa: "Portinho da Areia Sul Peniche"
     },
     {
@@ -373,7 +385,10 @@ const data = {
       descEN: "Calm and family-friendly beach, ideal to relax.",
       descES: "Ambiente muy tranquilo y familiar, ideal para relajarse.",
       descFR: "Plage calme et familiale, idéale pour se détendre.",
-      tipVB: "O bar da Gamboa tem o melhor pôr do sol de Peniche — não percas!",
+      tipVBPT: "O bar da Gamboa tem o melhor pôr do sol de Peniche — não percas!",
+      tipVBEN: "The Gamboa bar has the best sunset in Peniche — don't miss it!",
+      tipVBES: "El bar de Gamboa tiene la mejor puesta de sol de Peniche — ¡no te la pierdas!",
+      tipVBFR: "Le bar de Gamboa a le plus beau coucher de soleil de Peniche — à ne pas manquer !",
       mapa: "Praia da Gamboa Peniche"
     },
     {
@@ -383,7 +398,10 @@ const data = {
       descEN: "Long sandy beach, perfect for walks and swimming.",
       descES: "Playa extensa, ideal para paseos y baños tranquilos.",
       descFR: "Grande plage de sable, parfaite pour les promenades et la baignade.",
-      tipVB: "Ótima para caminhadas ao amanhecer — o silêncio e a luz são únicos.",
+      tipVBPT: "Ótima para caminhadas ao amanhecer — o silêncio e a luz são únicos.",
+      tipVBEN: "Great for sunrise walks — the silence and the light are unique.",
+      tipVBES: "Genial para caminatas al amanecer — el silencio y la luz son únicos.",
+      tipVBFR: "Idéal pour les balades au lever du soleil — le silence et la lumière sont uniques.",
       mapa: "Praia de Peniche de Cima"
     },
     {
@@ -393,7 +411,10 @@ const data = {
       descEN: "World-class tubular wave, WSL championship spot. Amazing to watch even from the shore!",
       descES: "Ola tubular de clase mundial, sede del campeonato WSL. ¡Espectacular incluso desde la orilla!",
       descFR: "Vague tubulaire de classe mondiale, site du championnat WSL. Spectaculaire même depuis la plage !",
-      tipVB: "Mesmo que não surfes, vale a pena ir ver os tubos. De outubro a fevereiro as ondas são gigantescas.",
+      tipVBPT: "Mesmo que não surfes, vale a pena ir ver os tubos. De outubro a fevereiro as ondas são gigantescas.",
+      tipVBEN: "Even if you don't surf, it's worth going to watch the barrels. From October to February the waves are massive.",
+      tipVBES: "Aunque no hagas surf, vale la pena ir a ver los tubos. De octubre a febrero las olas son gigantescas.",
+      tipVBFR: "Même si tu ne surfes pas, ça vaut le coup d'aller voir les tubes. D'octobre à février, les vagues sont énormes.",
       mapa: "Praia dos Supertubos"
     },
     {
@@ -403,7 +424,10 @@ const data = {
       descEN: "Known for iodine-rich rocks and therapeutic waters. Great for snorkelling.",
       descES: "Famosa por sus rocas ricas en yodo y aguas terapéuticas. Ideal para snorkel.",
       descFR: "Connue pour ses rochers riches en iode et ses eaux thérapeutiques. Idéale pour le snorkeling.",
-      tipVB: "Perfeita para quem tem problemas respiratórios — o iodo faz maravilhas!",
+      tipVBPT: "Perfeita para quem tem problemas respiratórios — o iodo faz maravilhas!",
+      tipVBEN: "Perfect for anyone with respiratory issues — the sea air works wonders!",
+      tipVBES: "Perfecta para quienes tienen problemas respiratorios — ¡el yodo hace maravillas!",
+      tipVBFR: "Parfait pour ceux qui ont des problèmes respiratoires — l'air iodé fait des merveilles !",
       mapa: "Praia da Consolação Peniche"
     },
     {
@@ -413,7 +437,10 @@ const data = {
       descEN: "Popular for surf and sunsets near the harbour pier.",
       descES: "Popular para surf y atardeceres junto al muelle.",
       descFR: "Populaire pour le surf et les couchers de soleil près de la digue.",
-      tipVB: "Fica mesmo ao lado do porto — combinam bem um passeio pela doca e um gelado no final.",
+      tipVBPT: "Fica mesmo ao lado do porto — combinam bem um passeio pela doca e um gelado no final.",
+      tipVBEN: "Right next to the harbour — a stroll along the dock and an ice cream afterwards go great together.",
+      tipVBES: "Está justo al lado del puerto — combina bien un paseo por el muelle con un helado al final.",
+      tipVBFR: "Juste à côté du port — une balade sur le quai suivie d'une glace, c'est parfait.",
       mapa: "Praia do Molhe Leste"
     },
     {
@@ -423,7 +450,10 @@ const data = {
       descEN: "Quiet family beach, a short drive from Peniche.",
       descES: "Playa familiar y tranquila, a pocos minutos de Peniche.",
       descFR: "Plage familiale et calme, à quelques minutes de Peniche.",
-      tipVB: "Menos conhecida pelos turistas — se quiseres praia sossegada é esta!",
+      tipVBPT: "Menos conhecida pelos turistas — se quiseres praia sossegada é esta!",
+      tipVBEN: "Less known among tourists — if you want a quiet beach, this is it!",
+      tipVBES: "Menos conocida por los turistas — ¡si quieres una playa tranquila, es esta!",
+      tipVBFR: "Moins connue des touristes — si tu veux une plage tranquille, c'est celle-ci !",
       mapa: "Praia de São Bernardino"
     }
   ],
@@ -435,7 +465,10 @@ const data = {
       descEN: "Small island connected by a sand isthmus, perfect for photos and sunset walks.",
       descES: "Pequeña isla unida por un istmo de arena, perfecta para fotos y paseos al atardecer.",
       descFR: "Petit îlot relié par un isthme de sable, parfait pour les photos et les promenades au coucher du soleil.",
-      tipVB: "Fica mesmo à frente do VanBerto's! Dá uma volta ao ilhote — demora 20 minutos e vale cada segundo.",
+      tipVBPT: "Fica mesmo à frente do VanBerto's! Dá uma volta ao ilhote — demora 20 minutos e vale cada segundo.",
+      tipVBEN: "Right in front of VanBerto's! Walk around the islet — it takes 20 minutes and is worth every second.",
+      tipVBES: "¡Está justo enfrente de VanBerto's! Da la vuelta al islote — tarda 20 minutos y merece cada segundo.",
+      tipVBFR: "Juste en face de VanBerto's ! Fais le tour de l'îlot — ça prend 20 minutes et ça vaut chaque seconde.",
       mapa: "Ilha do Baleal"
     },
     {
@@ -445,7 +478,10 @@ const data = {
       descEN: "Natural reserve with crystal clear waters. Boat trip from Peniche (45 min).",
       descES: "Reserva natural con aguas cristalinas. Barco desde Peniche (45 min).",
       descFR: "Réserve naturelle aux eaux cristallines. Bateau depuis Peniche (45 min).",
-      tipVB: "Reserva o barco com antecedência — enche rápido no verão! Vale muito a pena, é um dia inesquecível.",
+      tipVBPT: "Reserva o barco com antecedência — enche rápido no verão! Vale muito a pena, é um dia inesquecível.",
+      tipVBEN: "Book the boat in advance — it fills up fast in summer! Totally worth it, an unforgettable day.",
+      tipVBES: "Reserva el barco con antelación — ¡se llena rápido en verano! Merece mucho la pena, es un día inolvidable.",
+      tipVBFR: "Réserve le bateau à l'avance — ça se remplit vite en été ! Ça vaut vraiment le coup, une journée inoubliable.",
       mapa: "Ilhas Berlengas"
     },
     {
@@ -468,7 +504,10 @@ const data = {
       descEN: "Former political prison during the dictatorship, now a moving memory museum.",
       descES: "Antigua prisión política, hoy museo de memoria con vistas al mar.",
       descFR: "Ancienne prison politique, aujourd'hui musée de mémoire avec vue sur la mer.",
-      tipVB: "Um sítio muito especial. A vista do topo das muralhas para as Berlengas é de cortar a respiração.",
+      tipVBPT: "Um sítio muito especial. A vista do topo das muralhas para as Berlengas é de cortar a respiração.",
+      tipVBEN: "A very special place. The view from the top of the walls towards the Berlengas is breathtaking.",
+      tipVBES: "Un lugar muy especial. La vista desde lo alto de las murallas hacia las Berlengas quita el aliento.",
+      tipVBFR: "Un endroit très spécial. La vue depuis le haut des remparts sur les Berlengas est à couper le souffle.",
       mapa: "Fortaleza de Peniche"
     },
     {
@@ -478,7 +517,10 @@ const data = {
       descEN: "Stunning views over the Atlantic and the Berlengas islands.",
       descES: "Vistas impresionantes al Atlántico y las islas Berlengas.",
       descFR: "Vue imprenable sur l'Atlantique et les îles Berlengas.",
-      tipVB: "Obrigatório ao final da tarde — o pôr do sol daqui é simplesmente mágico. Leva um casaco!",
+      tipVBPT: "Obrigatório ao final da tarde — o pôr do sol daqui é simplesmente mágico. Leva um casaco!",
+      tipVBEN: "A must at the end of the day — the sunset here is simply magical. Bring a jacket!",
+      tipVBES: "Imprescindible al final de la tarde — la puesta de sol desde aquí es simplemente mágica. ¡Lleva una chaqueta!",
+      tipVBFR: "Incontournable en fin de journée — le coucher de soleil ici est tout simplement magique. Prends une veste !",
       mapa: "Cabo Carvoeiro"
     },
     {
@@ -488,7 +530,10 @@ const data = {
       descEN: "Charming medieval walled village, about 25 minutes away.",
       descES: "Encantadora villa medieval amurallada, a unos 25 minutos.",
       descFR: "Charmant village médiéval fortifié, à environ 25 minutes.",
-      tipVB: "Experimenta a ginjinha em copinhos de chocolate — é a tradição local. Visita de manhã para evitar as multidões.",
+      tipVBPT: "Experimenta a ginjinha em copinhos de chocolate — é a tradição local. Visita de manhã para evitar as multidões.",
+      tipVBEN: "Try the ginjinha (cherry liqueur) served in a little chocolate cup — it's the local tradition. Visit in the morning to avoid the crowds.",
+      tipVBES: "Prueba la ginjinha en vasitos de chocolate — es la tradición local. Visítalo por la mañana para evitar las multitudes.",
+      tipVBFR: "Goûte la ginjinha servie dans un petit verre en chocolat — c'est la tradition locale. Visite le matin pour éviter la foule.",
       mapa: "Castelo de Óbidos"
     },
     {
@@ -498,7 +543,10 @@ const data = {
       descEN: "Outdoor dinosaur theme park, great for families.",
       descES: "Parque temático con dinosaurios a tamaño real, ideal para familias.",
       descFR: "Parc à thème avec des dinosaures grandeur nature, idéal pour les familles.",
-      tipVB: "As crianças ficam loucas! Fica a 20 minutos — uma boa saída para um dia diferente.",
+      tipVBPT: "As crianças ficam loucas! Fica a 20 minutos — uma boa saída para um dia diferente.",
+      tipVBEN: "The kids will love it! It's 20 minutes away — a great outing for a different kind of day.",
+      tipVBES: "¡Los niños se vuelven locos! Está a 20 minutos — una buena salida para un día diferente.",
+      tipVBFR: "Les enfants adorent ! C'est à 20 minutes — une bonne sortie pour changer un peu.",
       mapa: "Dino Parque Lourinhã"
     },
     {
@@ -508,7 +556,10 @@ const data = {
       descEN: "Huge oriental garden with giant sculptures, lakes and buddhas.",
       descES: "Enorme jardín oriental con esculturas gigantes, lagos y budas.",
       descFR: "Immense jardin oriental avec des sculptures géantes, des lacs et des bouddhas.",
-      tipVB: "Um sítio surpreendente que pouca gente conhece — as fotos ficam incríveis e é muito tranquilo.",
+      tipVBPT: "Um sítio surpreendente que pouca gente conhece — as fotos ficam incríveis e é muito tranquilo.",
+      tipVBEN: "A surprising spot that few people know about — the photos come out amazing and it's very peaceful.",
+      tipVBES: "Un lugar sorprendente que poca gente conoce — las fotos quedan increíbles y es muy tranquilo.",
+      tipVBFR: "Un endroit surprenant que peu de gens connaissent — les photos sont superbes et c'est très calme.",
       mapa: "Buddha Eden Bombarral"
     },
     {
@@ -518,7 +569,10 @@ const data = {
       descEN: "Where the Óbidos lagoon meets the sea — great for families and water sports.",
       descES: "Donde la laguna de Óbidos se encuentra con el mar — ideal para familias y deportes náuticos.",
       descFR: "Là où le lagon d'Óbidos rencontre la mer — idéal pour les familles et les sports nautiques.",
-      tipVB: "A lagoa é mais quente e calma que o mar — perfeita para crianças pequenas.",
+      tipVBPT: "A lagoa é mais quente e calma que o mar — perfeita para crianças pequenas.",
+      tipVBEN: "The lagoon is warmer and calmer than the sea — perfect for young children.",
+      tipVBES: "La laguna es más cálida y tranquila que el mar — perfecta para niños pequeños.",
+      tipVBFR: "La lagune est plus chaude et plus calme que la mer — parfaite pour les petits enfants.",
       mapa: "Praia da Foz do Arelho"
     }
   ],
@@ -530,7 +584,10 @@ const data = {
       descEN: "Largest supermarket in Peniche with a wide variety.",
       descES: "El supermercado más grande de Peniche, con gran variedad.",
       descFR: "Le plus grand supermarché de Peniche, avec une grande variété.",
-      tipVB: "Tem tudo — frutas, peixe, bebidas, produtos de higiene. É a nossa escolha principal.",
+      tipVBPT: "Tem tudo — frutas, peixe, bebidas, produtos de higiene. É a nossa escolha principal.",
+      tipVBEN: "It has everything — fruit, fish, drinks, toiletries. It's our go-to spot.",
+      tipVBES: "Tiene de todo — frutas, pescado, bebidas, productos de higiene. Es nuestra opción principal.",
+      tipVBFR: "Il y a de tout — fruits, poisson, boissons, produits d'hygiène. C'est notre choix principal.",
       mapa: "Continente Peniche"
     },
     {
@@ -540,7 +597,10 @@ const data = {
       descEN: "Good fresh produce and competitive prices.",
       descES: "Buenos productos frescos y precios competitivos.",
       descFR: "Bons produits frais et prix compétitifs.",
-      tipVB: "Os produtos de marca própria são muito bons e baratos. As refeições prontas são uma boa opção para um jantar rápido.",
+      tipVBPT: "Os produtos de marca própria são muito bons e baratos. As refeições prontas são uma boa opção para um jantar rápido.",
+      tipVBEN: "The store-brand products are great value. The ready meals are a good option for a quick dinner.",
+      tipVBES: "Los productos de marca propia son muy buenos y baratos. Las comidas preparadas son una buena opción para una cena rápida.",
+      tipVBFR: "Les produits de marque propre sont très bons et bon marché. Les plats préparés sont une bonne option pour un dîner rapide.",
       mapa: "Pingo Doce Peniche"
     },
     {
@@ -550,7 +610,10 @@ const data = {
       descEN: "Budget-friendly with essentials and good weekly deals.",
       descES: "Opción económica con esenciales y buenas ofertas semanales.",
       descFR: "Option économique avec l'essentiel et de bonnes promotions hebdomadaires.",
-      tipVB: "Ótimo para fruta, iogurtes e snacks. As promoções de quinta-feira são sempre uma surpresa!",
+      tipVBPT: "Ótimo para fruta, iogurtes e snacks. As promoções de quinta-feira são sempre uma surpresa!",
+      tipVBEN: "Great for fruit, yoghurt and snacks. The Thursday deals are always a nice surprise!",
+      tipVBES: "Genial para fruta, yogures y snacks. ¡Las ofertas de los jueves siempre son una sorpresa!",
+      tipVBFR: "Idéal pour les fruits, yaourts et snacks. Les promos du jeudi sont toujours une bonne surprise !",
       mapa: "Lidl Peniche"
     },
     {
@@ -560,7 +623,10 @@ const data = {
       descEN: "Full supermarket with butcher, fishmonger and petrol station.",
       descES: "Supermercado completo con carnicería, pescadería y gasolinera.",
       descFR: "Supermarché complet avec boucherie, poissonnerie et station-service.",
-      tipVB: "O peixe fresco daqui é muito bom — Peniche é terra de pesca e nota-se na qualidade!",
+      tipVBPT: "O peixe fresco daqui é muito bom — Peniche é terra de pesca e nota-se na qualidade!",
+      tipVBEN: "The fresh fish here is excellent — Peniche is a fishing town and you can tell from the quality!",
+      tipVBES: "El pescado fresco de aquí es muy bueno — Peniche es tierra de pesca y ¡se nota en la calidad!",
+      tipVBFR: "Le poisson frais ici est excellent — Peniche est une ville de pêcheurs et ça se sent dans la qualité !",
       mapa: "Intermarché Peniche"
     },
     {
@@ -570,7 +636,10 @@ const data = {
       descEN: "Practical for quick everyday shopping at good prices.",
       descES: "Práctico para compras rápidas del día a día a buenos precios.",
       descFR: "Pratique pour les courses rapides du quotidien à bons prix.",
-      tipVB: "Muito perto do centro — ideal quando só precisas de algumas coisas.",
+      tipVBPT: "Muito perto do centro — ideal quando só precisas de algumas coisas.",
+      tipVBEN: "Very close to the centre — ideal when you just need a few things.",
+      tipVBES: "Muy cerca del centro — ideal cuando solo necesitas algunas cosas.",
+      tipVBFR: "Très proche du centre — idéal quand tu n'as besoin que de quelques choses.",
       mapa: "Aldi Peniche"
     }
   ],
@@ -582,7 +651,10 @@ const data = {
       descEN: "Classic Peniche restaurant for fresh fish and seafood. Family and authentic feel.",
       descES: "Restaurante clásico de Peniche para pescado fresco y marisco. Ambiente familiar y auténtico.",
       descFR: "Restaurant classique de Peniche pour poisson frais et fruits de mer. Ambiance familiale et authentique.",
-      tipVB: "Um dos nossos favoritos! O peixe grelhado e as amêijoas à Bulhão Pato são imperdíveis.",
+      tipVBPT: "Um dos nossos favoritos! O peixe grelhado e as amêijoas à Bulhão Pato são imperdíveis.",
+      tipVBEN: "One of our favourites! The grilled fish and the Bulhão Pato clams are a must.",
+      tipVBES: "¡Uno de nuestros favoritos! El pescado a la parrilla y las almejas a la Bulhão Pato son imprescindibles.",
+      tipVBFR: "Un de nos préférés ! Le poisson grillé et les palourdes à la Bulhão Pato sont incontournables.",
       mapa: "Tasca do Joel Peniche"
     },
     {
@@ -592,7 +664,10 @@ const data = {
       descEN: "Traditional Portuguese tapas and dishes in a warm, relaxed space.",
       descES: "Tapas y platos típicos portugueses en un espacio acogedor y relajado.",
       descFR: "Tapas et plats typiques portugais dans un espace chaleureux et décontracté.",
-      tipVB: "Perfeito para um jantar tardio com amigos. O polvo à lagareiro é divinal!",
+      tipVBPT: "Perfeito para um jantar tardio com amigos. O polvo à lagareiro é divinal!",
+      tipVBEN: "Perfect for a late dinner with friends. The octopus à lagareiro is divine!",
+      tipVBES: "Perfecto para una cena tardía con amigos. ¡El pulpo a lagareiro es divino!",
+      tipVBFR: "Parfait pour un dîner tardif entre amis. Le poulpe à lagareiro est divin !",
       mapa: "Taberna do Ganhão Peniche"
     },
     {
@@ -602,7 +677,10 @@ const data = {
       descEN: "Excellent grilled fish and local cuisine at honest prices.",
       descES: "Excelente pescado a la brasa y cocina tradicional portuguesa a precios honestos.",
       descFR: "Excellent poisson grillé et cuisine locale à prix honnêtes.",
-      tipVB: "Muito bom e sempre cheio — reserva mesa com antecedência no verão!",
+      tipVBPT: "Muito bom e sempre cheio — reserva mesa com antecedência no verão!",
+      tipVBEN: "Really good and always busy — book a table in advance during summer!",
+      tipVBES: "Muy bueno y siempre lleno — ¡reserva mesa con antelación en verano!",
+      tipVBFR: "Très bon et toujours plein — réserve une table à l'avance en été !",
       mapa: "Restaurante O Pedro Peniche"
     },
     {
@@ -612,7 +690,10 @@ const data = {
       descEN: "Modern cuisine with regional flavours and local ingredients.",
       descES: "Cocina moderna con sabores regionales e ingredientes locales.",
       descFR: "Cuisine moderne aux saveurs régionales et aux ingrédients locaux.",
-      tipVB: "Para uma refeição mais especial — a carta muda com a estação e está sempre deliciosa.",
+      tipVBPT: "Para uma refeição mais especial — a carta muda com a estação e está sempre deliciosa.",
+      tipVBEN: "For a more special meal — the menu changes with the season and is always delicious.",
+      tipVBES: "Para una comida más especial — la carta cambia con la temporada y siempre está deliciosa.",
+      tipVBFR: "Pour un repas plus spécial — la carte change selon la saison et est toujours délicieuse.",
       mapa: "D Raiz Peniche"
     },
     {
@@ -622,7 +703,10 @@ const data = {
       descEN: "Handmade pasta and pizzas in a relaxed atmosphere. Great for families.",
       descES: "Pasta artesanal y pizzas en ambiente relajado. Perfecto para familias.",
       descFR: "Pâtes maison et pizzas dans une ambiance décontractée. Idéal pour les familles.",
-      tipVB: "A nossa escolha quando queremos pizza — as massas frescas são feitas na hora!",
+      tipVBPT: "A nossa escolha quando queremos pizza — as massas frescas são feitas na hora!",
+      tipVBEN: "Our go-to when we're in the mood for pizza — the fresh dough is made to order!",
+      tipVBES: "Nuestra elección cuando queremos pizza — ¡las masas frescas se hacen al momento!",
+      tipVBFR: "Notre choix quand on a envie de pizza — les pâtes fraîches sont faites à la minute !",
       mapa: "Italiano O Outro Peniche"
     },
     {
@@ -632,7 +716,10 @@ const data = {
       descEN: "Trendy spot with sea view, cocktails and a lively vibe.",
       descES: "Restaurante moderno con vista al mar, cócteles y ambiente animado.",
       descFR: "Restaurant tendance avec vue sur la mer, cocktails et ambiance animée.",
-      tipVB: "Ótimo para um jantar com vista para o oceano. Os cocktails são muito bons!",
+      tipVBPT: "Ótimo para um jantar com vista para o oceano. Os cocktails são muito bons!",
+      tipVBEN: "Great for a dinner with an ocean view. The cocktails are really good!",
+      tipVBES: "Genial para una cena con vistas al océano. ¡Los cócteles son muy buenos!",
+      tipVBFR: "Idéal pour un dîner avec vue sur l'océan. Les cocktails sont vraiment bons !",
       mapa: "Mundano Baleal"
     },
     {
@@ -642,7 +729,10 @@ const data = {
       descEN: "Right on Baleal beach, good food and summer vibes.",
       descES: "Justo en la playa de Baleal, buena comida y ambiente veraniego.",
       descFR: "Directement sur la plage de Baleal, bonne cuisine et ambiance estivale.",
-      tipVB: "Adoramos o pequeno-almoço aqui ao fim de semana — os ovos Benedict são de outro mundo!",
+      tipVBPT: "Adoramos o pequeno-almoço aqui ao fim de semana — os ovos Benedict são de outro mundo!",
+      tipVBEN: "We love breakfast here on weekends — the eggs Benedict are out of this world!",
+      tipVBES: "Nos encanta el desayuno aquí los fines de semana — ¡los huevos Benedict son de otro mundo!",
+      tipVBFR: "On adore le petit-déjeuner ici le week-end — les œufs Benedict sont incroyables !",
       mapa: "Maresia Baleal"
     },
     {
@@ -652,7 +742,10 @@ const data = {
       descEN: "Very popular seafood restaurant with the freshest shellfish.",
       descES: "Marisquería muy popular entre los visitantes, con marisco fresquísimo.",
       descFR: "Restaurant de fruits de mer très populaire, avec des produits ultra-frais.",
-      tipVB: "As lagostas e as gambas são espetaculares — para uma refeição especial!",
+      tipVBPT: "As lagostas e as gambas são espetaculares — para uma refeição especial!",
+      tipVBEN: "The lobster and prawns are spectacular — for a special meal!",
+      tipVBES: "Las langostas y las gambas son espectaculares — ¡para una comida especial!",
+      tipVBFR: "Les langoustes et les gambas sont spectaculaires — pour un repas spécial !",
       mapa: "Marisqueira Mirandum Peniche"
     },
     {
@@ -662,7 +755,10 @@ const data = {
       descEN: "Traditional seafood, highly appreciated by locals — always a good sign.",
       descES: "Marisco tradicional muy apreciado por los lugareños — siempre buena señal.",
       descFR: "Fruits de mer traditionnels très appréciés des locaux — toujours bon signe.",
-      tipVB: "O sítio preferido dos pescadores locais — quando os locais comem lá, é sempre bom sinal!",
+      tipVBPT: "O sítio preferido dos pescadores locais — quando os locais comem lá, é sempre bom sinal!",
+      tipVBEN: "The favourite spot of local fishermen — when the locals eat there, it's always a good sign!",
+      tipVBES: "El lugar favorito de los pescadores locales — cuando los locales comen allí, ¡siempre es buena señal!",
+      tipVBFR: "L'endroit préféré des pêcheurs locaux — quand les locaux y mangent, c'est toujours bon signe !",
       mapa: "Marisqueira dos Cortiçais Peniche"
     }
   ],
@@ -674,7 +770,10 @@ const data = {
       descEN: "Very tasty grilled chicken — a Peniche classic.",
       descES: "Pollo a la brasa muy sabroso — un clásico en Peniche.",
       descFR: "Poulet grillé très savoureux — un classique à Peniche.",
-      tipVB: "O nosso take-away de eleição! O frango com piri-piri daqui é fantástico. Chega cedo — esgota rápido!",
+      tipVBPT: "O nosso take-away de eleição! O frango com piri-piri daqui é fantástico. Chega cedo — esgota rápido!",
+      tipVBEN: "Our favourite takeaway! The piri-piri chicken here is fantastic. Get there early — it sells out fast!",
+      tipVBES: "¡Nuestro take-away favorito! El pollo con piri-piri de aquí es fantástico. Llega temprano — ¡se agota rápido!",
+      tipVBFR: "Notre take-away préféré ! Le poulet piri-piri est fantastique ici. Arrive tôt — ça part vite !",
       mapa: "Churrasqueira A Caseirinha Peniche"
     },
     {
@@ -684,7 +783,10 @@ const data = {
       descEN: "Popular takeaway among locals, great value for money.",
       descES: "Comida para llevar muy popular entre los residentes, excelente relación calidad-precio.",
       descFR: "Plats à emporter très populaires chez les résidents, excellent rapport qualité-prix.",
-      tipVB: "Rápido, barato e muito bom — ideal quando se quer uma refeição sem complicações.",
+      tipVBPT: "Rápido, barato e muito bom — ideal quando se quer uma refeição sem complicações.",
+      tipVBEN: "Fast, cheap and really good — ideal when you want a no-fuss meal.",
+      tipVBES: "Rápido, barato y muy bueno — ideal cuando quieres una comida sin complicaciones.",
+      tipVBFR: "Rapide, pas cher et très bon — idéal quand on veut un repas sans complications.",
       mapa: "Churrasqueira O Nortista Peniche"
     },
     {
@@ -694,7 +796,10 @@ const data = {
       descEN: "Budget-friendly, generous portions with a home-cooked feel.",
       descES: "Comidas económicas, bien servidas y con sabor casero.",
       descFR: "Repas économiques, bien servis et cuisinés maison.",
-      tipVB: "Ótimo para um jantar económico sem abdicar da qualidade. A caldeirada é especial!",
+      tipVBPT: "Ótimo para um jantar económico sem abdicar da qualidade. A caldeirada é especial!",
+      tipVBEN: "Great for an affordable dinner without giving up quality. The fish stew is special!",
+      tipVBES: "Genial para una cena económica sin renunciar a la calidad. ¡La caldeirada es especial!",
+      tipVBFR: "Idéal pour un dîner économique sans renoncer à la qualité. La caldeirada est spéciale !",
       mapa: "Churrasqueira Vó Dina Peniche"
     }
   ],
@@ -706,7 +811,10 @@ const data = {
       descEN: "International fast-food near Peniche's commercial area.",
       descES: "Comida rápida internacional cerca de la zona comercial de Peniche.",
       descFR: "Restauration rapide internationale près de la zone commerciale de Peniche.",
-      tipVB: "Quando as crianças insistem! Fica no centro comercial a 5 minutos de carro.",
+      tipVBPT: "Quando as crianças insistem! Fica no centro comercial a 5 minutos de carro.",
+      tipVBEN: "For when the kids insist! It's in the shopping centre, 5 minutes away by car.",
+      tipVBES: "¡Cuando los niños insisten! Está en el centro comercial a 5 minutos en coche.",
+      tipVBFR: "Quand les enfants insistent ! C'est dans le centre commercial, à 5 minutes en voiture.",
       mapa: "Burger King Peniche"
     },
     {
@@ -716,7 +824,10 @@ const data = {
       descEN: "Pizza for takeaway or home delivery — quick and convenient.",
       descES: "Pizzas para llevar o pedir a domicilio — rápido y práctico.",
       descFR: "Pizzas à emporter ou en livraison — rapide et pratique.",
-      tipVB: "Boa opção para quando estão todos cansados e querem uma noite de filme com pizza!",
+      tipVBPT: "Boa opção para quando estão todos cansados e querem uma noite de filme com pizza!",
+      tipVBEN: "A good option for when everyone's tired and wants a movie night with pizza!",
+      tipVBES: "Buena opción para cuando todos están cansados y ¡quieren una noche de película con pizza!",
+      tipVBFR: "Bonne option pour quand tout le monde est fatigué et veut une soirée film avec pizza !",
       mapa: "Telepizza Peniche"
     },
     {
@@ -726,7 +837,10 @@ const data = {
       descEN: "Kebabs and quick meals very popular with surfers.",
       descES: "Kebabs y comidas rápidas muy populares entre los surfistas.",
       descFR: "Kebabs et repas rapides très populaires parmi les surfeurs.",
-      tipVB: "Depois de um dia de surf, um kebab grande resolve tudo! Atende tarde — ótimo para saídas noturnas.",
+      tipVBPT: "Depois de um dia de surf, um kebab grande resolve tudo! Atende tarde — ótimo para saídas noturnas.",
+      tipVBEN: "After a day of surfing, a big kebab fixes everything! Open late — great for a night out.",
+      tipVBES: "¡Después de un día de surf, un kebab grande lo soluciona todo! Abre hasta tarde — genial para salidas nocturnas.",
+      tipVBFR: "Après une journée de surf, un grand kebab règle tout ! Ouvert tard — parfait pour les sorties nocturnes.",
       mapa: "Duna Kebab Peniche"
     },
     {
@@ -736,7 +850,10 @@ const data = {
       descEN: "Kebabs, pizzas and burgers — great variety for the whole family.",
       descES: "Kebabs, pizzas y hamburguesas — gran variedad para toda la familia.",
       descFR: "Kebabs, pizzas et burgers — grande variété pour toute la famille.",
-      tipVB: "Prático e rápido quando o tempo escasseia. As pizzas são surpreendentemente boas!",
+      tipVBPT: "Prático e rápido quando o tempo escasseia. As pizzas são surpreendentemente boas!",
+      tipVBEN: "Quick and convenient when you're short on time. The pizzas are surprisingly good!",
+      tipVBES: "Práctico y rápido cuando el tiempo escasea. ¡Las pizzas son sorprendentemente buenas!",
+      tipVBFR: "Pratique et rapide quand le temps manque. Les pizzas sont étonnamment bonnes !",
       mapa: "Yo Yo Kebab Peniche"
     },
     {
@@ -746,7 +863,10 @@ const data = {
       descEN: "Snacks and quick meals in a local, relaxed setting.",
       descES: "Tapas y comidas rápidas en un ambiente local y relajado.",
       descFR: "Snacks et repas rapides dans un cadre local et décontracté.",
-      tipVB: "Um sítio simpático para um almoço rápido e sem pretensões. Os bifanas são muito bons!",
+      tipVBPT: "Um sítio simpático para um almoço rápido e sem pretensões. Os bifanas são muito bons!",
+      tipVBEN: "A friendly spot for a quick, no-frills lunch. The bifanas (pork sandwiches) are really good!",
+      tipVBES: "Un sitio agradable para un almuerzo rápido y sin pretensiones. ¡Los bifanas son muy buenos!",
+      tipVBFR: "Un endroit sympa pour un déjeuner rapide et sans chichis. Les bifanas sont vraiment bons !",
       mapa: "Boina Verde Peniche"
     }
 
@@ -758,7 +878,10 @@ const data = {
       descEN: "Tropical style beach bar in Baleal with a relaxed vibe.",
       descES: "Bar de playa con ambiente tropical y relajado en Baleal.",
       descFR: "Bar de plage au style tropical et décontracté à Baleal.",
-      tipVB: "O nosso bar de praia favorito aqui no Baleal! Os caipirinhas são perfeitos ao fim do dia.",
+      tipVBPT: "O nosso bar de praia favorito aqui no Baleal! Os caipirinhas são perfeitos ao fim do dia.",
+      tipVBEN: "Our favourite beach bar here in Baleal! The caipirinhas are perfect at the end of the day.",
+      tipVBES: "¡Nuestro bar de playa favorito aquí en Baleal! Las caipiriñas son perfectas al final del día.",
+      tipVBFR: "Notre bar de plage préféré ici à Baleal ! Les caipirinhas sont parfaites en fin de journée.",
       mapa: "Danau Beach Bar Baleal",
       img: "images/bares/danau-beach-bar.jpg"
     },
@@ -768,7 +891,10 @@ const data = {
       descEN: "Chilled beach bar, great for late afternoon and watching the sunset.",
       descES: "Bar junto a la playa, ideal para el final de la tarde y ver el atardecer.",
       descFR: "Bar de plage sympa, idéal pour la fin d'après-midi et le coucher du soleil.",
-      tipVB: "Vista fantástica para o pôr do sol — um copo na mão e o sol a descer. Perfeito!",
+      tipVBPT: "Vista fantástica para o pôr do sol — um copo na mão e o sol a descer. Perfeito!",
+      tipVBEN: "Fantastic view for the sunset — a drink in hand as the sun goes down. Perfect!",
+      tipVBES: "Vista fantástica para la puesta de sol — una copa en mano y el sol bajando. ¡Perfecto!",
+      tipVBFR: "Vue fantastique sur le coucher de soleil — un verre à la main et le soleil qui descend. Parfait !",
       mapa: "Bar do Quebrado Peniche",
       img: "images/bares/bar-do-quebrado.jpg"
     },
@@ -778,7 +904,10 @@ const data = {
       descEN: "Simple and lively bar, very popular with surfers and locals.",
       descES: "Bar sencillo y animado, muy popular entre surfistas y lugareños.",
       descFR: "Bar simple et animé, très populaire parmi les surfeurs et les habitants.",
-      tipVB: "Se quiseres conhecer a vibe local de Peniche, é aqui. Sempre com boa música!",
+      tipVBPT: "Se quiseres conhecer a vibe local de Peniche, é aqui. Sempre com boa música!",
+      tipVBEN: "If you want to get a feel for the local vibe of Peniche, this is the place. Always good music!",
+      tipVBES: "Si quieres conocer el ambiente local de Peniche, es aquí. ¡Siempre con buena música!",
+      tipVBFR: "Si tu veux découvrir l'ambiance locale de Peniche, c'est ici. Toujours avec de la bonne musique !",
       mapa: "Bar do Bruno Peniche",
       img: "images/bares/bar-do-bruno.jpg"
     },
@@ -788,7 +917,10 @@ const data = {
       descEN: "Cafe and bar with a young vibe, good music and creative cocktails.",
       descES: "Café y bar con ambiente joven, buena música y cócteles creativos.",
       descFR: "Café et bar avec une ambiance jeune, bonne musique et cocktails créatifs.",
-      tipVB: "Ótimo para um brunch relaxado ou para começar a noite. O café é muito bom!",
+      tipVBPT: "Ótimo para um brunch relaxado ou para começar a noite. O café é muito bom!",
+      tipVBEN: "Great for a relaxed brunch or to start the night. The coffee is really good!",
+      tipVBES: "Genial para un brunch relajado o para empezar la noche. ¡El café es muy bueno!",
+      tipVBFR: "Idéal pour un brunch tranquille ou pour commencer la soirée. Le café est très bon !",
       mapa: "Java House Peniche",
       img: "images/bares/java-house.jpg"
     },
@@ -798,7 +930,10 @@ const data = {
       descEN: "Perfect spot to watch the sunset at Gamboa beach with a drink in hand.",
       descES: "El lugar perfecto para ver el atardecer en la playa de Gamboa con una bebida.",
       descFR: "L'endroit parfait pour regarder le coucher de soleil à Gamboa avec un verre.",
-      tipVB: "Um dos melhores pôres do sol de Peniche — chega um pouco antes para garantir lugar.",
+      tipVBPT: "Um dos melhores pôres do sol de Peniche — chega um pouco antes para garantir lugar.",
+      tipVBEN: "One of the best sunsets in Peniche — get there a bit early to secure a spot.",
+      tipVBES: "Una de las mejores puestas de sol de Peniche — llega un poco antes para asegurar sitio.",
+      tipVBFR: "Un des plus beaux couchers de soleil de Peniche — arrive un peu en avance pour avoir une place.",
       mapa: "Gamboa Bar Peniche",
       img: "images/bares/gamboa-bar.jpg"
     },
@@ -808,7 +943,10 @@ const data = {
       descEN: "Alternative and relaxed bar in Baleal, with live music and surf vibes.",
       descES: "Bar alternativo y relajado en Baleal, con música en vivo y ambiente surf.",
       descFR: "Bar alternatif et décontracté à Baleal, avec musique live et ambiance surf.",
-      tipVB: "Às sextas-feiras têm música ao vivo — muito boa vibração!",
+      tipVBPT: "Às sextas-feiras têm música ao vivo — muito boa vibração!",
+      tipVBEN: "On Fridays they have live music — great vibe!",
+      tipVBES: "Los viernes tienen música en vivo — ¡muy buena vibra!",
+      tipVBFR: "Le vendredi, il y a de la musique live — très bonne ambiance !",
       mapa: "Tribo da Praia Baleal",
       img: "images/bares/tribo-da-praia.jpg"
     },
@@ -818,7 +956,10 @@ const data = {
       descEN: "Lively bar with music and lots of surf energy in Baleal.",
       descES: "Bar animado con música y mucha energía surfera en Baleal.",
       descFR: "Bar animé avec musique et plein d'énergie surf à Baleal.",
-      tipVB: "Bom para noites mais animadas — fica mesmo na zona do Baleal, muito perto de casa!",
+      tipVBPT: "Bom para noites mais animadas — fica mesmo na zona do Baleal, muito perto de casa!",
+      tipVBEN: "Good for a livelier night out — it's right in the Baleal area, very close to the house!",
+      tipVBES: "Bueno para noches más animadas — está justo en la zona de Baleal, ¡muy cerca de casa!",
+      tipVBFR: "Bon pour des soirées plus animées — c'est juste dans le quartier de Baleal, tout près de la maison !",
       mapa: "The Base Baleal",
       img: "images/bares/the-base.jpg"
     },
@@ -828,7 +969,10 @@ const data = {
       descEN: "Bar right in front of Supertubos waves, great for watching surf.",
       descES: "Bar justo frente a las olas de Supertubos, ideal para ver surf.",
       descFR: "Bar directement devant les vagues de Supertubos, idéal pour regarder le surf.",
-      tipVB: "Ver surf de copo na mão é uma experiência única — especialmente no inverno com ondas grandes!",
+      tipVBPT: "Ver surf de copo na mão é uma experiência única — especialmente no inverno com ondas grandes!",
+      tipVBEN: "Watching surf with a drink in hand is a unique experience — especially in winter with big waves!",
+      tipVBES: "Ver surf con una copa en la mano es una experiencia única — ¡especialmente en invierno con olas grandes!",
+      tipVBFR: "Regarder le surf un verre à la main, c'est une expérience unique — surtout en hiver avec de grosses vagues !",
       mapa: "Supertubos Beach Bar",
       img: "images/bares/supertubos-beach-bar.jpg"
     },
@@ -838,7 +982,10 @@ const data = {
       descEN: "Colourful and fun beach bar right on Baleal beach.",
       descES: "Bar colorido y divertido, directamente en la playa de Baleal.",
       descFR: "Bar coloré et amusant, directement sur la plage de Baleal.",
-      tipVB: "Ótimo para um almoço descontraído de pés na areia — os batidos são deliciosos!",
+      tipVBPT: "Ótimo para um almoço descontraído de pés na areia — os batidos são deliciosos!",
+      tipVBEN: "Great for a relaxed lunch with your feet in the sand — the smoothies are delicious!",
+      tipVBES: "Genial para un almuerzo relajado con los pies en la arena — ¡los batidos están deliciosos!",
+      tipVBFR: "Idéal pour un déjeuner décontracté les pieds dans le sable — les smoothies sont délicieux !",
       mapa: "Bananas Beach Bar Baleal",
       img: "images/bares/bananas-beach-bar.jpg"
     }
@@ -854,6 +1001,9 @@ const data = {
     },
     {
       nome: "Cabo Carvoeiro (pôr do sol)",
+      nomeEN: "Cabo Carvoeiro (sunset)",
+      nomeES: "Cabo Carvoeiro (atardecer)",
+      nomeFR: "Cabo Carvoeiro (coucher de soleil)",
       descPT: "Miradouro com vistas incríveis. Sugestão: ir ao final da tarde para ver o pôr do sol.",
       descEN: "Viewpoint with amazing scenery. Tip: go in the late afternoon for sunset.",
       descES: "Mirador con vistas increíbles. Consejo: ve al final de la tarde para ver la puesta de sol.",
@@ -862,6 +1012,9 @@ const data = {
     },
     {
       nome: "Praia dos Supertubos (surf em época)",
+      nomeEN: "Supertubos Beach (surf in season)",
+      nomeES: "Playa de Supertubos (surf en temporada)",
+      nomeFR: "Plage de Supertubos (surf en saison)",
       descPT: "Quando há provas, Supertubos recebe competições de surf.",
       descEN: "During event weeks, Supertubos hosts surf competitions.",
       descES: "Cuando hay pruebas, Supertubos acoge competiciones de surf.",
@@ -884,6 +1037,9 @@ const data = {
     },
     {
       nome: "🎭 Carnaval (data habitual)",
+      nomeEN: "🎭 Carnival (usual date)",
+      nomeES: "🎭 Carnaval (fecha habitual)",
+      nomeFR: "🎭 Carnaval (date habituelle)",
       descPT: "Dia de Carnaval (tolerância de ponto em muitos locais). Confirma localmente.",
       descEN: "Carnival day (often optional). Please confirm locally.",
       descES: "Día de Carnaval (a menudo opcional). Confirma localmente.",
@@ -1083,7 +1239,10 @@ const data = {
       descEN: "Pharmacy in central Peniche, on Rua José Estevão.",
       descES: "Farmacia en el centro de Peniche, en la Rua José Estevão.",
       descFR: "Pharmacie au centre de Peniche, Rua José Estevão.",
-      tipVB: "Fica mesmo no centro da cidade — fácil de combinar com outras compras.",
+      tipVBPT: "Fica mesmo no centro da cidade — fácil de combinar com outras compras.",
+      tipVBEN: "Right in the city centre — easy to combine with other errands.",
+      tipVBES: "Está justo en el centro de la ciudad — fácil de combinar con otras compras.",
+      tipVBFR: "En plein centre-ville — facile à combiner avec d'autres courses.",
       mapa: "Farmácia Central, Rua José Estevão 16, Peniche",
       telefone: "262782135",
       horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
@@ -1096,7 +1255,10 @@ const data = {
       descEN: "Pharmacy on Praça Jacob Rodrigues Pereira, near Ajuda.",
       descES: "Farmacia en la Praça Jacob Rodrigues Pereira, cerca de Ajuda.",
       descFR: "Pharmacie sur la Praça Jacob Rodrigues Pereira, près d'Ajuda.",
-      tipVB: "Costuma ter horário alargado — boa opção se precisares mais tarde.",
+      tipVBPT: "Costuma ter horário alargado — boa opção se precisares mais tarde.",
+      tipVBEN: "Usually has extended hours — a good option if you need it later.",
+      tipVBES: "Suele tener horario ampliado — buena opción si lo necesitas más tarde.",
+      tipVBFR: "A généralement des horaires étendus — bonne option si tu en as besoin plus tard.",
       mapa: "Farmácia Proença, Praça Jacob Rodrigues Pereira 14-15, Peniche",
       telefone: "262782100",
       horarioPT: "Aproximadamente 09:00–19:00 (confirma localmente, pode variar).",
@@ -1109,7 +1271,10 @@ const data = {
       descEN: "Pharmacy on Rua António da Conceição Bento, in Peniche.",
       descES: "Farmacia en la Rua António da Conceição Bento, en Peniche.",
       descFR: "Pharmacie Rua António da Conceição Bento, à Peniche.",
-      tipVB: "Boa opção alternativa se a farmácia central estiver cheia.",
+      tipVBPT: "Boa opção alternativa se a farmácia central estiver cheia.",
+      tipVBEN: "A good alternative if the central pharmacy is busy.",
+      tipVBES: "Buena opción alternativa si la farmacia central está llena.",
+      tipVBFR: "Bonne option alternative si la pharmacie centrale est pleine.",
       mapa: "Farmácia Higiénica, Rua António da Conceição Bento 21-B, Peniche",
       telefone: "262782415",
       horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
@@ -1122,7 +1287,10 @@ const data = {
       descEN: "Pharmacy in Ferrel, very close to VanBerto's Beach House.",
       descES: "Farmacia en Ferrel, muy cerca de VanBerto's Beach House.",
       descFR: "Pharmacie à Ferrel, tout près de VanBerto's Beach House.",
-      tipVB: "A mais perto de casa! Ótima para uma emergência rápida sem ires até Peniche.",
+      tipVBPT: "A mais perto de casa! Ótima para uma emergência rápida sem ires até Peniche.",
+      tipVBEN: "The closest one to the house! Great for a quick emergency without having to go all the way to Peniche.",
+      tipVBES: "¡La más cercana a casa! Genial para una emergencia rápida sin tener que ir hasta Peniche.",
+      tipVBFR: "La plus proche de la maison ! Idéale pour une urgence rapide sans avoir à aller jusqu'à Peniche.",
       mapa: "Farmácia Santo Estêvão, Rua do Brejo 6-B, Ferrel, Peniche",
       telefone: "262758029",
       horarioPT: "Aproximadamente 09:00–13:00 e 14:30–19:30 (confirma localmente).",
@@ -1135,7 +1303,10 @@ const data = {
       descEN: "Pharmacy in Serra d'El-Rei, on Avenida da Liberdade (EN 114).",
       descES: "Farmacia en Serra d'El-Rei, en la Avenida da Liberdade (EN 114).",
       descFR: "Pharmacie à Serra d'El-Rei, Avenida da Liberdade (EN 114).",
-      tipVB: "Útil se estiveres a passar por Serra d'El-Rei ou vindo de Óbidos.",
+      tipVBPT: "Útil se estiveres a passar por Serra d'El-Rei ou vindo de Óbidos.",
+      tipVBEN: "Handy if you're passing through Serra d'El-Rei or coming from Óbidos.",
+      tipVBES: "Útil si estás pasando por Serra d'El-Rei o viniendo de Óbidos.",
+      tipVBFR: "Utile si tu passes par Serra d'El-Rei ou si tu viens d'Óbidos.",
       mapa: "Farmácia Serra, Avenida da Liberdade 78, Serra d'El-Rei",
       telefone: "262909122",
       horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
@@ -1148,7 +1319,10 @@ const data = {
       descEN: "Pharmacy in Atouguia da Baleia, near Praça Geraldes.",
       descES: "Farmacia en Atouguia da Baleia, junto a la Praça Geraldes.",
       descFR: "Pharmacie à Atouguia da Baleia, près de la Praça Geraldes.",
-      tipVB: "Boa opção se estiveres do lado de Atouguia da Baleia.",
+      tipVBPT: "Boa opção se estiveres do lado de Atouguia da Baleia.",
+      tipVBEN: "A good option if you're on the Atouguia da Baleia side.",
+      tipVBES: "Buena opción si estás por el lado de Atouguia da Baleia.",
+      tipVBFR: "Bonne option si tu es du côté d'Atouguia da Baleia.",
       mapa: "Farmácia Santa Luzia, Praça Geraldes 1, Atouguia da Baleia",
       telefone: "262769265",
       horarioPT: "Aproximadamente 09:00–13:00 e 15:00–20:00 (confirma localmente).",
@@ -1161,7 +1335,10 @@ const data = {
       descEN: "Pharmacy on Rua José Augusto Vaz, on the Atouguia da Baleia side.",
       descES: "Farmacia en la Rua José Augusto Vaz, del lado de Atouguia da Baleia.",
       descFR: "Pharmacie Rua José Augusto Vaz, côté Atouguia da Baleia.",
-      tipVB: "Mais uma opção se as farmácias do centro estiverem fechadas.",
+      tipVBPT: "Mais uma opção se as farmácias do centro estiverem fechadas.",
+      tipVBEN: "Another option if the pharmacies in the centre are closed.",
+      tipVBES: "Otra opción más si las farmacias del centro están cerradas.",
+      tipVBFR: "Une autre option si les pharmacies du centre sont fermées.",
       mapa: "Farmácia Confiança, Rua José Augusto Vaz 5, Atouguia da Baleia",
       telefone: "262759171",
       horarioPT: "Confirma o horário ao telefone ou no Google Maps (pode variar por época).",
@@ -1240,6 +1417,26 @@ function desc(item) {
   return item.descEN || item.descPT || "";
 }
 
+function tipVB(item) {
+  if (!item) return "";
+  if (currentLang === "pt") return item.tipVBPT || item.tipVBEN || "";
+  if (currentLang === "en") return item.tipVBEN || item.tipVBPT || "";
+  if (currentLang === "es") return item.tipVBES || item.tipVBEN || item.tipVBPT || "";
+  if (currentLang === "fr") return item.tipVBFR || item.tipVBEN || item.tipVBPT || "";
+  return item.tipVBEN || item.tipVBPT || "";
+}
+
+// Nome traduzido para apresentação (títulos de cartões, modal, calendário).
+// item.nome continua a ser a chave estável usada em favoritos e pesquisa de mapa —
+// esta função é só para o texto mostrado ao utilizador.
+function displayNome(item) {
+  if (!item) return "";
+  if (currentLang === "en") return item.nomeEN || item.nome || "";
+  if (currentLang === "es") return item.nomeES || item.nomeEN || item.nome || "";
+  if (currentLang === "fr") return item.nomeFR || item.nomeEN || item.nome || "";
+  return item.nome || "";
+}
+
 // --------- FAVORITOS (localStorage) ---------
 function loadLanguage() {
   try {
@@ -1287,11 +1484,14 @@ function passaFiltroPesquisa(item) {
   const termo = searchTerm.toLowerCase();
   return (
     (item.nome || "").toLowerCase().includes(termo) ||
+    (item.nomeEN || "").toLowerCase().includes(termo) ||
+    (item.nomeES || "").toLowerCase().includes(termo) ||
+    (item.nomeFR || "").toLowerCase().includes(termo) ||
     (item.descPT || "").toLowerCase().includes(termo) ||
     (item.descEN || "").toLowerCase().includes(termo) ||
     (item.descES || "").toLowerCase().includes(termo) ||
     (item.descFR || "").toLowerCase().includes(termo) ||
-    (item.tipVB || "").toLowerCase().includes(termo)
+    tipVB(item).toLowerCase().includes(termo)
   );
 }
 
@@ -1391,19 +1591,20 @@ function gerarCardsDeCategoria(cat) {
 
       const temFotoReal = !!item.img;
       const img = item.img || imgByCat[cat];
+      const nomeShown = displayNome(item);
 
       if (temFotoReal) {
         card.innerHTML = `
-          <div class="card-title-top-wrap"><div class="card-title-top">${item.nome}</div></div>
-          <img class="card-img-real" src="${img}" alt="${item.nome}" loading="lazy" />
+          <div class="card-title-top-wrap"><div class="card-title-top">${nomeShown}</div></div>
+          <img class="card-img-real" src="${img}" alt="${nomeShown}" loading="lazy" />
           <div class="card-desc card-desc-photo card-has-icon">${descText}</div>
           <span class="card-corner-icon" aria-hidden="true"></span>
         `;
       } else {
         card.innerHTML = `
-          <img class="card-img" src="${img}" alt="${item.nome}" loading="lazy" />
+          <img class="card-img" src="${img}" alt="${nomeShown}" loading="lazy" />
           <div class="card-header">
-            <div class="card-title"><span class="card-ico">${icon}</span><span>${item.nome}</span></div>
+            <div class="card-title"><span class="card-ico">${icon}</span><span>${nomeShown}</span></div>
           </div>
           <div class="card-category">${labelCat}</div>
           <div class="card-desc card-has-icon">${descText}</div>
@@ -1472,11 +1673,12 @@ function gerarFavoritos() {
 
       const temFotoReal = !!item.img;
       const img = item.img || imgByCat[cat];
+      const nomeShown = displayNome(item);
 
       if (temFotoReal) {
         card.innerHTML = `
-          <div class="card-title-top-wrap"><div class="card-title-top">${item.nome}</div></div>
-          <img class="card-img-real" src="${img}" alt="${item.nome}" loading="lazy" />
+          <div class="card-title-top-wrap"><div class="card-title-top">${nomeShown}</div></div>
+          <img class="card-img-real" src="${img}" alt="${nomeShown}" loading="lazy" />
           <div class="card-desc card-desc-photo">${descText}</div>
           <div class="card-footer">
             <span class="card-meta">${getHomeI18n().tapForDetails}</span>
@@ -1485,9 +1687,9 @@ function gerarFavoritos() {
         `;
       } else {
         card.innerHTML = `
-          <img class="card-img" src="${img}" alt="${item.nome}" loading="lazy" />
+          <img class="card-img" src="${img}" alt="${nomeShown}" loading="lazy" />
           <div class="card-header">
-            <div class="card-title"><span class="card-ico">${icon}</span><span>${item.nome}</span></div>
+            <div class="card-title"><span class="card-ico">${icon}</span><span>${nomeShown}</span></div>
           </div>
           <div class="card-category">${labelCat}</div>
           <div class="card-desc">${descText}</div>
@@ -1621,7 +1823,7 @@ function fillEventPanel(cat, item){
   eventNoteEl.textContent = d ? t.offlineMap : t.noDate;
 
   eventCopyBtn.onclick = async () => {
-    const txt = `${item.nome}\n${desc(item)}\n${loc ? "Local: " + loc + "\n" : ""}${d ? "Data: " + d : ""}`;
+    const txt = `${displayNome(item)}\n${desc(item)}\n${loc ? "Local: " + loc + "\n" : ""}${d ? "Data: " + d : ""}`;
     try {
       await navigator.clipboard.writeText(txt);
       eventCopyBtn.textContent = "✅";
@@ -1637,7 +1839,7 @@ function fillEventPanel(cat, item){
     const start = toICSDateTime(item.dataISO, item.horaInicio || "12:00");
     const end = toICSDateTime(item.dataISO, item.horaFim || item.horaInicio || "13:00");
     const ics = makeICS({
-      title: item.nome,
+      title: displayNome(item),
       description: desc(item),
       location: loc,
       startISO: start,
@@ -1905,7 +2107,7 @@ function abrirModal(cat, item) {
   modal.setAttribute("aria-hidden", "false");
   setTimeout(() => { modalCloseBtn?.focus(); }, 0);
 
-  modalTitle.textContent = item.nome;
+  modalTitle.textContent = displayNome(item);
   modalCategory.textContent = labelCategoria(cat);
   modalDesc.textContent = desc(item);
 
@@ -1919,8 +2121,8 @@ function abrirModal(cat, item) {
   const _tipBox = document.getElementById("modal-owner-tip");
   const _tipTxt = document.getElementById("modal-owner-tip-text");
   if (_tipBox && _tipTxt) {
-    if (item.tipVB) {
-      _tipTxt.textContent = item.tipVB;
+    if (tipVB(item)) {
+      _tipTxt.textContent = tipVB(item);
       _tipBox.style.display = "flex";
     } else if (!isEvent) {
       _tipTxt.textContent = desc(item);
@@ -1934,7 +2136,7 @@ function abrirModal(cat, item) {
   const photo = item.img || item.imagem || (imgByCat && imgByCat[cat]) || "";
   if (modalPhoto && photo) {
     modalPhoto.src = photo;
-    modalPhoto.alt = item.nome || "";
+    modalPhoto.alt = displayNome(item);
     modalPhoto.hidden = false;
   } else if (modalPhoto) {
     modalPhoto.removeAttribute('src');
@@ -2344,6 +2546,7 @@ function setLanguage(lang) {
   );
   atualizarTextosEstaticos();
   try{ applyHomeSectionsI18n(); }catch{}
+  try{ reRenderMeteoForLanguage(); }catch{}
   renderAtual();
 try{ toggleEventsCalendar(false); }catch{}
 }
@@ -2666,8 +2869,10 @@ try{ toggleEventsCalendar(false); }catch{}
   });
 
   // Clicar em qualquer botão/link fora das secções retráteis também minimiza a que estiver aberta
+  // — exceto ao mudar de idioma, que deve manter a secção aberta como estava.
   document.addEventListener("click", (ev) => {
     if (ev.target.closest(".home-meteo")) return; // clique dentro de uma secção retrátil: ignora
+    if (ev.target.closest(".lang-switcher")) return; // mudar de idioma não deve fechar a secção aberta
     if (fecharTodas(null)) saveCollapsedState(state);
   });
 })();
@@ -3212,6 +3417,8 @@ function applyHomeSectionsI18n(){
   const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
   const setHtml = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
 
+  setText("modal-owner-tip-label", ownerTipLabel());
+
   // Meteorologia
   setText("i18n-meteo-title", T.meteoTitle);
   setText("i18n-today-title", T.todayTitle);
@@ -3469,7 +3676,13 @@ function iconFromWeatherCode(code){
 
 function humanDirFromDegrees(deg){
   if (deg === null || deg === undefined || isNaN(deg)) return "";
-  const dirs = ["N","NE","E","SE","S","SO","O","NO"];
+  const dirsByLang = {
+    pt: ["N","NE","E","SE","S","SO","O","NO"],
+    es: ["N","NE","E","SE","S","SO","O","NO"],
+    fr: ["N","NE","E","SE","S","SO","O","NO"],
+    en: ["N","NE","E","SE","S","SW","W","NW"]
+  };
+  const dirs = dirsByLang[currentLang] || dirsByLang.en;
   const i = Math.round(((deg % 360) / 45)) % 8;
   return dirs[i];
 }
@@ -3509,7 +3722,14 @@ function relativeTimeLabel(savedAt){
   return T.hoursAgo(diffH);
 }
 
-function renderHomeMeteoFromData({ today, tom, waveH, waveP, waveD, waveHTom, wavePTom, waveDTom }, { offline, savedAt } = {}){
+var lastMeteoPayload = null;
+var lastMeteoMeta = {};
+
+function renderHomeMeteoFromData(payloadArg, meta = {}){
+  lastMeteoPayload = payloadArg;
+  lastMeteoMeta = meta;
+  const { today, tom, waveH, waveP, waveD, waveHTom, wavePTom, waveDTom } = payloadArg;
+  const { offline, savedAt } = meta;
   const elUpdated = document.getElementById("home-meteo-updated");
   const elToday = document.getElementById("home-meteo-today");
   const elTodayExtra = document.getElementById("home-meteo-today-extra");
@@ -3640,6 +3860,14 @@ async function carregarHomeMeteoESurf(){
       if (elSurfExtra) elSurfExtra.textContent = "—";
       if (elSurfTomExtra) elSurfTomExtra.textContent = "—";
     }
+  }
+}
+
+// Re-renderiza a meteorologia/mar com os últimos dados conhecidos, no novo idioma
+// (sem pedir dados de novo à API) — chamado quando o idioma muda.
+function reRenderMeteoForLanguage(){
+  if (lastMeteoPayload) {
+    renderHomeMeteoFromData(lastMeteoPayload, lastMeteoMeta);
   }
 }
 
@@ -3840,7 +4068,7 @@ function renderMiniCalendar(){
       top.className = "mini-cal-event-top";
 
       const name = document.createElement("div");
-      name.textContent = ev.nome;
+      name.textContent = displayNome(ev);
 
       top.appendChild(name);
 
@@ -3910,12 +4138,22 @@ function linkLabel(){
   return map[currentLang] || map.en;
 }
 
+function ownerTipLabel(){
+  const map = {
+    pt: "Dica da Vanda e do Berto",
+    en: "Tip from Vanda and Berto",
+    es: "Consejo de Vanda y Berto",
+    fr: "Conseil de Vanda et Berto"
+  };
+  return map[currentLang] || map.en;
+}
+
 function getHorario(cat, item){
   if(!item) return "";
 
-  // Usa horário definido, se existir
+  // Usa horário definido, se existir (só há versões PT e EN; ES/FR usam a mensagem genérica abaixo)
   if(currentLang === "pt" && item.horarioPT) return item.horarioPT;
-  if(currentLang !== "pt" && item.horarioEN) return item.horarioEN;
+  if(currentLang === "en" && item.horarioEN) return item.horarioEN;
 
   // Fallback: para sítios onde faz sentido mostrar horários
   const needsHours = ["Restaurantes","Bares","FastFood","Supermercados","Churrasqueiras","Locais","Farmacias"].includes(cat);
