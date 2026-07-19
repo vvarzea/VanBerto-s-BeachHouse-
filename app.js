@@ -195,7 +195,7 @@ const btnBares = document.getElementById("btn-cat-bares");
 const btnEventos = document.getElementById("btn-cat-eventos");
 const btnFast = document.getElementById("btn-cat-fast");
 const btnMapAll = document.getElementById("btn-map-all");
-const backBtn = document.getElementById("btn-back-categories");
+const backBtn = document.getElementById("category-heading");
 const contactBtn = document.getElementById("contact-btn");
 const footer1 = document.getElementById("footer-line1");
 const footer2 = document.getElementById("footer-line2");
@@ -965,6 +965,7 @@ const data = {
       horaInicio: "12:00",
       horaFim: "13:00",
       local: "Peniche",
+      layoutSimples: true,
       img: "images/eventos/festa-nossa-senhora-da-boa-viagem.jpg"
     },
     {
@@ -978,6 +979,7 @@ const data = {
       horaInicio: "09:00",
       horaFim: "10:00",
       local: "Peniche",
+      layoutSimples: true,
       img: "images/eventos/municipio-de-peniche.jpg"
     },
     {
@@ -1907,12 +1909,21 @@ function abrirModal(cat, item) {
   modalCategory.textContent = labelCategoria(cat);
   modalDesc.textContent = desc(item);
 
-  // Dica da Vanda e do Berto
+  // Evento "real" (com data marcada, ex: feriados) vs item tipo "Locais" que vive
+  // dentro da categoria Eventos (ex: Mercado Municipal) mas não tem data própria,
+  // ou que tem data mas foi marcado para usar sempre o layout simples (layoutSimples)
+  const isEvent = cat === "Eventos" && !!item.dataISO && !item.layoutSimples;
+
+  // Dica da Vanda e do Berto (se não houver dica própria e não for um evento com
+  // data marcada, usa a descrição do local como conteúdo desta caixa)
   const _tipBox = document.getElementById("modal-owner-tip");
   const _tipTxt = document.getElementById("modal-owner-tip-text");
   if (_tipBox && _tipTxt) {
     if (item.tipVB) {
       _tipTxt.textContent = item.tipVB;
+      _tipBox.style.display = "flex";
+    } else if (!isEvent) {
+      _tipTxt.textContent = desc(item);
       _tipBox.style.display = "flex";
     } else {
       _tipBox.style.display = "none";
@@ -1941,7 +1952,6 @@ function abrirModal(cat, item) {
   }
 
   // Evento: mostra/oculta separador e painel
-  const isEvent = cat === "Eventos";
   if (modalDialog) modalDialog.classList.toggle("simple-layout", !isEvent);
   if (tabEvent) {
     tabEvent.style.display = isEvent ? "" : "none";
@@ -1956,7 +1966,8 @@ function abrirModal(cat, item) {
   // Mini-mapa embutido (iframe) — com aviso quando não há ligação à internet
   if (modalMapIframe) {
     const destino = item.mapa || item.nome;
-    const embed = "https://www.google.com/maps?q=" + encodeURIComponent(destino) + "&output=embed";
+    // z=13: afasta mais um pouco, mostrando mais contexto da vila/costa em volta
+    const embed = "https://www.google.com/maps?q=" + encodeURIComponent(destino) + "&z=13&output=embed";
     modalMapIframe.src = embed;
   }
   atualizarEstadoMapaOffline();
@@ -3831,64 +3842,14 @@ function renderMiniCalendar(){
       const name = document.createElement("div");
       name.textContent = ev.nome;
 
-      const time = document.createElement("div");
-      time.className = "mini-cal-event-time";
-      const tA = ev.horaInicio ? ev.horaInicio : "";
-      const tB = ev.horaFim ? ("–" + ev.horaFim) : "";
-      time.textContent = (tA ? (tA + tB) : "");
-
       top.appendChild(name);
-      top.appendChild(time);
 
       const d = document.createElement("div");
       d.className = "mini-cal-event-desc";
       d.textContent = desc(ev);
 
-      const actions = document.createElement("div");
-      actions.className = "mini-cal-event-actions";
-
-      const openBtn = document.createElement("button");
-      openBtn.className = "mini-cal-link";
-      openBtn.type = "button";
-      openBtn.textContent = "🗺️ " + T.open;
-      openBtn.addEventListener("click", () => {
-        const destino = ev.mapa || ev.nome;
-        window.open("https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destino), "_blank", "noopener");
-      });
-
-      const addBtn = document.createElement("button");
-      addBtn.className = "mini-cal-link";
-      addBtn.type = "button";
-      addBtn.textContent = "📅 " + T.add;
-      addBtn.disabled = !ev.dataISO;
-      addBtn.addEventListener("click", () => {
-        if(!ev.dataISO) return;
-        const start = toICSDateTime(ev.dataISO, ev.horaInicio || "12:00");
-        const end = toICSDateTime(ev.dataISO, ev.horaFim || ev.horaInicio || "13:00");
-        const ics = makeICS({
-          title: ev.nome,
-          description: desc(ev),
-          location: ev.local || ev.mapa || "",
-          startISO: start,
-          endISO: end
-        });
-        const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "evento.ics";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        setTimeout(() => URL.revokeObjectURL(url), 1000);
-      });
-
-      actions.appendChild(openBtn);
-      actions.appendChild(addBtn);
-
       box.appendChild(top);
       box.appendChild(d);
-      box.appendChild(actions);
       listEl.appendChild(box);
     });
   }

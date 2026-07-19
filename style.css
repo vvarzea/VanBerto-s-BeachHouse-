@@ -159,10 +159,24 @@ header {
   color: #ffffff;
   font-size: 13px;
   font-weight: 700;
+  font-family: inherit;
   padding: 8px 20px;
+  border: none;
   border-radius: 12px;
   box-shadow: 0 6px 14px rgba(29, 78, 216, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   text-align: center;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: filter 0.15s, transform 0.1s;
+}
+
+.category-heading:hover {
+  filter: brightness(1.08);
+}
+
+.category-heading:active {
+  transform: scale(0.99);
 }
 
 .category-heading[hidden] {
@@ -198,37 +212,18 @@ header {
   color: #64748b;
 }
 
-/* BOTÃO VOLTAR (vive dentro da barra de categoria, só o ícone, sem fundo) */
+/* BOTÃO VOLTAR (agora a barra inteira é clicável; o ícone é só decorativo) */
 
-.back-btn {
+.back-btn-icon {
   position: absolute;
   right: 14px;
   top: 50%;
   transform: translateY(-50%);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  border: none;
-  border-radius: 50%;
-  background: transparent;
-  color: #ffffff;
-  cursor: pointer;
-  opacity: 0.85;
-  transition: 0.15s;
-}
-
-.back-btn svg {
   width: 20px;
   height: 20px;
-}
-
-.back-btn:hover {
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.14);
-  transform: translateY(-50%) translateX(-2px);
+  color: #ffffff;
+  opacity: 0.85;
+  pointer-events: none;
 }
 
 /* MAP BUTTON */
