@@ -465,10 +465,10 @@ const data = {
       descEN: "Small island connected by a sand isthmus, perfect for photos and sunset walks.",
       descES: "Pequeña isla unida por un istmo de arena, perfecta para fotos y paseos al atardecer.",
       descFR: "Petit îlot relié par un isthme de sable, parfait pour les photos et les promenades au coucher du soleil.",
-      tipVBPT: "Fica mesmo à frente do VanBerto's! Dá uma volta ao ilhote — demora 20 minutos e vale cada segundo.",
-      tipVBEN: "Right in front of VanBerto's! Walk around the islet — it takes 20 minutes and is worth every second.",
-      tipVBES: "¡Está justo enfrente de VanBerto's! Da la vuelta al islote — tarda 20 minutos y merece cada segundo.",
-      tipVBFR: "Juste en face de VanBerto's ! Fais le tour de l'îlot — ça prend 20 minutes et ça vaut chaque seconde.",
+      tipVBPT: "Dá uma volta ao ilhote — demora 20 minutos e vale cada segundo.",
+      tipVBEN: "Walk around the islet — it takes 20 minutes and is worth every second.",
+      tipVBES: "Da la vuelta al islote — tarda 20 minutos y merece cada segundo.",
+      tipVBFR: "Fais le tour de l'îlot — ça prend 20 minutes et ça vaut chaque seconde.",
       mapa: "Ilha do Baleal"
     },
     {
