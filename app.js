@@ -574,6 +574,37 @@ const data = {
       tipVBES: "La laguna es más cálida y tranquila que el mar — perfecta para niños pequeños.",
       tipVBFR: "La lagune est plus chaude et plus calme que la mer — parfaite pour les petits enfants.",
       mapa: "Praia da Foz do Arelho"
+    },
+    {
+      nome: "Trilho GR11 - Caminho do Atlântico (E9)",
+      img: "images/locais/trilho-caminho-do-atlantico.jpg",
+      descPT: "Liga toda a costa do concelho, de Lourinhã a Óbidos, com vista constante para as Berlengas.",
+      tipVBPT: "Esta é a rota mais importante. Desenvolve-se ao longo de toda a linha costeira do concelho. Liga a fronteira sul (Lourinhã) até ao norte (Óbidos), passando diretamente pelas praias que unem Peniche ao Baleal. Oferece uma vista constante para o arquipélago das Berlengas.",
+      descEN: "This is the most important route. It runs along the entire coastline of the municipality, linking the southern border (Lourinhã) to the north (Óbidos), passing directly through the beaches that connect Peniche to Baleal. It offers constant views of the Berlengas archipelago.",
+      descES: "Esta es la ruta más importante. Se extiende a lo largo de toda la línea costera del municipio. Une la frontera sur (Lourinhã) con el norte (Óbidos), pasando directamente por las playas que conectan Peniche con Baleal. Ofrece una vista constante del archipiélago de las Berlengas.",
+      descFR: "C'est l'itinéraire le plus important. Il longe tout le littoral de la municipalité. Il relie la frontière sud (Lourinhã) au nord (Óbidos), en passant directement par les plages qui unissent Peniche à Baleal. Il offre une vue constante sur l'archipel des Berlengas.",
+      mapa: "Caminho do Atlântico GR11 Peniche"
+    },
+    {
+      nome: "Percurso Voltas de Mar",
+      img: "images/locais/percurso-voltas-de-mar.jpg",
+      link: "https://www.cm-peniche.pt/visitar/turismo/rotas-turisticas/percurso-voltas-de-mar",
+      descPT: "Trilho urbano pelo património de Peniche: Fortaleza, Bairro do Visconde e Portinho da Areia Sul.",
+      tipVBPT: "Um trilho oficial urbano e costeiro criado pela autarquia. Foca-se no património histórico e cultural da península de Peniche. O itinerário inclui passagens pela Fortaleza de Peniche, o Bairro do Visconde, o Portinho da Areia Sul e o Antigo Convento do Bom Jesus.",
+      descEN: "An official urban and coastal trail created by the local council. It focuses on the historical and cultural heritage of the Peniche peninsula. The route passes by Peniche Fortress, the Bairro do Visconde, Portinho da Areia Sul and the former Bom Jesus Convent.",
+      descES: "Un sendero oficial urbano y costero creado por el ayuntamiento. Se centra en el patrimonio histórico y cultural de la península de Peniche. El itinerario incluye la Fortaleza de Peniche, el Bairro do Visconde, el Portinho da Areia Sul y el antiguo Convento do Bom Jesus.",
+      descFR: "Un sentier officiel urbain et côtier créé par la municipalité. Il met en valeur le patrimoine historique et culturel de la péninsule de Peniche. L'itinéraire passe par la forteresse de Peniche, le Bairro do Visconde, le Portinho da Areia Sul et l'ancien couvent de Bom Jesus.",
+      mapa: "Percurso Voltas de Mar Peniche"
+    },
+    {
+      nome: "Ciclovia Peniche - Baleal",
+      img: "images/locais/ciclovia-peniche-baleal.jpg",
+      descPT: "Percurso fácil de 10,8 km (ida e volta) que liga Peniche ao Baleal em segurança.",
+      tipVBPT: "Um percurso linear fácil com cerca de 10,8 km (ida e volta) que liga as praias de Peniche às praias do Baleal de forma totalmente segura e acessível.",
+      descEN: "An easy linear route of about 10.8 km (round trip) linking the beaches of Peniche to those of Baleal, fully safe and accessible.",
+      descES: "Una ruta lineal fácil de unos 10,8 km (ida y vuelta) que une las playas de Peniche con las de Baleal, totalmente segura y accesible.",
+      descFR: "Un itinéraire linéaire facile d'environ 10,8 km (aller-retour) reliant les plages de Peniche à celles de Baleal, entièrement sûr et accessible.",
+      mapa: "Ciclovia Peniche Baleal"
     }
   ],
   Supermercados: [
