@@ -3056,6 +3056,9 @@ const HOME_I18N = {
     checkinSub: "Entrega das chaves em mão — o horário é combinado convosco antes da chegada.",
     rulesTitle: "📋 Regras da casa",
     rules: [
+      "🌀 Caso não esteja a usufruir das ventoinhas de teto, desligue-as",
+      "⛱️ Não deixe o chapéu de sol aberto durante a noite. Se houver algum dia de muito vento, mantenha-o fechado",
+      "🪑 À noite, recolha as espreguiçadeiras",
       "🔇 Silêncio das 23h às 7h (período de descanso previsto na lei portuguesa)",
       "🚭 Não é permitido fumar dentro de casa",
       "🐾 Animais de estimação só mediante autorização prévia — fala connosco antes de reservar",
@@ -3088,9 +3091,6 @@ const HOME_I18N = {
       (comment ? `\n\n💬 ${comment}` : ""),
     checklistTitle: "✅ Checklist de saída",
     checklist: [
-      { key: "ventoinhas", label: "🌀 Caso não esteja a usufruir das ventoinhas de teto, desligue-as" },
-      { key: "chapeuSol", label: "⛱️ Não deixe o chapéu de sol aberto durante a noite. Se houver algum dia de muito vento, mantenha-o fechado" },
-      { key: "espreguicadeiras", label: "🪑 À noite, recolha as espreguiçadeiras" },
       { key: "loica", label: "🍽️ Lavar a loiça utilizada ou colocá-la na máquina de lavar loiça e iniciar o programa" },
       { key: "toalhas", label: "🧺 Colocar as toalhas usadas no local indicado" },
       { key: "lixo", label: "🗑️ Lixo despejado no contentor" },
@@ -3158,6 +3158,9 @@ const HOME_I18N = {
     checkinSub: "Keys handed over in person — the time is arranged with you before arrival.",
     rulesTitle: "📋 House rules",
     rules: [
+      "🌀 If you're not using the ceiling fans, please turn them off",
+      "⛱️ Don't leave the sun umbrella open overnight. If it's a very windy day, keep it closed",
+      "🪑 In the evening, put away the sun loungers",
       "🔇 Quiet hours from 11pm to 7am (rest period required by Portuguese law)",
       "🚭 No smoking inside the house",
       "🐾 Pets only with prior authorisation — talk to us before booking",
@@ -3190,9 +3193,6 @@ const HOME_I18N = {
       (comment ? `\n\n💬 ${comment}` : ""),
     checklistTitle: "✅ Departure checklist",
     checklist: [
-      { key: "ventoinhas", label: "🌀 If you're not using the ceiling fans, please turn them off" },
-      { key: "chapeuSol", label: "⛱️ Don't leave the sun umbrella open overnight. If it's a very windy day, keep it closed" },
-      { key: "espreguicadeiras", label: "🪑 In the evening, put away the sun loungers" },
       { key: "loica", label: "🍽️ Wash the dishes used or load the dishwasher and start it" },
       { key: "toalhas", label: "🧺 Put used towels in the indicated spot" },
       { key: "lixo", label: "🗑️ Rubbish taken to the bin" },
@@ -3260,6 +3260,9 @@ const HOME_I18N = {
     checkinSub: "Entrega de llaves en mano — la hora se acuerda contigo antes de la llegada.",
     rulesTitle: "📋 Normas de la casa",
     rules: [
+      "🌀 Si no está utilizando los ventiladores de techo, apáguelos",
+      "⛱️ No deje la sombrilla abierta durante la noche. Si hace mucho viento algún día, manténgala cerrada",
+      "🪑 Por la noche, recoja las tumbonas",
       "🔇 Silencio de 23h a 7h (periodo de descanso previsto por la ley portuguesa)",
       "🚭 No se permite fumar dentro de la casa",
       "🐾 Mascotas solo con autorización previa — habla con nosotros antes de reservar",
@@ -3292,9 +3295,6 @@ const HOME_I18N = {
       (comment ? `\n\n💬 ${comment}` : ""),
     checklistTitle: "✅ Checklist de salida",
     checklist: [
-      { key: "ventoinhas", label: "🌀 Si no está utilizando los ventiladores de techo, apáguelos" },
-      { key: "chapeuSol", label: "⛱️ No deje la sombrilla abierta durante la noche. Si hace mucho viento algún día, manténgala cerrada" },
-      { key: "espreguicadeiras", label: "🪑 Por la noche, recoja las tumbonas" },
       { key: "loica", label: "🍽️ Lavar los platos utilizados o ponerlos en el lavavajillas e iniciar el programa" },
       { key: "toalhas", label: "🧺 Colocar las toallas usadas en el lugar indicado" },
       { key: "lixo", label: "🗑️ Basura en el contenedor" },
@@ -3362,6 +3362,9 @@ const HOME_I18N = {
     checkinSub: "Remise des clés en main propre — l'heure est convenue avec vous avant l'arrivée.",
     rulesTitle: "📋 Règlement de la maison",
     rules: [
+      "🌀 Si vous n'utilisez pas les ventilateurs de plafond, éteignez-les",
+      "⛱️ Ne laissez pas le parasol ouvert pendant la nuit. En cas de vent fort, gardez-le fermé",
+      "🪑 Le soir, rangez les transats",
       "🔇 Silence de 23h à 7h (période de repos prévue par la loi portugaise)",
       "🚭 Il est interdit de fumer à l'intérieur de la maison",
       "🐾 Animaux uniquement avec autorisation préalable — contacte-nous avant de réserver",
@@ -3394,9 +3397,6 @@ const HOME_I18N = {
       (comment ? `\n\n💬 ${comment}` : ""),
     checklistTitle: "✅ Checklist de départ",
     checklist: [
-      { key: "ventoinhas", label: "🌀 Si vous n'utilisez pas les ventilateurs de plafond, éteignez-les" },
-      { key: "chapeuSol", label: "⛱️ Ne laissez pas le parasol ouvert pendant la nuit. En cas de vent fort, gardez-le fermé" },
-      { key: "espreguicadeiras", label: "🪑 Le soir, rangez les transats" },
       { key: "loica", label: "🍽️ Laver la vaisselle utilisée ou la mettre au lave-vaisselle et lancer le programme" },
       { key: "toalhas", label: "🧺 Déposer les serviettes utilisées à l'endroit indiqué" },
       { key: "lixo", label: "🗑️ Poubelles sorties" },
