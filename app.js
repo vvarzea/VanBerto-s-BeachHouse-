@@ -3088,6 +3088,9 @@ const HOME_I18N = {
       (comment ? `\n\n💬 ${comment}` : ""),
     checklistTitle: "✅ Checklist de saída",
     checklist: [
+      { key: "ventoinhas", label: "🌀 Caso não esteja a usufruir das ventoinhas de teto, desligue-as" },
+      { key: "chapeuSol", label: "⛱️ Não deixe o chapéu de sol aberto durante a noite. Se houver algum dia de muito vento, mantenha-o fechado" },
+      { key: "espreguicadeiras", label: "🪑 À noite, recolha as espreguiçadeiras" },
       { key: "loica", label: "🍽️ Lavar a loiça utilizada ou colocá-la na máquina de lavar loiça e iniciar o programa" },
       { key: "toalhas", label: "🧺 Colocar as toalhas usadas no local indicado" },
       { key: "lixo", label: "🗑️ Lixo despejado no contentor" },
@@ -3187,6 +3190,9 @@ const HOME_I18N = {
       (comment ? `\n\n💬 ${comment}` : ""),
     checklistTitle: "✅ Departure checklist",
     checklist: [
+      { key: "ventoinhas", label: "🌀 If you're not using the ceiling fans, please turn them off" },
+      { key: "chapeuSol", label: "⛱️ Don't leave the sun umbrella open overnight. If it's a very windy day, keep it closed" },
+      { key: "espreguicadeiras", label: "🪑 In the evening, put away the sun loungers" },
       { key: "loica", label: "🍽️ Wash the dishes used or load the dishwasher and start it" },
       { key: "toalhas", label: "🧺 Put used towels in the indicated spot" },
       { key: "lixo", label: "🗑️ Rubbish taken to the bin" },
@@ -3286,6 +3292,9 @@ const HOME_I18N = {
       (comment ? `\n\n💬 ${comment}` : ""),
     checklistTitle: "✅ Checklist de salida",
     checklist: [
+      { key: "ventoinhas", label: "🌀 Si no está utilizando los ventiladores de techo, apáguelos" },
+      { key: "chapeuSol", label: "⛱️ No deje la sombrilla abierta durante la noche. Si hace mucho viento algún día, manténgala cerrada" },
+      { key: "espreguicadeiras", label: "🪑 Por la noche, recoja las tumbonas" },
       { key: "loica", label: "🍽️ Lavar los platos utilizados o ponerlos en el lavavajillas e iniciar el programa" },
       { key: "toalhas", label: "🧺 Colocar las toallas usadas en el lugar indicado" },
       { key: "lixo", label: "🗑️ Basura en el contenedor" },
@@ -3385,6 +3394,9 @@ const HOME_I18N = {
       (comment ? `\n\n💬 ${comment}` : ""),
     checklistTitle: "✅ Checklist de départ",
     checklist: [
+      { key: "ventoinhas", label: "🌀 Si vous n'utilisez pas les ventilateurs de plafond, éteignez-les" },
+      { key: "chapeuSol", label: "⛱️ Ne laissez pas le parasol ouvert pendant la nuit. En cas de vent fort, gardez-le fermé" },
+      { key: "espreguicadeiras", label: "🪑 Le soir, rangez les transats" },
       { key: "loica", label: "🍽️ Laver la vaisselle utilisée ou la mettre au lave-vaisselle et lancer le programme" },
       { key: "toalhas", label: "🧺 Déposer les serviettes utilisées à l'endroit indiqué" },
       { key: "lixo", label: "🗑️ Poubelles sorties" },
