@@ -3063,7 +3063,7 @@ const HOME_I18N = {
       "🚭 Não é permitido fumar dentro de casa",
       "🐾 Animais de estimação só mediante autorização prévia — fala connosco antes de reservar",
       "🗑️ Lixo: coloca no contentor verde do parque de estacionamento, junto ao prédio",
-      "♻️ Reciclagem: ecoponto (papel/plástico/vidro) no início da rua, junto ao edifício \"Shark's\""
+      "♻️ Reciclagem: ecoponto (papel/plástico/vidro) no início da rua"
     ],
 
     sosTitle: "🚨 Emergências & Saúde",
@@ -3165,7 +3165,7 @@ const HOME_I18N = {
       "🚭 No smoking inside the house",
       "🐾 Pets only with prior authorisation — talk to us before booking",
       "🗑️ Rubbish: use the green bin in the car park, next to the building",
-      "♻️ Recycling: recycling point (paper/plastic/glass) at the start of the street, next to the \"Shark's\" building"
+      "♻️ Recycling: recycling point (paper/plastic/glass) at the start of the street"
     ],
 
     sosTitle: "🚨 Emergencies & Health",
@@ -3267,7 +3267,7 @@ const HOME_I18N = {
       "🚭 No se permite fumar dentro de la casa",
       "🐾 Mascotas solo con autorización previa — habla con nosotros antes de reservar",
       "🗑️ Basura: en el contenedor verde del parking, junto al edificio",
-      "♻️ Reciclaje: punto verde (papel/plástico/vidrio) al principio de la calle, junto al edificio \"Shark's\""
+      "♻️ Reciclaje: punto verde (papel/plástico/vidrio) al principio de la calle"
     ],
 
     sosTitle: "🚨 Emergencias & Salud",
@@ -3369,7 +3369,7 @@ const HOME_I18N = {
       "🚭 Il est interdit de fumer à l'intérieur de la maison",
       "🐾 Animaux uniquement avec autorisation préalable — contacte-nous avant de réserver",
       "🗑️ Déchets : à déposer dans le conteneur vert du parking, près du bâtiment",
-      "♻️ Recyclage : point de collecte (papier/plastique/verre) au début de la rue, près du bâtiment \"Shark's\""
+      "♻️ Recyclage : point de collecte (papier/plastique/verre) au début de la rue"
     ],
 
     sosTitle: "🚨 Urgences & Santé",
