@@ -3220,8 +3220,7 @@ const HOME_I18N = {
       quartoInterior: "Quarto interior",
       banho: "Casa de banho",
       hall: "Hall de entrada",
-      logradouro: "Logradouro",
-      terraco: "Terraço"
+      logradouro: "Logradouro"
     },
 
     meteoTitle: "🌤️ Meteorologia · Peniche & Baleal",
@@ -3333,8 +3332,7 @@ const HOME_I18N = {
       quartoInterior: "Interior bedroom",
       banho: "Bathroom",
       hall: "Entrance hall",
-      logradouro: "Backyard",
-      terraco: "Terrace"
+      logradouro: "Backyard"
     },
 
     meteoTitle: "🌤️ Weather · Peniche & Baleal",
@@ -3446,8 +3444,7 @@ const HOME_I18N = {
       quartoInterior: "Dormitorio interior",
       banho: "Baño",
       hall: "Recibidor",
-      logradouro: "Patio trasero",
-      terraco: "Terraza"
+      logradouro: "Patio trasero"
     },
 
     meteoTitle: "🌤️ Meteorología · Peniche & Baleal",
@@ -3559,8 +3556,7 @@ const HOME_I18N = {
       quartoInterior: "Chambre intérieure",
       banho: "Salle de bain",
       hall: "Entrée",
-      logradouro: "Jardin arrière",
-      terraco: "Terrasse"
+      logradouro: "Jardin arrière"
     },
 
     meteoTitle: "🌤️ Météo · Peniche & Baleal",
