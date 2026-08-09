@@ -2613,6 +2613,16 @@ function switchCategory(cat, opts = {}) {
   renderAtual();
   try{ toggleEventsCalendar(false); }catch{}
 
+  // Ao trocar de categoria, o conteúdo muda de altura (grelha de categorias vs. lista de
+  // cartões) mas a posição do scroll fica igual — por isso a página pode "saltar" e mostrar
+  // logo os cartões, sem o título "Dicas para aproveitar Peniche" nem a barra da categoria.
+  const introEl = document.querySelector(".intro");
+  if (introEl) {
+    requestAnimationFrame(() => {
+      introEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
   // Navegação via histórico (gesto/botão físico de voltar do telemóvel): já foi o
   // próprio browser a mover-se no histórico, por isso não voltamos a tocar nele aqui.
   if (opts.fromPopstate) return;

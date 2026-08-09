@@ -598,22 +598,38 @@ header {
   position: relative;
   background: radial-gradient(circle at top left, #1f2937 0, #020617 60%);
   border-radius: 24px;
-  padding: 16px 18px 18px;
   max-width: 480px;
   width: 92%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(148, 163, 184, 0.4);
   color: var(--text-main);
 }
 
+.modal-scroll {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px 18px 18px;
+}
+
 .modal-close {
   position: absolute;
-  top: 8px;
-  right: 10px;
+  top: 10px;
+  right: 26px;
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
   border: none;
-  background: transparent;
+  background: rgba(2, 6, 23, 0.55);
+  backdrop-filter: blur(3px);
   color: #e5e7eb;
-  font-size: 16px;
+  font-size: 13px;
   cursor: pointer;
 }
 
@@ -623,6 +639,7 @@ header {
   justify-content: center;
   gap: 8px;
   margin-bottom: 4px;
+  min-height: 32px;
   padding-left: 26px;
   padding-right: 26px;
   text-align: center;
@@ -2081,7 +2098,7 @@ button, .lang-btn {
 /* ===== MINI CALENDÁRIO ===== */
 .mini-cal{
   max-width: 900px;
-  margin: 0 auto 18px;
+  margin: 18px auto 18px;
   padding: 12px 14px;
   border-radius: 22px;
   border: 1px solid rgba(148, 163, 184, 0.25);

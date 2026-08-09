@@ -361,7 +361,8 @@
     </section>
 
     <!-- Cards -->
-    
+    <section id="cards-container" class="cards" aria-live="polite"></section>
+
     <!-- 📅 Calendário (aparece na categoria Eventos) -->
     <section id="events-calendar-section" class="mini-cal" hidden aria-label="Calendário de eventos">
       <div class="mini-cal-head">
@@ -384,9 +385,6 @@
         <div id="cal-events-list" class="mini-cal-events-list">Seleciona um dia para ver eventos.</div>
       </div>
     </section>
-
-
-    <section id="cards-container" class="cards" aria-live="polite"></section>
   </main>
 
 
@@ -396,6 +394,7 @@
     <div class="modal-dialog" role="dialog" aria-modal="true">
       <button class="modal-close" id="modal-close-btn" aria-label="Fechar">✕</button>
 
+      <div class="modal-scroll">
       <div class="modal-header">
         <h2 id="modal-title">Nome do local</h2>
       </div>
@@ -465,6 +464,7 @@
           </button>
         </div>
       </div>
+      </div>
     </div>
   </div>
 
@@ -475,6 +475,7 @@
     <div class="modal-dialog" role="dialog" aria-modal="true">
       <button class="modal-close" id="qr-close-btn" aria-label="Fechar">✕</button>
 
+      <div class="modal-scroll">
       <div class="modal-header">
         <h2 id="qr-title">Partilhar favoritos</h2>
       </div>
@@ -489,6 +490,7 @@
           <button id="qr-clear" class="ghost-btn">🗑️ Limpar favoritos</button>
         </div>
         <p class="qr-hint" id="qr-hint"></p>
+      </div>
       </div>
     </div>
   </div>
