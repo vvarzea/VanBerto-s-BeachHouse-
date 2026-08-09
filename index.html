@@ -72,42 +72,93 @@
     </div>
   </header>
   <main class="container">
-    <!-- 🌤️ Meteorologia (Peniche & Baleal) -->
-    <section id="home-meteo" class="home-meteo is-collapsed" aria-live="polite">
-      <div class="home-meteo-head" data-toggle-section="home-meteo">
+    <!-- 📸 O Apartamento (galeria de fotos por divisão) -->
+    <section id="home-apartment" class="home-meteo home-apartment is-collapsed" aria-label="O Apartamento">
+      <div class="home-meteo-head" data-toggle-section="home-apartment">
         <div class="home-meteo-head-left">
-          <button type="button" class="home-meteo-toggle" aria-expanded="false" aria-controls="home-meteo-body">▾</button>
-          <div class="home-meteo-title" id="i18n-meteo-title">🌤️ Meteorologia · Peniche &amp; Baleal</div>
+          <button type="button" class="home-meteo-toggle" aria-expanded="false" aria-controls="home-apartment-body">▾</button>
+          <div class="home-meteo-title" id="i18n-apartment-title">📸 O Apartamento</div>
         </div>
-        <div id="home-meteo-updated" class="home-meteo-updated">A carregar…</div>
       </div>
 
-      <div class="home-meteo-body" id="home-meteo-body"><div class="home-meteo-body-inner">
-      <div class="home-meteo-grid">
-        <div class="home-meteo-card">
-          <div class="home-meteo-card-title" id="i18n-today-title">Hoje</div>
-          <div id="home-meteo-today" class="home-meteo-main">—</div>
-          <div id="home-meteo-today-extra" class="home-meteo-sub">—</div>
+      <div class="home-meteo-body" id="home-apartment-body"><div class="home-meteo-body-inner">
+      <div class="apartment-rooms" id="apartment-rooms">
+
+        <div class="apartment-room" data-room-key="sala" data-folder="images/apartamento/sala-cozinha" data-count="6">
+          <button type="button" class="apartment-room-head" aria-expanded="false">
+            <span class="apartment-room-icon" aria-hidden="true">🛋️</span>
+            <span class="apartment-room-label" id="i18n-room-sala">Sala/Cozinha (openspace)</span>
+            <span class="apartment-room-chevron" aria-hidden="true">▸</span>
+          </button>
+          <div class="apartment-room-grid" hidden></div>
         </div>
 
-        <div class="home-meteo-card">
-          <div class="home-meteo-card-title" id="i18n-tomorrow-title">Amanhã</div>
-          <div id="home-meteo-tomorrow" class="home-meteo-main">—</div>
-          <div id="home-meteo-tomorrow-extra" class="home-meteo-sub">—</div>
+        <div class="apartment-room" data-room-key="quartoPrincipal" data-folder="images/apartamento/quarto-principal" data-count="4">
+          <button type="button" class="apartment-room-head" aria-expanded="false">
+            <span class="apartment-room-icon" aria-hidden="true">🛏️</span>
+            <span class="apartment-room-label" id="i18n-room-quartoPrincipal">Quarto principal</span>
+            <span class="apartment-room-chevron" aria-hidden="true">▸</span>
+          </button>
+          <div class="apartment-room-grid" hidden></div>
         </div>
 
-        <div class="home-meteo-card">
-          <div class="home-meteo-card-title" id="i18n-surf-title">🌊 Mar &amp; Surf · Hoje</div>
-          <div id="home-surf-extra" class="home-meteo-sub">—</div>
+        <div class="apartment-room" data-room-key="quartoInterior" data-folder="images/apartamento/quarto-interior" data-count="2">
+          <button type="button" class="apartment-room-head" aria-expanded="false">
+            <span class="apartment-room-icon" aria-hidden="true">🛌</span>
+            <span class="apartment-room-label" id="i18n-room-quartoInterior">Quarto interior</span>
+            <span class="apartment-room-chevron" aria-hidden="true">▸</span>
+          </button>
+          <div class="apartment-room-grid" hidden></div>
         </div>
 
-        <div class="home-meteo-card">
-          <div class="home-meteo-card-title" id="i18n-surf-tomorrow-title">🌊 Mar &amp; Surf · Amanhã</div>
-          <div id="home-surf-tomorrow-extra" class="home-meteo-sub">—</div>
+        <div class="apartment-room" data-room-key="banho" data-folder="images/apartamento/casa-banho" data-count="2">
+          <button type="button" class="apartment-room-head" aria-expanded="false">
+            <span class="apartment-room-icon" aria-hidden="true">🚿</span>
+            <span class="apartment-room-label" id="i18n-room-banho">Casa de banho</span>
+            <span class="apartment-room-chevron" aria-hidden="true">▸</span>
+          </button>
+          <div class="apartment-room-grid" hidden></div>
         </div>
+
+        <div class="apartment-room" data-room-key="hall" data-folder="images/apartamento/hall-entrada" data-count="1">
+          <button type="button" class="apartment-room-head" aria-expanded="false">
+            <span class="apartment-room-icon" aria-hidden="true">🚪</span>
+            <span class="apartment-room-label" id="i18n-room-hall">Hall de entrada</span>
+            <span class="apartment-room-chevron" aria-hidden="true">▸</span>
+          </button>
+          <div class="apartment-room-grid" hidden></div>
+        </div>
+
+        <div class="apartment-room" data-room-key="logradouro" data-folder="images/apartamento/logradouro" data-count="3">
+          <button type="button" class="apartment-room-head" aria-expanded="false">
+            <span class="apartment-room-icon" aria-hidden="true">🌳</span>
+            <span class="apartment-room-label" id="i18n-room-logradouro">Logradouro</span>
+            <span class="apartment-room-chevron" aria-hidden="true">▸</span>
+          </button>
+          <div class="apartment-room-grid" hidden></div>
+        </div>
+
+        <div class="apartment-room" data-room-key="terraco" data-folder="images/apartamento/terraco" data-count="1">
+          <button type="button" class="apartment-room-head" aria-expanded="false">
+            <span class="apartment-room-icon" aria-hidden="true">🌅</span>
+            <span class="apartment-room-label" id="i18n-room-terraco">Terraço</span>
+            <span class="apartment-room-chevron" aria-hidden="true">▸</span>
+          </button>
+          <div class="apartment-room-grid" hidden></div>
+        </div>
+
       </div>
       </div></div>
     </section>
+
+    <!-- Lightbox de fotos do apartamento -->
+    <div id="apartment-lightbox" class="apartment-lightbox" hidden>
+      <button type="button" class="apartment-lightbox-close" id="apartment-lightbox-close" aria-label="Fechar">✕</button>
+      <button type="button" class="apartment-lightbox-nav apartment-lightbox-prev" id="apartment-lightbox-prev" aria-label="Anterior">‹</button>
+      <img id="apartment-lightbox-img" class="apartment-lightbox-img" src="" alt="" />
+      <button type="button" class="apartment-lightbox-nav apartment-lightbox-next" id="apartment-lightbox-next" aria-label="Seguinte">›</button>
+      <div class="apartment-lightbox-counter" id="apartment-lightbox-counter"></div>
+    </div>
 
     <!-- 🏠 Informação da Casa -->
     <section id="home-house" class="home-meteo home-house is-collapsed" aria-label="Informação da casa">
@@ -145,72 +196,6 @@
             <li>♻️ Reciclagem: ecoponto (papel/plástico/vidro) no início da rua, junto ao edifício "Shark's"</li>
           </ul>
         </div>
-      </div>
-      </div></div>
-    </section>
-
-    <!-- 🚨 Emergências & Saúde -->
-    <section id="home-sos" class="home-meteo home-sos is-collapsed" aria-label="Emergências e saúde">
-      <div class="home-meteo-head" data-toggle-section="home-sos">
-        <div class="home-meteo-head-left">
-          <button type="button" class="home-meteo-toggle" aria-expanded="false" aria-controls="home-sos-body">▾</button>
-          <div class="home-meteo-title" id="i18n-sos-title">🚨 Emergências &amp; Saúde</div>
-        </div>
-      </div>
-
-      <div class="home-meteo-body" id="home-sos-body"><div class="home-meteo-body-inner">
-      <div class="home-meteo-grid">
-        <a href="tel:112" class="home-meteo-card home-sos-card home-sos-card-emergency">
-          <div class="home-meteo-card-title" id="i18n-sos-emergency-title">Emergência nacional</div>
-          <div class="home-meteo-main">🆘 112</div>
-        </a>
-
-        <a href="https://www.farmaciasdeservico.net/localidade/leiria/peniche" target="_blank" rel="noopener noreferrer" class="home-meteo-card home-sos-card">
-          <div class="home-meteo-card-title" id="i18n-sos-pharmacy-title">Farmácia de serviço hoje</div>
-          <div class="home-meteo-main" id="i18n-sos-pharmacy-main">💊 Ver farmácia</div>
-        </a>
-
-        <div class="home-meteo-card home-sos-card home-sos-card-split">
-          <a href="tel:262790027" class="home-sos-card-link">
-            <div class="home-meteo-card-title">Centro de Saúde de Peniche (USF Marés)</div>
-            <div class="home-meteo-main">🏥 262 790 027</div>
-          </a>
-          <a href="https://www.google.com/maps/search/?api=1&query=USF%20Mar%C3%A9s%2C%20Rua%20General%20Humberto%20Delgado%2C%20Peniche" target="_blank" rel="noopener noreferrer" class="home-sos-map-btn">🗺️ Mapa</a>
-        </div>
-
-        <div class="home-meteo-card home-sos-card home-sos-card-split">
-          <a href="tel:262109870" class="home-sos-card-link">
-            <div class="home-meteo-card-title" id="i18n-sos-police-title">PSP Peniche</div>
-            <div class="home-meteo-main">👮 262 109 870</div>
-          </a>
-          <a href="https://www.google.com/maps/search/?api=1&query=PSP%20Esquadra%20de%20Peniche%2C%20Rua%20Her%C3%B3is%20do%20Ultramar%2C%20Peniche" target="_blank" rel="noopener noreferrer" class="home-sos-map-btn">🗺️ Mapa</a>
-        </div>
-      </div>
-      </div></div>
-    </section>
-
-    <!-- 🚗 Praticidades do dia a dia -->
-    <section id="home-practical" class="home-meteo home-practical is-collapsed" aria-label="Praticidades do dia a dia">
-      <div class="home-meteo-head" data-toggle-section="home-practical">
-        <div class="home-meteo-head-left">
-          <button type="button" class="home-meteo-toggle" aria-expanded="false" aria-controls="home-practical-body">▾</button>
-          <div class="home-meteo-title" id="i18n-practical-title">🚗 Praticidades do dia a dia</div>
-        </div>
-      </div>
-
-      <div class="home-meteo-body" id="home-practical-body"><div class="home-meteo-body-inner">
-      <div class="home-meteo-grid">
-        <div class="home-meteo-card home-house-card">
-          <div class="home-meteo-card-title" id="i18n-parking-title">🅿️ Estacionamento</div>
-          <div class="home-meteo-main" id="i18n-parking-main">Grátis, mesmo à porta</div>
-          <div class="home-meteo-sub" id="i18n-parking-sub">O parque junto ao prédio é gratuito e sem restrições — podes deixar lá o carro durante toda a estadia.</div>
-        </div>
-
-        <a href="https://www.google.com/maps/search/?api=1&query=Multibanco%2C%20R.%20Dr.%20Ernesto%20Moreira%20J%2C%202520-621%20Peniche" target="_blank" rel="noopener noreferrer" class="home-meteo-card home-meteo-card-wide home-house-card home-link-card">
-          <div class="home-meteo-card-title" id="i18n-atm-title">🏧 Onde levantar dinheiro</div>
-          <div class="home-meteo-main" id="i18n-atm-main">Multibanco no Pingo Doce</div>
-          <div class="home-meteo-sub" id="i18n-atm-sub">O mais perto de casa fica no Pingo Doce de Peniche, a 5 minutos de distância. Há mais opções no centro de Peniche. Quase todos os estabelecimentos aceitam cartão, por isso raramente precisas de dinheiro vivo.</div>
-        </a>
       </div>
       </div></div>
     </section>
@@ -262,6 +247,110 @@
       </div>
       </div></div>
     </section>
+
+    <!-- 🌤️ Meteorologia (Peniche & Baleal) -->
+    <section id="home-meteo" class="home-meteo is-collapsed" aria-live="polite">
+      <div class="home-meteo-head" data-toggle-section="home-meteo">
+        <div class="home-meteo-head-left">
+          <button type="button" class="home-meteo-toggle" aria-expanded="false" aria-controls="home-meteo-body">▾</button>
+          <div class="home-meteo-title" id="i18n-meteo-title">🌤️ Meteorologia · Peniche &amp; Baleal</div>
+        </div>
+        <div id="home-meteo-updated" class="home-meteo-updated">A carregar…</div>
+      </div>
+
+      <div class="home-meteo-body" id="home-meteo-body"><div class="home-meteo-body-inner">
+      <div class="home-meteo-grid">
+        <div class="home-meteo-card">
+          <div class="home-meteo-card-title" id="i18n-today-title">Hoje</div>
+          <div id="home-meteo-today" class="home-meteo-main">—</div>
+          <div id="home-meteo-today-extra" class="home-meteo-sub">—</div>
+        </div>
+
+        <div class="home-meteo-card">
+          <div class="home-meteo-card-title" id="i18n-tomorrow-title">Amanhã</div>
+          <div id="home-meteo-tomorrow" class="home-meteo-main">—</div>
+          <div id="home-meteo-tomorrow-extra" class="home-meteo-sub">—</div>
+        </div>
+
+        <div class="home-meteo-card">
+          <div class="home-meteo-card-title" id="i18n-surf-title">🌊 Mar &amp; Surf · Hoje</div>
+          <div id="home-surf-extra" class="home-meteo-sub">—</div>
+        </div>
+
+        <div class="home-meteo-card">
+          <div class="home-meteo-card-title" id="i18n-surf-tomorrow-title">🌊 Mar &amp; Surf · Amanhã</div>
+          <div id="home-surf-tomorrow-extra" class="home-meteo-sub">—</div>
+        </div>
+      </div>
+      </div></div>
+    </section>
+
+    <!-- 🚗 Praticidades do dia a dia -->
+    <section id="home-practical" class="home-meteo home-practical is-collapsed" aria-label="Praticidades do dia a dia">
+      <div class="home-meteo-head" data-toggle-section="home-practical">
+        <div class="home-meteo-head-left">
+          <button type="button" class="home-meteo-toggle" aria-expanded="false" aria-controls="home-practical-body">▾</button>
+          <div class="home-meteo-title" id="i18n-practical-title">🚗 Praticidades do dia a dia</div>
+        </div>
+      </div>
+
+      <div class="home-meteo-body" id="home-practical-body"><div class="home-meteo-body-inner">
+      <div class="home-meteo-grid">
+        <div class="home-meteo-card home-house-card">
+          <div class="home-meteo-card-title" id="i18n-parking-title">🅿️ Estacionamento</div>
+          <div class="home-meteo-main" id="i18n-parking-main">Grátis, mesmo à porta</div>
+          <div class="home-meteo-sub" id="i18n-parking-sub">O parque junto ao prédio é gratuito e sem restrições — podes deixar lá o carro durante toda a estadia.</div>
+        </div>
+
+        <a href="https://www.google.com/maps/search/?api=1&query=Multibanco%2C%20R.%20Dr.%20Ernesto%20Moreira%20J%2C%202520-621%20Peniche" target="_blank" rel="noopener noreferrer" class="home-meteo-card home-meteo-card-wide home-house-card home-link-card">
+          <div class="home-meteo-card-title" id="i18n-atm-title">🏧 Onde levantar dinheiro</div>
+          <div class="home-meteo-main" id="i18n-atm-main">Multibanco no Pingo Doce</div>
+          <div class="home-meteo-sub" id="i18n-atm-sub">O mais perto de casa fica no Pingo Doce de Peniche, a 5 minutos de distância. Há mais opções no centro de Peniche. Quase todos os estabelecimentos aceitam cartão, por isso raramente precisas de dinheiro vivo.</div>
+        </a>
+      </div>
+      </div></div>
+    </section>
+
+    <!-- 🚨 Emergências & Saúde -->
+    <section id="home-sos" class="home-meteo home-sos is-collapsed" aria-label="Emergências e saúde">
+      <div class="home-meteo-head" data-toggle-section="home-sos">
+        <div class="home-meteo-head-left">
+          <button type="button" class="home-meteo-toggle" aria-expanded="false" aria-controls="home-sos-body">▾</button>
+          <div class="home-meteo-title" id="i18n-sos-title">🚨 Emergências &amp; Saúde</div>
+        </div>
+      </div>
+
+      <div class="home-meteo-body" id="home-sos-body"><div class="home-meteo-body-inner">
+      <div class="home-meteo-grid">
+        <a href="tel:112" class="home-meteo-card home-sos-card home-sos-card-emergency">
+          <div class="home-meteo-card-title" id="i18n-sos-emergency-title">Emergência nacional</div>
+          <div class="home-meteo-main">🆘 112</div>
+        </a>
+
+        <a href="https://www.farmaciasdeservico.net/localidade/leiria/peniche" target="_blank" rel="noopener noreferrer" class="home-meteo-card home-sos-card">
+          <div class="home-meteo-card-title" id="i18n-sos-pharmacy-title">Farmácia de serviço hoje</div>
+          <div class="home-meteo-main" id="i18n-sos-pharmacy-main">💊 Ver farmácia</div>
+        </a>
+
+        <div class="home-meteo-card home-sos-card home-sos-card-split">
+          <a href="tel:262790027" class="home-sos-card-link">
+            <div class="home-meteo-card-title">Centro de Saúde de Peniche (USF Marés)</div>
+            <div class="home-meteo-main">🏥 262 790 027</div>
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=USF%20Mar%C3%A9s%2C%20Rua%20General%20Humberto%20Delgado%2C%20Peniche" target="_blank" rel="noopener noreferrer" class="home-sos-map-btn">🗺️ Mapa</a>
+        </div>
+
+        <div class="home-meteo-card home-sos-card home-sos-card-split">
+          <a href="tel:262109870" class="home-sos-card-link">
+            <div class="home-meteo-card-title" id="i18n-sos-police-title">PSP Peniche</div>
+            <div class="home-meteo-main">👮 262 109 870</div>
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=PSP%20Esquadra%20de%20Peniche%2C%20Rua%20Her%C3%B3is%20do%20Ultramar%2C%20Peniche" target="_blank" rel="noopener noreferrer" class="home-sos-map-btn">🗺️ Mapa</a>
+        </div>
+      </div>
+      </div></div>
+    </section>
+
 
     <section class="intro">
       <h1 id="main-heading">Dicas para aproveitar Peniche</h1>

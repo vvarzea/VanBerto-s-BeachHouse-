@@ -2866,14 +2866,21 @@ try{ toggleEventsCalendar(false); }catch{}
   });
   saveCollapsedState(state);
 
-  function fecharTodas(exceto){
+  function fecharTodas(exceto, instant){
     let mudou = false;
     sections.forEach(({ id, section, toggleBtn }) => {
       if (id === exceto) return;
       if (!section.classList.contains("is-collapsed")) {
+        if (instant) {
+          section.classList.add("no-anim");
+          void section.offsetHeight; // força reflow para a remoção da transição fazer efeito já
+        }
         applyState(section, toggleBtn, true);
         state[id] = true;
         mudou = true;
+        if (instant) {
+          setTimeout(() => section.classList.remove("no-anim"), 50);
+        }
       }
     });
     return mudou;
@@ -2890,12 +2897,20 @@ try{ toggleEventsCalendar(false); }catch{}
       const isCollapsed = section.classList.contains("is-collapsed");
       const next = !isCollapsed;
 
-      // Comportamento tipo "acordeão": ao abrir uma secção, fecha automaticamente as outras
-      if (!next) fecharTodas(id);
+      // Comportamento tipo "acordeão": ao abrir uma secção, fecha automaticamente as outras.
+      // O fecho é instantâneo (sem animação) para o layout já ficar estável no sítio certo,
+      // permitindo que o scroll e a abertura da secção nova aconteçam em simultâneo.
+      if (!next) fecharTodas(id, true);
 
       applyState(section, toggleBtn, next);
       state[id] = next;
       saveCollapsedState(state);
+
+      if (!next) {
+        requestAnimationFrame(() => {
+          section.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
     });
   });
 
@@ -2904,8 +2919,154 @@ try{ toggleEventsCalendar(false); }catch{}
   document.addEventListener("click", (ev) => {
     if (ev.target.closest(".home-meteo")) return; // clique dentro de uma secção retrátil: ignora
     if (ev.target.closest(".lang-switcher")) return; // mudar de idioma não deve fechar a secção aberta
+    if (ev.target.closest(".apartment-lightbox")) return; // fechar o lightbox de fotos não deve fechar a secção
     if (fecharTodas(null)) saveCollapsedState(state);
   });
+})();
+
+
+
+/* ==============================
+   O APARTAMENTO: divisões retráteis + lightbox de fotos
+============================== */
+(function initApartmentGallery(){
+  const rooms = document.querySelectorAll(".apartment-room");
+  if (!rooms.length) return;
+
+  const lightbox = document.getElementById("apartment-lightbox");
+  const lightboxImg = document.getElementById("apartment-lightbox-img");
+  const lightboxCounter = document.getElementById("apartment-lightbox-counter");
+  const btnClose = document.getElementById("apartment-lightbox-close");
+  const btnPrev = document.getElementById("apartment-lightbox-prev");
+  const btnNext = document.getElementById("apartment-lightbox-next");
+
+  let currentPhotos = [];
+  let currentIndex = 0;
+
+  function photosForRoom(roomEl){
+    const folder = roomEl.getAttribute("data-folder");
+    const count = parseInt(roomEl.getAttribute("data-count"), 10) || 0;
+    const list = [];
+    for (let i = 1; i <= count; i++) {
+      list.push(`${folder}/${String(i).padStart(2, "0")}.jpg`);
+    }
+    return list;
+  }
+
+  function populateGrid(roomEl){
+    const grid = roomEl.querySelector(".apartment-room-grid");
+    if (!grid || grid.dataset.filled) return;
+    const photos = photosForRoom(roomEl);
+    grid.innerHTML = photos.map((src, i) => `
+      <button type="button" class="apartment-room-photo" data-index="${i}" aria-label="Ver foto ${i + 1}">
+        <img src="${src}" alt="" loading="lazy" />
+      </button>
+    `).join("");
+    grid.dataset.filled = "1";
+  }
+
+  rooms.forEach(roomEl => {
+    const head = roomEl.querySelector(".apartment-room-head");
+    const grid = roomEl.querySelector(".apartment-room-grid");
+    if (!head || !grid) return;
+
+    head.addEventListener("click", () => {
+      const isOpen = roomEl.classList.contains("is-open");
+
+      // Comportamento tipo "acordeão": fecha sempre as outras divisões primeiro
+      rooms.forEach(other => {
+        if (other === roomEl) return;
+        other.classList.remove("is-open");
+        const otherHead = other.querySelector(".apartment-room-head");
+        const otherGrid = other.querySelector(".apartment-room-grid");
+        if (otherHead) otherHead.setAttribute("aria-expanded", "false");
+        if (otherGrid) otherGrid.hidden = true;
+      });
+
+      if (isOpen) {
+        roomEl.classList.remove("is-open");
+        head.setAttribute("aria-expanded", "false");
+        grid.hidden = true;
+      } else {
+        populateGrid(roomEl);
+        roomEl.classList.add("is-open");
+        head.setAttribute("aria-expanded", "true");
+        grid.hidden = false;
+        // Leva a divisão aberta para o topo do ecrã, para não ficar "perdida" a meio da página
+        requestAnimationFrame(() => {
+          roomEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
+    });
+
+    grid.addEventListener("click", (ev) => {
+      const btn = ev.target.closest(".apartment-room-photo");
+      if (!btn) return;
+      currentPhotos = photosForRoom(roomEl);
+      currentIndex = parseInt(btn.getAttribute("data-index"), 10) || 0;
+      openLightbox();
+    });
+  });
+
+  function renderLightbox(){
+    if (!currentPhotos.length) return;
+    lightboxImg.src = currentPhotos[currentIndex];
+    lightboxCounter.textContent = `${currentIndex + 1} / ${currentPhotos.length}`;
+  }
+
+  function openLightbox(){
+    renderLightbox();
+    lightbox.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox(){
+    lightbox.hidden = true;
+    document.body.style.overflow = "";
+  }
+
+  function showPrev(){
+    currentIndex = (currentIndex - 1 + currentPhotos.length) % currentPhotos.length;
+    renderLightbox();
+  }
+
+  function showNext(){
+    currentIndex = (currentIndex + 1) % currentPhotos.length;
+    renderLightbox();
+  }
+
+  if (btnClose) btnClose.addEventListener("click", closeLightbox);
+  if (btnPrev) btnPrev.addEventListener("click", showPrev);
+  if (btnNext) btnNext.addEventListener("click", showNext);
+
+  if (lightbox) {
+    lightbox.addEventListener("click", (ev) => {
+      if (ev.target === lightbox) closeLightbox();
+    });
+  }
+
+  document.addEventListener("keydown", (ev) => {
+    if (lightbox.hidden) return;
+    if (ev.key === "Escape") closeLightbox();
+    if (ev.key === "ArrowLeft") showPrev();
+    if (ev.key === "ArrowRight") showNext();
+  });
+
+  // Deslizar (swipe) para navegar no telemóvel
+  let touchStartX = null;
+  if (lightboxImg) {
+    lightboxImg.addEventListener("touchstart", (ev) => {
+      touchStartX = ev.touches[0].clientX;
+    }, { passive: true });
+    lightboxImg.addEventListener("touchend", (ev) => {
+      if (touchStartX === null) return;
+      const dx = ev.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) {
+        if (dx > 0) showPrev(); else showNext();
+      }
+      touchStartX = null;
+    }, { passive: true });
+  }
 })();
 
 
@@ -3042,6 +3203,17 @@ function renderCheckoutChecklist(){
 
 const HOME_I18N = {
   pt: {
+    apartmentTitle: "📸 O Apartamento",
+    apartmentRooms: {
+      sala: "Sala/Cozinha (openspace)",
+      quartoPrincipal: "Quarto principal",
+      quartoInterior: "Quarto interior",
+      banho: "Casa de banho",
+      hall: "Hall de entrada",
+      logradouro: "Logradouro",
+      terraco: "Terraço"
+    },
+
     meteoTitle: "🌤️ Meteorologia · Peniche & Baleal",
     todayTitle: "Hoje",
     tomorrowTitle: "Amanhã",
@@ -3144,6 +3316,17 @@ const HOME_I18N = {
     }
   },
   en: {
+    apartmentTitle: "📸 The Apartment",
+    apartmentRooms: {
+      sala: "Living room/Kitchen (open space)",
+      quartoPrincipal: "Main bedroom",
+      quartoInterior: "Interior bedroom",
+      banho: "Bathroom",
+      hall: "Entrance hall",
+      logradouro: "Backyard",
+      terraco: "Terrace"
+    },
+
     meteoTitle: "🌤️ Weather · Peniche & Baleal",
     todayTitle: "Today",
     tomorrowTitle: "Tomorrow",
@@ -3246,6 +3429,17 @@ const HOME_I18N = {
     }
   },
   es: {
+    apartmentTitle: "📸 El Apartamento",
+    apartmentRooms: {
+      sala: "Salón/Cocina (open space)",
+      quartoPrincipal: "Dormitorio principal",
+      quartoInterior: "Dormitorio interior",
+      banho: "Baño",
+      hall: "Recibidor",
+      logradouro: "Patio trasero",
+      terraco: "Terraza"
+    },
+
     meteoTitle: "🌤️ Meteorología · Peniche & Baleal",
     todayTitle: "Hoy",
     tomorrowTitle: "Mañana",
@@ -3348,6 +3542,17 @@ const HOME_I18N = {
     }
   },
   fr: {
+    apartmentTitle: "📸 L'appartement",
+    apartmentRooms: {
+      sala: "Salon/Cuisine (open space)",
+      quartoPrincipal: "Chambre principale",
+      quartoInterior: "Chambre intérieure",
+      banho: "Salle de bain",
+      hall: "Entrée",
+      logradouro: "Jardin arrière",
+      terraco: "Terrasse"
+    },
+
     meteoTitle: "🌤️ Météo · Peniche & Baleal",
     todayTitle: "Aujourd'hui",
     tomorrowTitle: "Demain",
@@ -3461,6 +3666,14 @@ function applyHomeSectionsI18n(){
   const setHtml = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
 
   setText("modal-owner-tip-label", ownerTipLabel());
+
+  // O Apartamento
+  setText("i18n-apartment-title", T.apartmentTitle);
+  if (T.apartmentRooms) {
+    Object.keys(T.apartmentRooms).forEach(key => {
+      setText(`i18n-room-${key}`, T.apartmentRooms[key]);
+    });
+  }
 
   // Meteorologia
   setText("i18n-meteo-title", T.meteoTitle);
